@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin>
+  <title>Alisa Barysava — Product &amp; UX/UI Designer</title>
+  <meta name="description" content="Portfolio of Alisa Barysava — Product & UX/UI Designer specializing in fintech.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
+</head>
+<body>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <div class="header__left">
+        <div class="avatar" role="img" aria-label="Avatar"></div>
+        <div class="header__identity">
+          <p class="header__name">Alisa Barysava</p>
+          <p class="header__role">Product &amp; UX/UI Designer</p>
+        </div>
+      </div>
+
+      <!-- Desktop / tablet navigation -->
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__link active" href="index.html">
+          <span>Home</span>
+        </a>
+        <a class="nav__link" href="case-studies.html">
+          <span>Case studies</span>
+        </a>
+        <a class="nav__link" href="visuals.html">
+          <span>Visuals</span>
+        </a>
+        <a class="nav__link" href="experience.html">
+          <span>Experience</span>
+        </a>
+      </nav>
+
+      <div class="header__meta">
+        <p class="header__time" data-time>--:-- AM, (UTC+3)</p>
+        <p class="header__location">Belarus, Minsk</p>
+      </div>
+
+      <!-- Mobile burger toggles the bottom-sheet -->
+      <button class="btn btn--icon header__burger" type="button" aria-expanded="false" aria-controls="mobileMenu"
+              aria-label="Open menu">
+        <svg class="burger__icon burger--open" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+        <svg class="burger__icon burger--close" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE BOTTOM-SHEET ====================== -->
+  <div class="sheet-scrim" id="sheetScrim" aria-hidden="true"></div>
+  <nav class="sheet" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="sheet__handle" aria-hidden="true"></div>
+    <div class="sheet__menu">
+      <a class="sheet__link active" href="index.html">
+        <span>Home</span>
+      </a>
+      <a class="sheet__link" href="case-studies.html">
+        <span>Case studies</span>
+      </a>
+      <a class="sheet__link" href="visuals.html">
+        <span>Visuals</span>
+      </a>
+      <a class="sheet__link" href="experience.html">
+        <span>Experience</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================== MAIN ============================== -->
+  <main>
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+
+        <!-- Row of stickers + interactive eyes at the end -->
+        <div class="hero__assets" aria-hidden="true">
+          <div class="hero__asset" style="transform: rotate(-15deg);"><img src="assets/img/home_page_tags/Figma.png" alt="Figma" fetchpriority="high"></div>
+          <div class="hero__asset" style="transform: rotate(15deg);"><img src="assets/img/home_page_tags/Claude.png" alt="Claude" fetchpriority="high"></div>
+          <div class="hero__asset" style="transform: rotate(-15deg);"><img src="assets/img/home_page_tags/VSСode.png" alt="VS code" fetchpriority="high"></div>
+          <div class="hero__asset" style="transform: rotate(15deg);"><img src="assets/img/home_page_tags/Jitter.png" alt="Jitter" fetchpriority="high"></div>
+          <div class="hero__asset" style="transform: rotate(-15deg);"><img src="assets/img/home_page_tags/AI.png" alt="AI" fetchpriority="high"></div>
+          <div class="hero__asset" style="transform: rotate(15deg);"><img src="assets/img/home_page_tags/PS.png" alt="PS" fetchpriority="high"></div>
+          
+        <div class="eyes" id="eyes" role="img" aria-label="Interactive face with eyes that follow the cursor">
+          <svg width="48" height="26" viewBox="0 0 48 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="eyes__icon">
+            <defs>
+              <clipPath id="eyesClip">
+                <rect width="48" height="26" rx="13" ry="13"/>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#eyesClip)">
+              <g class="eye">
+                <path d="M47.9737 13C47.9737 20.1797 42.0804 26 34.8106 26C27.5408 26 21.6475 20.1797 21.6475 13C21.6475 5.8203 27.5408 0 34.8106 0C42.0804 0 47.9737 5.8203 47.9737 13Z" fill="white"/>
+                <path d="M45.1502 13C45.1502 7.35615 40.5183 2.78572 34.8106 2.78571C29.1029 2.78571 24.471 7.35615 24.471 13C24.471 18.6439 29.1029 23.2143 34.8106 23.2143V26L34.6406 25.9989C27.4491 25.909 21.6475 20.1236 21.6475 13C21.6475 5.8203 27.5408 0 34.8106 0L34.9806 0.00113351C42.1721 0.0910472 47.9737 5.87636 47.9737 13L47.9726 13.168C47.8815 20.2703 42.0236 26 34.8106 26V23.2143C40.5183 23.2143 45.1502 18.6439 45.1502 13Z" fill="#242424"/>
+                <ellipse class="pupil" cx="34.6941" cy="13" rx="5.24196" ry="5.17699" fill="#242424"/>
+              </g>
+              <g class="eye">
+                <path d="M26.3263 13C26.3263 20.1797 20.4329 26 13.1631 26C5.89334 26 0 20.1797 0 13C0 5.8203 5.89334 0 13.1631 0C20.4329 0 26.3263 5.8203 26.3263 13Z" fill="white"/>
+                <path d="M23.5028 13C23.5028 7.35615 18.8709 2.78572 13.1631 2.78571C7.45543 2.78571 2.82353 7.35615 2.82353 13C2.82353 18.6439 7.45543 23.2143 13.1631 23.2143V26L12.9931 25.9989C5.80167 25.909 0 20.1236 0 13C0 5.8203 5.89334 0 13.1631 0L13.3332 0.00113351C20.5246 0.0910472 26.3263 5.87636 26.3263 13L26.3251 13.168C26.2341 20.2703 20.3762 26 13.1631 26V23.2143C18.8709 23.2143 23.5028 18.6439 23.5028 13Z" fill="#242424"/>
+                <ellipse class="pupil" cx="13.0466" cy="13" rx="5.24196" ry="5.17699" fill="#242424"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        </div>
+
+
+        <h1 class="hero__title" id="hero-title">
+          <span class="accent">Hello,</span>
+          <span>I&rsquo;m</span>
+          <span>Alisa&nbsp;&mdash;</span>
+          <span class="accent">Product</span>
+          <span class="accent">&amp;</span>
+          <span class="accent">UX/UI</span>
+          <span class="accent">Designer</span>
+          <span>with</span>
+          <span class="accent">fintech</span>
+          <span>experience</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          I craft clear, detail-driven interfaces for desktop &amp; mobile
+          that turn complexity into seamless user experiences
+        </p>
+
+        <a class="btn btn--primary" href="case-studies.html">
+          <span>View selected works</span>
+          <svg class="button__icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================= FEATURED CASE ========================== -->
+    <div class="featured">
+        <div class="featured__card">
+          <div class="preview">
+            <img src="assets/img/featured-preview.png/Preview-1.jpg" alt="Featured case preview" class="preview__stack in" loading="lazy" decoding="async">
+            <img src="assets/img/featured-preview.png/Preview-2.jpg" alt="Featured case preview" class="preview__stack" loading="lazy" decoding="async">
+            <img src="assets/img/featured-preview.png/Preview-3.jpg" alt="Featured case preview" class="preview__stack" loading="lazy" decoding="async">
+          </div>
+        </div>
+    </div>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

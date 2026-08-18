@@ -1,0 +1,2174 @@
+/* ==========================================================================
+   Portfolio — Design Tokens & Base Styles
+   Source: Figma "Portfolio 2.0" (Home desktop / tablet / mobile)
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------
+     Colors
+     ------------------------------------------------------------------ */
+  --color-white: #FFFFFF;
+  --color-bg: #F5F5F5;            /* app background / secondary fill   */
+  --color-surface: #FFFFFF;       /* cards, surfaces                   */
+  --color-text-primary: #242424;  /* main text                         */
+  --color-text-secondary: #7A7A7A;/* secondary text                    */
+  --color-text-tertiary: #7A7A7A; /* muted text, handle bar            */
+  --color-text-muted: #9F9F9F;    /* captions, inactive nav             */
+  --color-text-faint: #C4C4C4;    /* copyright, version                 */
+  --color-text-placeholder: #888888;
+  --color-canvas: #D9D9D9;        /* Figma section canvas               */
+  --color-canvas-alt: #CECECE;    /* Figma section canvas (alt)         */
+  --color-border: #C4C4C4;
+
+  /* Accent (primary button gradient) */
+  --color-accent-start: #F67C15;
+  --color-accent-end: #EE5311;
+  --color-accent: #EB7C21;        /* accent shadow base                 */
+
+  /* Helper / note palette */
+  --color-helper-bg: #FFF2BD;
+  --color-helper-title: #90791C;
+  --color-helper-text: #5A4800;
+
+  /* Purple accent (used in some assets/links) */
+  --color-accent-purple: #8A38F5;
+
+  /* Overlays & states */
+  --color-overlay-light: rgba(30, 30, 30, 0.04);      /* selected nav item (light theme) */
+  --color-overlay-white: rgba(255, 255, 255, 0.12);   /* selected nav item (dark theme)  */
+  --color-dark-surface: #242424;                       /* bottom sheet / dark menu        */
+
+  /* ------------------------------------------------------------------
+     Gradients
+     ------------------------------------------------------------------ */
+  --gradient-accent: linear-gradient(180deg, #F67C15 0%, #EE5311 100%);
+
+  /* ------------------------------------------------------------------
+     Typography
+     ------------------------------------------------------------------ */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                      Roboto, sans-serif;
+  --font-family-accent: 'SignPainter', 'SignPainter HouseScript', cursive;
+
+  /* Heading / Title simple — Inter Medium 500, 32px */
+  --text-title-simple-size: 32px;
+  --text-title-simple-line-height: 1.2em;
+  --text-title-simple-weight: 500;
+  --text-title-simple-letter-spacing: -0.0156em;
+
+  /* Heading / Title accent — SignPainter 400, 48px */
+  --text-title-accent-size: 48px;
+  --text-title-accent-line-height: 38px;
+  --text-title-accent-weight: 400;
+  --text-title-accent-letter-spacing: -0.0104em;
+
+  /* Heading / H2 — Inter Medium 500, 24px */
+  --text-h2-size: 24px;
+  --text-h2-line-height: 1.4em;
+  --text-h2-weight: 500;
+  --text-h2-letter-spacing: -0.0208em;
+
+  /* Heading / Sub1 — Inter Regular 400, 20px */
+  --text-sub1-size: 20px;
+  --text-sub1-line-height: 28px;
+  --text-sub1-weight: 400;
+  --text-sub1-letter-spacing: -0.025em;
+
+  /* Body / 1 — Inter Regular 400, 16px */
+  --text-body1-size: 16px;
+  --text-body1-line-height: 24px;
+  --text-body1-weight: 400;
+  --text-body1-letter-spacing: -0.0313em;
+
+  /* Body / 2 — Inter Medium 500, 16px */
+  --text-body2-size: 16px;
+  --text-body2-line-height: 24px;
+  --text-body2-weight: 500;
+  --text-body2-letter-spacing: -0.0313em;
+
+  /* Body / 3 — Inter Semi Bold 600, 16px (buttons) */
+  --text-body3-size: 16px;
+  --text-body3-line-height: 24px;
+  --text-body3-weight: 600;
+  --text-body3-letter-spacing: -0.0313em;
+
+  /* Body / Caption — Inter Medium 500, 14px */
+  --text-caption-size: 14px;
+  --text-caption-line-height: 20px;
+  --text-caption-weight: 500;
+  --text-caption-letter-spacing: -0.0357em;
+
+  /* ------------------------------------------------------------------
+     Spacing
+     ------------------------------------------------------------------ */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 40px;
+  --space-3xl: 64px;
+
+  /* Layout gaps */
+  --gap-section: 40px;      /* main container section gap    */
+  --gap-hero: 16px;         /* hero section gap              */
+  --gap-content: 16px;      /* content block gap             */
+  --gap-nav: 4px;           /* nav items gap                 */
+  --gap-icon: 8px;          /* button icon gap               */
+  --gap-inline: 4px 8px;    /* bio text lines gap (row wrap) */
+
+/* Padding */
+  --pad-main: 40px 16px;        /* main container padding     */
+  --pad-section-hero: 40px 0;   /* hero section padding (all) */
+  --pad-hero-inner-desktop: 40px 0; /* (desktop) */
+  --pad-hero-inner-tablet: 24px 0;  /* (tablet) */
+  --pad-hero-inner-mobile: 8px 0;   /* (mobile) */
+  --pad-header-desktop: 16px 16px 0;
+  --pad-header-mobile: 16px 16px 12px;
+  --pad-nav-pill: 8px;
+  --pad-nav-item: 12px;
+  --pad-button: 16px 24px;
+  --pad-helper: 24px;
+  --pad-footer: 40px 0;
+  --pad-bottom-sheet: 0 8px 16px;
+  --pad-handle: 16px 0 0;
+
+  /* ------------------------------------------------------------------
+     Border radius
+     ------------------------------------------------------------------ */
+  --radius-xs: 8px;     /* nav items, handle bar, mobile menu items */
+  --radius-sm: 12px;    /* buttons                                   */
+  --radius-md: 16px;    /* nav pill, helper, hero asset frames       */
+  --radius-lg: 24px;    /* preview cards, header/bottom-sheet edges  */
+  --radius-pill: 48px;  /* visibility toggle                         */
+  --radius-full: 999px;
+
+  /* ------------------------------------------------------------------
+     Shadows
+     ------------------------------------------------------------------ */
+  --shadow-subtle: 0px 0px 2px 0px rgba(0, 0, 0, 0.06),
+                   0px 4px 4px 0px rgba(0, 0, 0, 0.12);
+  --shadow-orange: 2px 4px 8px 0px rgba(235, 124, 33, 0.2),
+                   inset 1px 1px 8px 0px rgba(255, 255, 255, 1);
+  --shadow-card-elevation: 2px 8px 10px 0px rgba(0, 0, 0, 0.12),
+                           8px 16px 30px 0px rgba(0, 0, 0, 0.06),
+                           8px 36px 24px 0px rgba(0, 0, 0, 0.06);
+
+  /* ------------------------------------------------------------------
+     Sizes
+     ------------------------------------------------------------------ */
+  --size-icon-xs: 20px;   /* nav icons, mobile menu icons  */
+  --size-icon-sm: 24px;   /* arrow / close icons           */
+  --size-icon-md: 40px;   /* avatar image                  */
+  --size-icon-lg: 44px;   /* icon buttons                  */
+  --size-avatar: 58.79px; /* hero asset frames             */
+  --size-handle: 48px 4px;/* bottom sheet handle bar       */
+  --size-toggle: 56px 34px;/* visibility toggle            */
+
+  /* ------------------------------------------------------------------
+     Layout
+     ------------------------------------------------------------------ */
+  --container-max: 1280px;  /* desktop frame width           */
+  --tablet-max: 744px;      /* tablet frame width            */
+  --mobile-max: 375px;      /* mobile frame width            */
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--text-body1-size);
+  line-height: var(--text-body1-line-height);
+  letter-spacing: var(--text-body1-letter-spacing);
+  color: var(--color-text-primary);
+  background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-out);
+}
+
+a:hover {
+  color: var(--color-accent-end);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   Layout Helpers
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(600px + 2 * var(--space-md)); /* 632px → inner content = 600px */
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Full-width section variant (matches main container 1280px in Figma) */
+.container--wide {
+  max-width: calc(var(--container-max) - 2 * var(--space-md));
+}
+
+
+/* ==========================================================================
+   Header — sticky, translucent (only position:sticky here, as allowed)
+   ========================================================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg); /* только нижние углы, как в Figma mobile-header */
+  padding: var(--pad-header-mobile);
+  background-color: var(--color-bg);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.avatar {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg);
+  background-image: url('../assets/img/navigation_icons/Avatar.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid var(--color-white);
+}
+
+.header__identity {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.header__name {
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-line-height);
+  font-weight: var(--text-caption-weight);
+  letter-spacing: var(--text-caption-letter-spacing);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.header__role {
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-line-height);
+  font-weight: var(--text-caption-weight);
+  letter-spacing: var(--text-caption-letter-spacing);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Desktop / tablet nav — hidden by default (shown >= 900px) */
+.nav {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: var(--pad-nav-pill);
+  background-color: var(--color-bg);
+  border-radius: var(--radius-md);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.nav.is-hidden {
+  /* Move above the header's top padding + flex offset so nav fully disappears */
+  transform: translateY(calc(-100% - 24px));
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-icon);
+  padding: var(--pad-nav-item);
+  border-radius: var(--radius-xs);
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: var(--text-body2-weight);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-tertiary);
+  background: none;
+  border: none;
+  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out), border-radius 0.3s var(--ease-out);
+}
+
+.nav__link:hover {
+  color: var(--color-text-primary);
+}
+
+.nav__link.active {
+  background-color: var(--color-overlay-light);
+  color: var(--color-text-primary);
+  font-weight: var(--text-body3-weight);
+}
+
+
+
+/* header meta (time + location) — desktop only */
+.header__meta {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 8px 0; /* match avatar block height in Figma */
+  min-height: var(--size-icon-md); /* match avatar height */
+  justify-content: center;
+  width: 208px;
+  height: 56px;
+}
+
+.header__time,
+.header__location {
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-line-height);
+  font-weight: var(--text-caption-weight);
+  letter-spacing: var(--text-caption-letter-spacing);
+  white-space: nowrap;
+}
+
+.header__time {
+  color: var(--color-text-secondary);
+}
+
+.header__location {
+  color: var(--color-text-muted);
+}
+
+/* Burger — mobile only */
+.header__burger {
+  position: relative;
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg) 245 245 245;
+  color: var(--color-text-primary);
+}
+
+.burger__icon {
+  position: absolute;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+/* Mobile — hide burger when menu is open */
+@media (min-width: 981px) {
+  .header__burger {
+    display: none;
+  }
+}
+
+.burger--open {
+  opacity: 1;
+}
+
+.burger--close {
+  opacity: 0;
+}
+
+.header.is-open .burger--open {
+  opacity: 0;
+}
+
+.header.is-open .burger--close {
+  opacity: 1;
+}
+
+
+
+/* ==========================================================================
+   Mobile bottom-sheet menu (position fixed — allowed exception)
+   ========================================================================== */
+.sheet-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s var(--ease-out), visibility 0.28s;
+}
+
+.sheet-scrim.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 96;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-content);
+  padding: var(--pad-bottom-sheet); /* 0 8px 16px */
+  background-color: var(--color-dark-surface);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: none;
+  transform: translateY(100%);
+  transition: transform 0.28s var(--ease-out);
+  visibility: hidden;
+}
+
+.sheet.is-open {
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* keep sheet on top when open, hide scrim from AT */
+.sheet-scrim.is-open,
+.sheet.is-open {
+  pointer-events: auto;
+}
+
+.sheet__handle {
+  width: 48px;
+  height: 4px;
+  margin: var(--space-md) auto 0;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-text-tertiary);
+}
+
+.sheet__menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: 0 var(--space-xs);
+}
+
+.sheet__link {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-icon);
+  padding: var(--pad-nav-item);
+  border-radius: var(--radius-xs);
+  color: var(--color-text-muted);
+  font-size: var(--text-body3-size);
+  line-height: var(--text-body3-line-height);
+  font-weight: var(--text-body3-weight);
+  letter-spacing: var(--text-body3-letter-spacing);
+  transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+
+
+.sheet__link:hover {
+  color: var(--color-white);
+}
+
+.sheet__link.active {
+  color: var(--color-white);
+  background-color: var(--color-overlay-white);
+}
+
+
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  padding: var(--pad-section-hero);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: var(--pad-hero-inner-mobile);
+}
+
+.hero__subtitle {
+  margin-bottom: 0;
+}
+
+.hero__subtitle + .button {
+  margin-top: 16px;
+}
+
+/* --- sticker row + interactive eyes --- */
+.hero__assets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+
+.hero__asset {
+  flex-shrink: 0;
+  width: 58.79px;
+  height: 58.79px;
+  margin-left: -14px;
+  
+  /* Styling for sticker containers */
+  background-color: #F5F5F5;
+  border: 4px solid #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.12);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.2s var(--ease-out);
+  position: relative;
+}
+
+.hero__asset img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sticker-specific overrides */
+.hero__asset {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  margin-left: -14px;
+  
+  /* Styling for sticker containers */
+  background-color: #F5F5F5;
+  border: 4px solid #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.12);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.2s var(--ease-out);
+  position: relative;
+}
+
+.hero__asset img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__asset:hover {
+  z-index: 10;
+  transform: translateY(-4px) !important;
+  transition: transform 0.3s ease-out !important;
+}
+
+.hero__assets > *:first-child {
+  margin-left: 0;
+}
+
+.eyes {
+  display: flex;
+  width: 64px;
+  height: 42px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 48px;
+  border: 4px solid #FFFFFF;
+  background: #242424;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+  margin-left: -12px;
+  transition: transform 0.2s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.eyes:hover {
+  z-index: 10;
+  transform: translateY(-4px) !important;
+}
+
+.eyes__icon {
+  width: 48px;
+  height: 26px;
+  display: block;
+  flex-shrink: 0;
+  /* Добавляем stroke, чтобы убрать артефакты */
+  stroke: #242424;
+  stroke-width: 1px;
+}
+
+
+.eye__pupil {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.12s var(--ease-out);
+}
+
+/* --- title --- */
+.hero__title {
+  font-size: var(--text-title-simple-size);
+  line-height: var(--text-title-simple-line-height);
+  font-weight: var(--text-title-simple-weight);
+  letter-spacing: var(--text-title-simple-letter-spacing);
+  text-align: center;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+/* Accent handwritten words — SIGNPAINTER (matches mockup).
+   Loaded locally via @font-face (see bottom of this file), files live
+   in assets/fonts/. */
+.hero__title .accent {
+  font-family: var(--font-family-accent);
+  font-style: normal;
+  font-weight: var(--text-title-accent-weight);
+  font-size: var(--text-title-accent-size);
+  line-height: var(--text-title-accent-line-height);
+  letter-spacing: var(--text-title-accent-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+/* --- subtitle --- */
+.hero__subtitle {
+  max-width: 52ch;
+  font-size: var(--text-sub1-size);
+  line-height: var(--text-sub1-line-height);
+  font-weight: var(--text-sub1-weight);
+  letter-spacing: var(--text-sub1-letter-spacing);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* --- primary button --- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-icon);
+  padding: var(--pad-button);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-accent);
+  box-shadow: var(--shadow-orange);
+  color: var(--color-white);
+  font-size: var(--text-body3-size);
+  line-height: var(--text-body3-line-height);
+  font-weight: var(--text-body3-weight);
+  letter-spacing: var(--text-body3-letter-spacing);
+  transition: transform 0.2s var(--ease-out);
+  will-change: transform;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, #FF9437 0%, #F67C15 100%);
+  color: var(--color-white);
+  box-shadow: var(--shadow-orange);
+}
+
+.button:active {
+  transform: translateY(0);
+  background: #EE5311;
+  box-shadow: var(--shadow-orange);
+}
+
+.button .button__icon {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+
+
+/* ==========================================================================
+   Featured case — full link card
+   ========================================================================== */
+/* Featured case preview container */
+.featured {
+  padding: 0 16px var(--space-2xl);
+  display: flex;
+  justify-content: center;
+}
+
+.featured__card {
+  width: 100%;
+  max-width: 800px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: default;
+}
+
+.preview {
+  display: grid;
+  aspect-ratio: 800 / 531;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.preview__stack {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.preview__stack.out {
+  opacity: 0;
+  z-index: 1;
+}
+
+.preview__stack.in {
+  opacity: 1;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview__stack {
+    transition: opacity 150ms ease-in-out;
+  }
+}
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  padding: 40px 16px 80px 16px;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+}
+
+.footer__cta {
+  font-size: var(--text-body1-size);
+  line-height: var(--text-body1-line-height);
+  font-weight: var(--text-body1-weight);
+  letter-spacing: var(--text-body1-letter-spacing);
+  color: var(--color-text-tertiary);
+  max-width: 34ch;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+.social-link {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: var(--color-bg);
+  padding: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.social-link img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Telegram */
+.social-link[aria-label="Telegram"]:hover { background-color: #E0F5FF; }
+.social-link[aria-label="Telegram"]:hover img { filter: brightness(0) saturate(100%) invert(56%) sepia(85%) saturate(2256%) hue-rotate(174deg) brightness(95%) contrast(93%); }
+
+/* LinkedIn */
+.social-link[aria-label="LinkedIn"]:hover { background-color: #D9E6FA; }
+.social-link[aria-label="LinkedIn"]:hover img { filter: brightness(0) saturate(100%) invert(35%) sepia(81%) saturate(2680%) hue-rotate(185deg) brightness(93%) contrast(101%); }
+
+/* Dribbble */
+.social-link[aria-label="Dribbble"]:hover { background-color: #FFDBF7; }
+.social-link[aria-label="Dribbble"]:hover img { filter: brightness(0) saturate(100%) invert(43%) sepia(61%) saturate(1478%) hue-rotate(287deg) brightness(92%) contrast(92%); }
+
+/* Email */
+.social-link[aria-label="Email"]:hover { background-color: #FFC798; }
+.social-link[aria-label="Email"]:hover img { filter: brightness(0) saturate(100%) invert(38%) sepia(67%) saturate(951%) hue-rotate(345deg) brightness(93%) contrast(91%); }
+
+/* CV */
+.social-link[aria-label="Download CV"]:hover { background-color: #FFE88C; }
+.social-link[aria-label="Download CV"]:hover img { filter: brightness(0) saturate(100%) invert(53%) sepia(21%) saturate(1445%) hue-rotate(27deg) brightness(92%) contrast(91%); }
+
+
+.social {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  transition: color 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
+}
+
+.social svg {
+  color: currentColor;
+}
+
+.social:hover {
+  color: var(--color-accent);
+  background-color: rgba(246, 124, 21, 0.15);
+  border: none;
+}
+.social:hover svg {
+  color: var(--color-accent);
+}
+
+.footer__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  gap: 16px;
+}
+
+.footer__line {
+  font-size: var(--text-body1-size);
+  line-height: var(--text-body1-line-height);
+  font-weight: var(--text-body1-weight);
+  letter-spacing: var(--text-body1-letter-spacing);
+  color: var(--color-text-faint);
+}
+
+.case-footer .container.footer__inner {
+  align-items: flex-start;
+  text-align: left;
+}
+.case-footer .footer__cta {
+  text-align: left;
+}
+.case-footer .socials {
+  justify-content: flex-start;
+}
+.case-footer .footer__meta {
+  align-items: flex-start;
+  text-align: left;
+}
+
+
+
+/* ==========================================================================
+   Body scroll lock (sheet open)
+   ========================================================================== */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Responsive — mobile-first breakpoints
+   ========================================================================== */
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .hero__inner {
+    padding: var(--pad-hero-inner-tablet);
+  }
+}
+
+/* Desktop navigation and header state - threshold 980px */
+@media (min-width: 981px) {
+  .header {
+    border-radius: 0;
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    padding: var(--pad-header-desktop);
+  }
+
+  .header__burger {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+  }
+
+  .header__meta {
+    display: flex;
+  }
+
+  /* sheet never used at this width */
+  .sheet-scrim,
+  .sheet {
+    display: none;
+  }
+}
+
+/* Mobile/Tablet state - applies to 980px and below */
+@media (max-width: 980px) {
+  .header {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding: var(--pad-header-mobile);
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .header__meta {
+    display: none;
+  }
+}
+
+/* Desktop specific elements */
+@media (min-width: 981px) {
+  .hero__inner {
+    gap: var(--gap-hero);
+    padding: var(--pad-hero-inner-desktop);
+  }
+
+  .featured {
+    padding: 0 16px var(--space-2xl);
+  }
+}
+
+/* ==========================================================================
+   Accent font (SignPainter). Local @font-face — files in assets/fonts/.
+   woff2 first (modern browsers), woff as fallback for older ones.
+   ========================================================================== */
+@font-face {
+  font-family: 'SignPainter';
+  src: url('../assets/fonts/SignPainter-HouseScript.woff2') format('woff2'),
+       url('../assets/fonts/SignPainter-HouseScript.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Case Studies Page */
+.main {
+  /* 600px content + 16px padding on each side (paddings sit OUTSIDE
+     the 600px inner container, per design). */
+  max-width: 632px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+.case-hero {
+  padding-top: 40px;
+  margin-bottom: 48px;
+}
+
+.case-hero__title {
+  display: flex;
+  /* Per Figma "Project Header Container": row that wraps — on narrow
+     screens "(Selected cases 2026)" flows to its own line.
+     Row gap = 4px + 8px extra when wrapped, per request. */
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 8px;
+  margin-bottom: 16px;
+}
+
+.font-accent {
+  font-family: var(--font-family-accent);
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--color-text-primary);
+}
+
+.case-hero__subtitle-gray {
+  color: var(--color-text-muted);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.case-hero__desc {
+  font-size: var(--text-body1-size);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+}
+
+.cases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.case-card {
+  display: block;
+  background: var(--color-white);
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgba(30, 30, 30, 0.08);
+  transition: border-color 0.2s ease;
+}
+
+/* Hover state per Figma "case_card / state=hover":
+   only the border darkens (rgba(30,30,30,0.08) -> rgba(30,30,30,0.16)).
+   Preview, content and styles stay unchanged. */
+.case-card:hover {
+  border-color: rgba(30, 30, 30, 0.16);
+}
+
+.case-card__preview {
+  background: #FAFAFA;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+
+.case-card__preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text block only carries the 16px padding / gaps (per Figma) */
+.case-card__content {
+  padding: 16px;
+}
+
+.case-card__title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  /* Fixed literal per Figma "Heading/Sub2" (#4A4A4A);
+     the secondary token is now #7A7A7A and would be too light here. */
+  color: #4A4A4A;
+}
+
+.case-card__desc {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+
+.case-card__tags {
+  position: relative;
+  display: flex;
+  /* Tags never wrap: they stay in one row and are clipped by
+     overflow:hidden when they don't fit (per Figma). */
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow: hidden;
+}
+
+/* Right-edge fade-out per Figma: white gradient 80px wide
+   (opaque on the left -> transparent at the right edge).
+   Hidden by default — JS adds .is-overflowing only when a tag is clipped. */
+.case-card__tags::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.case-card__tags.is-overflowing::after {
+  opacity: 1;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: 1px solid #EDEDED;
+  padding: 8px 16px 8px 12px;
+  border-radius: 45px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.0357em;
+  color: var(--color-text-tertiary);
+  /* Keep full width when the row is clipped (no shrinking). */
+  flex-shrink: 0;
+}
+
+.tag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* ==========================================================================
+   Case Studies Pages
+   ========================================================================== */
+
+.case-sidebar {
+  position: sticky;
+  top: 0;
+  padding: 16px 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 100;
+  background: transparent;
+}
+
+@media (min-width: 1024px) {
+  body.case-page {
+    display: flex;
+    align-items: flex-start;
+  }
+  body.case-page .case-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    height: 100vh;
+  }
+  body.case-page .case-content {
+    flex: 1;
+    min-width: 0;
+    margin-inline: auto;
+  }
+}
+
+.case-sidebar__back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  padding: 12px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.case-sidebar__back-icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 1024px) {
+  .case-sidebar__back {
+    background: transparent;
+    padding: 0 12px;
+    border-radius: 0;
+  }
+  
+  .case-sidebar__back:hover {
+    background: transparent;
+    color: var(--color-text-secondary);
+  }
+}
+
+@media (max-width: 1023px) {
+  .case-sidebar__back {
+    background: var(--color-bg);
+    padding: 16px 24px;
+  }
+  
+  .case-sidebar__back:hover {
+    background: var(--color-bg);
+  }
+}
+
+.case-sidebar__nav {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (min-width: 1024px) {
+  .case-sidebar__nav {
+    display: flex;
+  }
+}
+
+.case-sidebar__nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  padding: 12px;
+  border-radius: 8px;
+  transition: color 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.case-sidebar__nav-item:hover {
+  color: var(--color-text-primary);
+}
+
+.case-sidebar__nav-item--active {
+  background: var(--color-overlay-light);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  transform: translate3d(12px, 0, 0);
+}
+
+.case-sidebar__nav-marker {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.case-sidebar__nav-marker::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 2px;
+  background: var(--color-text-muted);
+  border-radius: 1px;
+}
+
+.case-sidebar__nav-item--active .case-sidebar__nav-marker::before {
+  background: var(--color-text-primary);
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.case-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.case-container {
+  max-width: 632px;
+  width: 100%;
+  margin: 0 auto;
+  margin-inline: auto;
+  padding: 80px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media (max-width: 767px) {
+  .case-container {
+    padding: 40px 16px;
+  }
+}
+
+.case-title {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.4em;
+  letter-spacing: -0.0179em;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.case-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 767px) {
+  .case-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.case-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.case-meta-label {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.0357em;
+}
+
+.case-meta-value {
+  font-size: 16px;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+}
+
+.case-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-section-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+  margin: 0 0 8px 0;
+}
+
+.case-text,
+.case-ordered-list,
+.case-image-panel {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.case-text + .case-image-panel,
+.case-ordered-list + .case-image-panel {
+  margin-top: 40px;
+}
+
+.case-section > *:last-child {
+  margin-bottom: 0;
+}
+
+/*
+  Consecutive image panels keep a 24px gap on case pages.
+  Inside a .case-section the base margins already give 24px,
+  but image panels that are direct children of .case-container
+  sit in the container's 40px flex gap, so the gap is corrected here.
+*/
+.case-container > .case-image-panel + .case-image-panel {
+  /* 40px container gap + 24px margin-bottom − 40px = 24px */
+  margin-top: -40px;
+}
+
+.case-container > .case-section:has(> .case-image-panel:last-child) + .case-image-panel {
+  /* 40px container gap + 0px margin-bottom − 16px = 24px */
+  margin-top: -16px;
+}
+
+.case-text {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.case-ordered-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 0;
+  list-style-position: inside;
+  margin: 0;
+}
+
+.case-ordered-list li {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  color: var(--color-text-secondary);
+}
+
+.case-image-panel {
+  background: #FAFAFA;
+  border-radius: 20px;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.case-image-panel img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.case-image-panel video {
+  width: 105%;
+  height: 105%;
+  max-width: 105%;
+  max-height: 105%;
+  object-fit: contain;
+  border: none !important;
+  outline: none !important;
+  display: block;
+  background-color: transparent;
+}
+
+.case-next {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 0 20px;
+}
+
+.case-next-divider {
+  height: 1px;
+  background: #E6E6E6;
+  width: 100%;
+}
+
+.case-next-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.case-next-content > *:last-child {
+  margin-bottom: 8px;
+}
+
+
+.case-next-label {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+}
+
+.case-next-link {
+  display: flex;
+  gap: 16px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.case-next-link:hover .case-next-title {
+  text-decoration: underline;
+}
+
+.case-next-image {
+  height: 84px;
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
+  background: #FAFAFA;
+}
+
+.case-next-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.case-next-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  color: var(--color-text-primary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.case-next-arrow {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+}
+
+.case-next-description {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Experience Page
+   Source: Figma "Portfolio 2.0" (Experience desktop / tablet / mobile)
+   ========================================================================== */
+.experience {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.experience__title {
+  margin: 0;
+  padding-top: 40px;
+  text-align: left;
+}
+
+.experience__section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.experience__section-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.025em;
+  color: #4A4A4A;
+}
+
+.experience__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.experience__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Education rows use an 8px gap per Figma (vs 12px for jobs). */
+.experience__list--education .experience__item {
+  gap: 8px;
+}
+
+.experience__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.experience__name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  color: var(--color-text-primary);
+}
+
+.experience__role {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  color: var(--color-text-muted);
+}
+
+.experience__tag {
+  flex-shrink: 0;
+}
+
+/* Status dots — yellow (#FFCC00) for the current/iTechArt tag,
+   gray (#C4C4C4) for all archived tags (per Figma). */
+.tag-dot--yellow {
+  background-color: #FFCC00;
+}
+
+.tag-dot--gray {
+  background-color: #C4C4C4;
+}
+
+/* Secondary (light gray) button — Download CV */
+.experience__actions {
+  display: flex;
+}
+
+.button--secondary {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  box-shadow: none;
+}
+
+.button--secondary .button__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.button--secondary:hover {
+  transform: translateY(-2px);
+  background: #E9E9E9;
+  color: var(--color-text-primary);
+  box-shadow: none;
+}
+
+/* Mobile — the period tag wraps below the text (per the mobile mockup). */
+@media (max-width: 767px) {
+  .experience__item {
+    flex-wrap: wrap;
+  }
+}
+
+/* ==========================================================================
+   Visuals Page
+   Source: Figma "Portfolio 2.0" (Visuals desktop / tablet / mobile)
+   Cards are a stacked (single-column) list; each card is not clickable and
+   has no hover state (per the brief).
+   ========================================================================== */
+.visuals {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.visual-card {
+  display: block;
+  background: var(--color-white);
+  border: 1px solid rgba(30, 30, 30, 0.08);
+  border-radius: 20px;
+}
+
+/* Light-gray preview panel on top of the card (per visual_card slot). */
+.visual-card__preview {
+  background: #FAFAFA;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+}
+
+.visual-card__preview img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Bottom row — title on the left, year pill on the right (per Figma). */
+.visual-card__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+}
+
+.visual-card__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.025em;
+  color: #4A4A4A;
+}
+
+
+/* ==========================================================================
+   Case Studies — Private Access Modal
+   Source: Figma "Portfolio 2.0" (Private cases dialog, 3 breakpoints)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90; /* below canvas-confetti (zIndex 100+) so the burst renders above */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(30, 30, 30, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Blur + scroll lock while the cases are locked behind the modal. */
+body.is-locked {
+  overflow: hidden;
+}
+
+.main {
+  transition: filter 0.3s var(--ease-out);
+}
+
+body.is-locked .main {
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.modal {
+  width: 100%;
+  max-width: 448px;
+  min-height: 454px; /* keeps the dialog footprint stable so the success
+                        content ("Successfully" + icon) centers vertically */
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+  padding: 36px 32px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(12px) scale(0.98);
+  transition:
+    transform 0.25s var(--ease-out),
+    min-height 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.12s;
+}
+
+/* Success — the dialog contracts to a compact 220px so the remaining
+   "Successfully" + icon stay centered. The height stays auto; only
+   min-height drops (454px→220px), which animates smoothly with a
+   subtle spring feel via the cubic-bezier timing function. */
+.modal.is-success {
+  min-height: 220px;
+  transition: min-height 0.55s cubic-bezier(0.3, 0.6, 0.5, 1) 0.12s;
+}
+
+/* On mobile, the full-screen modal ignores the shrink effect so it stays
+   covering the whole viewport after a successful unlock. */
+@media (max-width: 767px) {
+  .modal.is-success {
+    min-height: initial;
+  }
+}
+
+.modal-overlay.is-open .modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal__inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  min-height: 386px; /* locked state: keeps the dialog ~454px tall
+                        (454px − 36px top − 32px bottom padding) */
+  transition: min-height 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.12s;
+  /* Explicit gaps are set per-element below:
+     title→text 12px, text→inputs 24px, inputs→buttons 24px,
+     buttons→buttons 12px. */
+}
+
+/* Success — the inner no longer forces the locked-state height, so the
+   dialog can contract to its 240px compact size. */
+.modal.is-success .modal__inner {
+  min-height: 0;
+}
+
+.modal__title {
+  margin: 0 0 12px; /* 12px gap to the body text */
+  font-size: 24px; /* H2 (per Figma) */
+  line-height: 1.4em;
+  font-weight: 500;
+  letter-spacing: -0.0208em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.modal__text {
+  margin: 0 auto 24px; /* 24px gap to the inputs */
+  max-width: 52ch;
+  max-height: 220px;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: var(--text-body1-line-height);
+  font-weight: 500;
+  letter-spacing: var(--text-body1-letter-spacing);
+  text-align: center;
+  color: var(--color-text-secondary);
+  transition:
+    max-height 0.45s var(--ease-out),
+    opacity 0.45s var(--ease-out),
+    transform 0.45s var(--ease-out),
+    margin 0.45s var(--ease-out);
+}
+
+/* Success — the body text fades out and collapses instead of disappearing
+   instantly. */
+.modal__text.is-done {
+  max-height: 0;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.modal__text-link {
+  color: var(--color-text-secondary); /* gray like the body text */
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.modal__text-link:hover {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+}
+
+/* Error banner (empty submit / wrong code) */
+.modal__banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 24px; /* 24px gap to the buttons */
+  color: #CE1720;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.0313em;
+}
+
+.modal__banner[hidden] {
+  display: none;
+}
+
+.modal__banner-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+
+/* Code input row + success check badge */
+.modal__code {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  min-height: 72px;
+  margin-bottom: 24px; /* 24px gap to the buttons (or the error banner) */
+  transition: margin-top 0.35s var(--ease-out), margin-bottom 0.35s var(--ease-out);
+}
+
+.modal__digit {
+  width: 64px;
+  height: 72px;
+  border: none;
+  border-radius: 8px; /* per Figma "input" component */
+  background: #FAFAFA; /* default / filled state */
+  font-family: inherit;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2em;
+  text-align: center;
+  color: var(--color-text-primary);
+  caret-color: var(--color-text-primary);
+  outline: none;
+  transition:
+    transform 0.6s var(--ease-out),
+    opacity 0.6s var(--ease-out),
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.modal__digit::placeholder {
+  color: #9F9F9F; /* placeholder dash color (per Figma) */
+  opacity: 1;
+}
+
+/* Active state — gray background with caret (per Figma). */
+.modal__digit:focus {
+  background: #E4E4E4;
+}
+
+/* Focused input — hide the placeholder dash. */
+.modal__digit:focus::placeholder {
+  color: transparent;
+}
+
+/* Error state — light red background, red digit / red dash (per Figma). */
+.modal__digit.is-error {
+  background: rgba(206, 23, 32, 0.08);
+  color: #CE1720;
+}
+
+.modal__digit.is-error::placeholder {
+  color: #CE1720;
+}
+
+/* Success — inputs slide out to the left, fading near the modal edge;
+   the check badge slides in from the right to the center;
+   the buttons fade out. */
+.modal__code.is-success .modal__digit {
+  opacity: 0;
+}
+
+.modal__code.is-success .modal__digit:nth-child(1) {
+  transform: translateX(-56px);
+}
+
+.modal__code.is-success .modal__digit:nth-child(2) {
+  transform: translateX(-104px);
+  transition-delay: 0.06s;
+}
+
+.modal__code.is-success .modal__digit:nth-child(3) {
+  transform: translateX(-152px);
+  transition-delay: 0.12s;
+}
+
+.modal__code.is-success .modal__digit:nth-child(4) {
+  transform: translateX(-200px);
+  transition-delay: 0.18s;
+}
+
+.modal__code.is-success {
+  margin-bottom: 0; /* no trailing gap once the buttons are gone */
+}
+
+.modal__actions.is-done {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+.modal__check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(calc(-50% + 96px), -50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s var(--ease-out), opacity 0.5s var(--ease-out);
+}
+
+.modal__check[hidden] {
+  display: none;
+}
+
+.modal__check svg {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+.modal__code.is-success .modal__check {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition-delay: 0.18s;
+}
+
+/* Actions — stacked vertically, full-width (per mockup). */
+.modal__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; /* 12px gap between buttons */
+  width: 100%;
+  max-height: 160px;
+  overflow: hidden;
+  transition:
+    max-height 0.5s var(--ease-out),
+    opacity 0.4s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+
+.modal__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 16px 24px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: var(--text-body3-size);
+  line-height: var(--text-body3-line-height);
+  font-weight: var(--text-body3-weight);
+  letter-spacing: var(--text-body3-letter-spacing);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Primary — orange gradient (per Figma "Button" states). */
+.modal__action--primary {
+  background: var(--gradient-accent);
+  box-shadow: var(--shadow-orange);
+  color: var(--color-white);
+}
+
+.modal__action--primary:hover {
+  background: linear-gradient(180deg, #FF9437 0%, #F67C15 100%);
+}
+
+.modal__action--primary:active {
+  background: #EE5311;
+}
+
+/* Secondary — light gray (per Figma "Button" states). */
+.modal__action--secondary {
+  background: var(--color-bg); /* #F5F5F5 */
+  color: var(--color-text-primary);
+  box-shadow: none;
+}
+
+.modal__action--secondary:hover {
+  background: #FAFAFA;
+  color: var(--color-text-secondary);
+}
+
+.modal__action--secondary:active {
+  background: #D9D9D9;
+  color: var(--color-text-primary);
+}
+
+.modal__action:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Tablet (<= 980px) */
+@media (max-width: 980px) {
+  .modal {
+    max-width: 448px;
+    padding: 36px 32px 28px;
+  }
+
+  .modal__digit {
+    width: 60px;
+    height: 68px;
+  }
+}
+
+/* Mobile (<= 767px) */
+@media (max-width: 767px) {
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal {
+    /* Full-screen modal on mobile */
+    position: fixed;
+    inset: 0;
+    max-width: none;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    /* Center it vertically/horizontally with the overlay background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100; /* above confetti */
+  }
+
+  .modal__inner {
+    width: 100%;
+    max-width: none;
+    padding: 32px 24px 28px;
+    /* No min-height constraint — modal will size to its content */
+    min-height: initial;
+  }
+
+  .modal__code {
+    gap: 8px;
+    min-height: 64px;
+  }
+
+  .modal__digit {
+    width: 64px;
+    height: 72px;
+    font-size: 32px;
+    border: none;
+    border-radius: 8px;
+    background: #FAFAFA;
+  }
+
+  .modal__actions {
+    gap: 8px;
+  }
+
+  .modal__action {
+    width: 160px;
+    min-height: 52px;
+    padding: 14px 20px;
+  }
+}
+

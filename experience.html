@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin>
+  <title>Experience — Alisa Barysava</title>
+  <meta name="description" content="Portfolio of Alisa Barysava — Experience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
+</head>
+<body>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <div class="header__left">
+        <div class="avatar" role="img" aria-label="Avatar"></div>
+        <div class="header__identity">
+          <p class="header__name">Alisa Barysava</p>
+          <p class="header__role">Product &amp; UX/UI Designer</p>
+        </div>
+      </div>
+
+      <!-- Desktop / tablet navigation -->
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__link" href="index.html">
+          <span>Home</span>
+        </a>
+        <a class="nav__link" href="case-studies.html">
+          <span>Case studies</span>
+        </a>
+        <a class="nav__link" href="visuals.html">
+          <span>Visuals</span>
+        </a>
+        <a class="nav__link active" href="experience.html">
+          <span>Experience</span>
+        </a>
+      </nav>
+
+      <div class="header__meta">
+        <p class="header__time" data-time>--:-- AM, (UTC+3)</p>
+        <p class="header__location">Belarus, Minsk</p>
+      </div>
+
+      <!-- Mobile burger toggles the bottom-sheet -->
+      <button class="btn btn--icon header__burger" type="button" aria-expanded="false" aria-controls="mobileMenu"
+              aria-label="Open menu">
+        <svg class="burger__icon burger--open" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+        <svg class="burger__icon burger--close" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE BOTTOM-SHEET ====================== -->
+  <div class="sheet-scrim" id="sheetScrim" aria-hidden="true"></div>
+  <nav class="sheet" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="sheet__handle" aria-hidden="true"></div>
+    <div class="sheet__menu">
+      <a class="sheet__link" href="index.html">
+        <span>Home</span>
+      </a>
+      <a class="sheet__link" href="case-studies.html">
+        <span>Case studies</span>
+      </a>
+      <a class="sheet__link" href="visuals.html">
+        <span>Visuals</span>
+      </a>
+      <a class="sheet__link active" href="experience.html">
+        <span>Experience</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================== MAIN ============================== -->
+  <main class="main experience">
+
+    <h1 class="experience__title font-accent" id="experience-title">Experience</h1>
+
+    <!-- =================== COMMERCIAL EXPERIENCE ===================== -->
+    <section class="experience__section" aria-labelledby="commercial-title">
+      <h2 class="experience__section-title" id="commercial-title">Commercial experience</h2>
+      <ul class="experience__list">
+        <li class="experience__item">
+          <div class="experience__text">
+            <p class="experience__name">iTechArt</p>
+            <p class="experience__role">UX/UI Designer</p>
+          </div>
+          <span class="tag experience__tag">
+            <span class="tag-dot tag-dot--yellow" aria-hidden="true"></span>
+            2024 &mdash; 2026
+          </span>
+        </li>
+        <li class="experience__item">
+          <div class="experience__text">
+            <p class="experience__name">Freelance</p>
+            <p class="experience__role">UI Designer</p>
+          </div>
+          <span class="tag experience__tag">
+            <span class="tag-dot tag-dot--gray" aria-hidden="true"></span>
+            2024
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===================== EDUCATION & COURSES ====================== -->
+    <section class="experience__section" aria-labelledby="education-title">
+      <h2 class="experience__section-title" id="education-title">Education &amp; Courses</h2>
+      <ul class="experience__list experience__list--education">
+        <li class="experience__item">
+          <div class="experience__text">
+            <p class="experience__name">BNTU Minsk State Architectural College</p>
+            <p class="experience__role">Graphic Designer</p>
+          </div>
+          <span class="tag experience__tag">
+            <span class="tag-dot tag-dot--gray" aria-hidden="true"></span>
+            2020 &mdash; 2024
+          </span>
+        </li>
+        <li class="experience__item">
+          <div class="experience__text">
+            <p class="experience__name">Courses Google UX Design Certification Program</p>
+            <p class="experience__role">UX Design</p>
+          </div>
+          <span class="tag experience__tag">
+            <span class="tag-dot tag-dot--gray" aria-hidden="true"></span>
+            2025
+          </span>
+        </li>
+        <li class="experience__item">
+          <div class="experience__text">
+            <p class="experience__name">IBM Digital Program (Design Thinking Course)</p>
+            <p class="experience__role">UX Design</p>
+          </div>
+          <span class="tag experience__tag">
+            <span class="tag-dot tag-dot--gray" aria-hidden="true"></span>
+            2025
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ========================== DOWNLOAD CV ========================== -->
+    <div class="experience__actions">
+      <a class="btn btn--secondary" href="assets/cv/Alisa-Barysava-CV.pdf" download>
+        <svg class="button__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M12 3v12m0 0l-4-4m4 4l4-4"/>
+          <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+        </svg>
+        <span>Download CV</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

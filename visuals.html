@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin>
+  <title>Visuals — Alisa Barysava</title>
+  <meta name="description" content="Portfolio of Alisa Barysava — Visuals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
+</head>
+<body>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <div class="header__left">
+        <div class="avatar" role="img" aria-label="Avatar"></div>
+        <div class="header__identity">
+          <p class="header__name">Alisa Barysava</p>
+          <p class="header__role">Product &amp; UX/UI Designer</p>
+        </div>
+      </div>
+
+      <!-- Desktop / tablet navigation -->
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__link" href="index.html">
+          <span>Home</span>
+        </a>
+        <a class="nav__link" href="case-studies.html">
+          <span>Case studies</span>
+        </a>
+        <a class="nav__link active" href="visuals.html">
+          <span>Visuals</span>
+        </a>
+        <a class="nav__link" href="experience.html">
+          <span>Experience</span>
+        </a>
+      </nav>
+
+      <div class="header__meta">
+        <p class="header__time" data-time>--:-- AM, (UTC+3)</p>
+        <p class="header__location">Belarus, Minsk</p>
+      </div>
+
+      <!-- Mobile burger toggles the bottom-sheet -->
+      <button class="btn btn--icon header__burger" type="button" aria-expanded="false" aria-controls="mobileMenu"
+              aria-label="Open menu">
+        <svg class="burger__icon burger--open" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+        <svg class="burger__icon burger--close" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE BOTTOM-SHEET ====================== -->
+  <div class="sheet-scrim" id="sheetScrim" aria-hidden="true"></div>
+  <nav class="sheet" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="sheet__handle" aria-hidden="true"></div>
+    <div class="sheet__menu">
+      <a class="sheet__link" href="index.html">
+        <span>Home</span>
+      </a>
+      <a class="sheet__link" href="case-studies.html">
+        <span>Case studies</span>
+      </a>
+      <a class="sheet__link active" href="visuals.html">
+        <span>Visuals</span>
+      </a>
+      <a class="sheet__link" href="experience.html">
+        <span>Experience</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================== MAIN ============================== -->
+  <main class="main">
+
+    <section class="case-hero" aria-labelledby="visuals-title">
+      <h1 class="case-hero__title" id="visuals-title">
+        <span class="font-accent">Visuals</span>
+        <span class="case-hero__subtitle-gray">(Selected 2026)</span>
+      </h1>
+    </section>
+
+    <div class="visuals">
+      <!-- 1 -->
+      <article class="visual-card">
+        <div class="visual-card__preview">
+          <img src="assets/img/featured-preview.png/preview-1.jpg" alt="VPN App Concept preview" loading="lazy" decoding="async">
+        </div>
+        <div class="visual-card__content">
+          <h2 class="visual-card__title">VPN App Concept</h2>
+          <span class="tag"><span class="tag-dot tag-dot--yellow" aria-hidden="true"></span>2026</span>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="visual-card">
+        <div class="visual-card__preview">
+          <img src="assets/img/featured-preview.png/preview-2.jpg" alt="Exchange Rate App Concept preview" loading="lazy" decoding="async">
+        </div>
+        <div class="visual-card__content">
+          <h2 class="visual-card__title">Exchange Rate App Concept</h2>
+          <span class="tag"><span class="tag-dot tag-dot--yellow" aria-hidden="true"></span>2025</span>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="visual-card">
+        <div class="visual-card__preview">
+          <img src="assets/img/featured-preview.png/preview-3.jpg" alt="Sales App Concept preview" loading="lazy" decoding="async">
+        </div>
+        <div class="visual-card__content">
+          <h2 class="visual-card__title">Sales App Concept</h2>
+          <span class="tag"><span class="tag-dot tag-dot--yellow" aria-hidden="true"></span>2025</span>
+        </div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
