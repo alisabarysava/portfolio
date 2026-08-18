@@ -15,20 +15,6 @@
 
   ready(function () {
     /* ------------------------------------------------------------------
-       Mark the active navigation item based on the current page
-       ------------------------------------------------------------------ */
-    var current = window.location.pathname.split('/').pop() || 'index.html';
-
-    var allLinks = document.querySelectorAll('.nav__link, .sheet__link');
-    Array.prototype.forEach.call(allLinks, function (link) {
-      if (link.getAttribute('href') === current) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-
-    /* ------------------------------------------------------------------
        Nav — hide on scroll down, reappear on scroll up.
        Header (avatar + meta) stays pinned and always visible.
        ------------------------------------------------------------------ */
@@ -365,7 +351,7 @@
       var ACCESS_UNLOCK_KEY = 'cases_unlocked_date';
       var ACCESS_PASSWORD = (typeof window.PORTFOLIO_PASSWORD === 'string' && window.PORTFOLIO_PASSWORD)
         ? window.PORTFOLIO_PASSWORD
-        : '0000';
+        : '6661';
 
       var accessDigits = Array.prototype.slice.call(accessOverlay.querySelectorAll('.modal__digit'));
       var accessPrimary = document.getElementById('accessPrimary');
