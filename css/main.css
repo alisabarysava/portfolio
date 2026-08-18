@@ -450,7 +450,7 @@ h6 {
   position: fixed;
   inset: 0;
   z-index: 95;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(30, 30, 30, 0.16);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.28s var(--ease-out), visibility 0.28s;
@@ -471,7 +471,7 @@ h6 {
   flex-direction: column;
   gap: var(--gap-content);
   padding: var(--pad-bottom-sheet); /* 0 8px 16px */
-  background-color: var(--color-dark-surface);
+  background-color: var(--color-bg);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   box-shadow: none;
   transform: translateY(100%);
@@ -495,7 +495,7 @@ h6 {
   height: 4px;
   margin: var(--space-md) auto 0;
   border-radius: var(--radius-xs);
-  background-color: var(--color-text-tertiary);
+  background-color: var(--color-text-faint);
 }
 
 .sheet__menu {
@@ -511,7 +511,7 @@ h6 {
   gap: var(--gap-icon);
   padding: var(--pad-nav-item);
   border-radius: var(--radius-xs);
-  color: var(--color-text-muted);
+  color: var(--color-text-tertiary);
   font-size: var(--text-body2-size);
   line-height: var(--text-body2-line-height);
   font-weight: var(--text-body2-weight);
@@ -522,12 +522,13 @@ h6 {
 
 
 .sheet__link:hover {
-  color: var(--color-white);
+  color: var(--color-text-primary);
 }
 
 .sheet__link.active {
-  color: var(--color-white);
-  background-color: var(--color-overlay-white);
+  background-color: var(--color-overlay-light);
+  color: var(--color-text-primary);
+  font-weight: var(--text-body3-weight);
 }
 
 
