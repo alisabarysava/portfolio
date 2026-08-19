@@ -1301,6 +1301,7 @@ body.no-scroll {
     width: 220px;
     flex-shrink: 0;
     height: 100vh;
+    padding: 24px 0 16px 16px;
   }
   body.case-page .case-content {
     flex: 1;
@@ -2468,4 +2469,71 @@ body.is-locked .main {
     gap: 40px;
   }
 }
+
+/* ==========================================================================
+   Skeleton Loaders
+   ========================================================================== */
+
+.skel {
+  position: relative;
+  overflow: hidden;
+  background-color: #EAEAEA;
+  border-radius: inherit;
+}
+
+@keyframes skel-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: skel-shimmer 1.5s infinite;
+  pointer-events: none;
+}
+
+.skel img {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.skel.is-loaded img {
+  opacity: 1;
+}
+
+.skel.is-loaded img.preview__stack:not(.in) {
+  opacity: 0;
+}
+
+.skel.is-loaded {
+  background-color: transparent;
+}
+
+.skel.is-loaded::after {
+  animation: none;
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skel::after {
+    animation: none;
+    display: none;
+  }
+}
+
 

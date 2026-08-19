@@ -560,6 +560,28 @@
         }
       });
     }
+
+    /* ------------------------------------------------------------------
+       Skeleton image loading
+       ------------------------------------------------------------------ */
+    var skels = document.querySelectorAll('.skel');
+    skels.forEach(function (skel) {
+      var imgs = skel.querySelectorAll('img');
+      if (!imgs.length) return;
+
+      function onLoaded() {
+        skel.classList.add('is-loaded');
+      }
+
+      imgs.forEach(function (img) {
+        if (img.complete && img.naturalWidth) {
+          onLoaded();
+        } else {
+          img.addEventListener('load', onLoaded, { once: true });
+          img.addEventListener('error', onLoaded, { once: true });
+        }
+      });
+    });
   });
 
     /* ------------------------------------------------------------------
