@@ -58,7 +58,7 @@
         var h12 = hours % 12;
         h12 = h12 === 0 ? 12 : h12;
         timeEl.textContent = pad2(h12) + ':' + pad2(d.getMinutes()) +
-          ' ' + meridiem + ', (UTC+3)';
+          ' ' + meridiem;
       }
 
       renderTime();
@@ -66,70 +66,8 @@
     }
 
     /* ------------------------------------------------------------------
-       Mobile bottom-sheet menu
+       (bottom-sheet menu removed — replaced by the fixed mobile tab bar)
        ------------------------------------------------------------------ */
-    var btn = document.querySelector('.header__burger');
-    var sheet = document.getElementById('mobileMenu');
-    var scrim = document.getElementById('sheetScrim');
-    var MENU_DURATION = 270; // ms (matches CSS transition)
-
-    function openMenu() {
-      if (!sheet || !scrim) return;
-      sheet.classList.add('is-open');
-      scrim.classList.add('is-open');
-      sheet.setAttribute('aria-hidden', 'false');
-      scrim.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('no-scroll');
-      btn.setAttribute('aria-expanded', 'true');
-      header.classList.add('is-open');
-      btn.classList.add('is-open');
-      btn.setAttribute('aria-label', 'Close menu');
-    }
-
-    function closeMenu() {
-      if (!sheet || !scrim) return;
-      sheet.classList.remove('is-open');
-      scrim.classList.remove('is-open');
-      sheet.setAttribute('aria-hidden', 'true');
-      scrim.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('no-scroll');
-      btn.setAttribute('aria-expanded', 'false');
-      header.classList.remove('is-open');
-      btn.classList.remove('is-open');
-      btn.setAttribute('aria-label', 'Open menu');
-      // restore nav visibility once the sheet is hidden
-      if (nav) nav.classList.remove('is-hidden');
-    }
-
-    function toggleMenu() {
-      var open = sheet.classList.contains('is-open');
-      if (open) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    }
-
-    if (btn && sheet) {
-      btn.addEventListener('click', toggleMenu);
-
-      scrim.addEventListener('click', closeMenu);
-
-      // Close after navigating (allow a little time for click to register).
-      // On the same page (Home) links just close the menu.
-      Array.prototype.forEach.call(sheet.querySelectorAll('.sheet__link'), function (link) {
-        link.addEventListener('click', function () {
-          window.setTimeout(closeMenu, MENU_DURATION);
-        });
-      });
-
-      // Close on Escape
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && sheet.classList.contains('is-open')) {
-          closeMenu();
-        }
-      });
-    }
 
     /* ------------------------------------------------------------------
        Interactive eyes — pupils follow the cursor inside the block
@@ -629,7 +567,7 @@
        Prefetch on hover for navigation links and main buttons
        ------------------------------------------------------------------ */
     document.addEventListener('mouseover', function (e) {
-      var target = e.target.closest('a.nav__link, a.sheet__link, a.btn, a.case-card, a.case-next-link, a.case-sidebar__nav-item');
+      var target = e.target.closest('a.nav__link, a.tabbar__link, a.btn, a.case-card, a.case-next-link, a.case-sidebar__nav-item');
       if (!target) return;
       var href = target.getAttribute('href');
       if (!href && target.classList.contains('case-card')) {
@@ -637,6 +575,7 @@
         if (anchor) href = anchor.getAttribute('href');
       }
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+      if (target.hasAttribute('download') || href.endsWith('.pdf')) return;
 
       if (!document.querySelector('link[rel="prefetch"][href="' + href + '"]')) {
         var link = document.createElement('link');

@@ -121,11 +121,11 @@
 /* Padding */
   --pad-main: 40px 16px;        /* main container padding     */
   --pad-section-hero: 40px 0;   /* hero section padding (all) */
-  --pad-hero-inner-desktop: 40px 16px; /* (desktop) */
-  --pad-hero-inner-tablet: 24px 16px;  /* (tablet) */
-  --pad-hero-inner-mobile: 8px 16px;   /* (mobile) */
-  --pad-header-desktop: 16px 16px 0;
-  --pad-header-mobile: 16px 16px 12px;
+    --pad-hero-inner-desktop: 40px 20px; /* (desktop) */
+  --pad-hero-inner-tablet: 24px 20px;  /* (tablet) */
+  --pad-hero-inner-mobile: 8px 20px;   /* (mobile) */
+  --pad-header-desktop: 16px 20px;
+  --pad-header-mobile: 16px 20px;
   --pad-nav-pill: 8px;
   --pad-nav-item: 12px;
   --pad-button: 16px 24px;
@@ -269,9 +269,9 @@ h6 {
   top: 0;
   z-index: 100;
   width: 100%;
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg); /* только нижние углы, как в Figma mobile-header */
+  border-bottom: 1px solid rgba(30, 30, 30, 0.06);
   padding: var(--pad-header-mobile);
-  background-color: var(--color-bg);
+  background-color: var(--color-surface);
 }
 
 .header__inner {
@@ -308,11 +308,11 @@ h6 {
 }
 
 .header__name {
-  font-size: var(--text-caption-size);
-  line-height: var(--text-caption-line-height);
-  font-weight: var(--text-caption-weight);
-  letter-spacing: var(--text-caption-letter-spacing);
-  color: var(--color-text-secondary);
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: var(--text-body2-weight);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-primary);
   white-space: nowrap;
 }
 
@@ -329,9 +329,10 @@ h6 {
 .nav {
   display: none;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   padding: var(--pad-nav-pill);
-  background-color: var(--color-bg);
+  background-color: #FAFAFA;
+  border: 1px solid rgba(30, 30, 30, 0.06);
   border-radius: var(--radius-md);
   transition: transform 0.3s var(--ease-out);
 }
@@ -345,7 +346,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: var(--gap-icon);
-  padding: var(--pad-nav-item);
+  padding: 8px 12px;
   border-radius: var(--radius-xs);
   font-size: var(--text-body2-size);
   line-height: var(--text-body2-line-height);
@@ -367,169 +368,124 @@ h6 {
   font-weight: var(--text-body3-weight);
 }
 
+/* Divider between nav items and CV */
+.nav__divider {
+  flex-shrink: 0;
+  margin: 0 4px;
+  width: 0;
+  height: 24px;
+  border-left: 1px solid rgba(30, 30, 30, 0.06);
+}
+
+/* Download icon inside CV nav item */
+.nav__link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
 
 
-/* header meta (time + location) — desktop only */
+
+/* header meta (time + timezone) — desktop only */
 .header__meta {
   display: none;
   flex-direction: column;
   align-items: flex-end;
-  padding: 8px 0; /* match avatar block height in Figma */
-  min-height: var(--size-icon-md); /* match avatar height */
+  padding: 8px 0; /* match identity block height in Figma */
+    min-height: var(--size-icon-md); /* match identity height */
   justify-content: center;
-  width: 208px;
+  width: 161px;
   height: 56px;
 }
 
-.header__time,
-.header__location {
+.header__time {
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: var(--text-body2-weight);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.header__tz {
   font-size: var(--text-caption-size);
   line-height: var(--text-caption-line-height);
   font-weight: var(--text-caption-weight);
   letter-spacing: var(--text-caption-letter-spacing);
+  color: var(--color-text-muted);
   white-space: nowrap;
 }
 
-.header__time {
-  color: var(--color-text-secondary);
+/* Mobile — CV action pill in the top header row */
+.nav--mobile {
+  display: flex;
+  padding: 4px;
 }
 
-.header__location {
-  color: var(--color-text-muted);
+.nav__link--cv {
+  gap: 4px;
+  padding: 8px 8px 8px 12px;
 }
 
-/* Burger — mobile only */
-.header__burger {
-  position: relative;
-  display: inline-flex;
-  width: 44px;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: var(--radius-sm);
-  background: var(--color-bg) 245 245 245;
-  color: var(--color-text-primary);
-}
-
-.burger__icon {
-  position: absolute;
-  pointer-events: none;
-  transition: opacity 0.3s var(--ease-out);
-}
-
-/* Mobile — hide burger when menu is open */
-@media (min-width: 981px) {
-  .header__burger {
-    display: none;
-  }
-}
-
-.burger--open {
-  opacity: 1;
-}
-
-.burger--close {
-  opacity: 0;
-}
-
-.header.is-open .burger--open {
-  opacity: 0;
-}
-
-.header.is-open .burger--close {
-  opacity: 1;
-}
 
 
 
 /* ==========================================================================
-   Mobile bottom-sheet menu (position fixed — allowed exception)
+   Mobile tab bar (position fixed — allowed exception)
    ========================================================================== */
-.sheet-scrim {
-  position: fixed;
-  inset: 0;
-  z-index: 95;
-  background-color: rgba(30, 30, 30, 0.16);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.28s var(--ease-out), visibility 0.28s;
-}
-
-.sheet-scrim.is-open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.sheet {
+.tabbar {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 96;
   display: flex;
-  flex-direction: column;
-  gap: var(--gap-content);
-  padding: var(--pad-bottom-sheet); /* 0 8px 16px */
-  background-color: var(--color-bg);
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  box-shadow: none;
-  transform: translateY(100%);
-  transition: transform 0.28s var(--ease-out);
-  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 16px;
+  pointer-events: none;
 }
 
-.sheet.is-open {
-  transform: translateY(0);
-  visibility: visible;
-}
-
-/* keep sheet on top when open, hide scrim from AT */
-.sheet-scrim.is-open,
-.sheet.is-open {
+.tabbar__pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--pad-nav-pill);
+  background-color: #FAFAFA;
+  border: 1px solid rgba(30, 30, 30, 0.06);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
   pointer-events: auto;
 }
 
-.sheet__handle {
-  width: 48px;
-  height: 4px;
-  margin: var(--space-md) auto 0;
-  border-radius: var(--radius-xs);
-  background-color: var(--color-text-faint);
-}
-
-.sheet__menu {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  padding: 0;
-}
-
-.sheet__link {
+.tabbar__link {
   display: flex;
   align-items: center;
   gap: var(--gap-icon);
-  padding: var(--pad-nav-item);
+  padding: 8px 12px;
   border-radius: var(--radius-xs);
-  color: var(--color-text-tertiary);
   font-size: var(--text-body2-size);
   line-height: var(--text-body2-line-height);
   font-weight: var(--text-body2-weight);
   letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-tertiary);
+  background: none;
+  border: none;
+  white-space: nowrap;
   transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
 }
 
-
-
-.sheet__link:hover {
+.tabbar__link:hover {
   color: var(--color-text-primary);
 }
 
-.sheet__link.active {
+.tabbar__link.active {
   background-color: var(--color-overlay-light);
   color: var(--color-text-primary);
   font-weight: var(--text-body3-weight);
 }
+
+
 
 
 
@@ -632,6 +588,16 @@ h6 {
   margin-left: 0;
 }
 
+/* Photo sticker — pill shape matching .eyes dimensions & tilt */
+.hero__asset--photo {
+  width: 64px;
+  height: 42px;
+  border-radius: 48px;
+  background-color: #242424;
+  background-clip: padding-box;
+  margin-left: -12px;
+}
+
 .eyes {
   display: flex;
   width: 64px;
@@ -730,12 +696,12 @@ h6 {
 /* --- subtitle --- */
 .hero__subtitle {
   max-width: 52ch;
-  font-size: var(--text-sub1-size);
+    font-size: 16px;
   line-height: var(--text-sub1-line-height);
   font-weight: var(--text-sub1-weight);
   letter-spacing: var(--text-sub1-letter-spacing);
   text-align: center;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 }
 
 /* ==========================================================================
@@ -860,7 +826,7 @@ h6 {
    ========================================================================== */
 /* Featured case preview container */
 .featured {
-  padding: 0 16px var(--space-2xl);
+  padding: 0 20px var(--space-2xl);
   display: flex;
   justify-content: center;
 }
@@ -910,7 +876,7 @@ h6 {
    Footer
    ========================================================================== */
 .footer {
-  padding: 40px 16px 80px 16px;
+  padding: 40px 20px 80px 20px;
 }
 
 .footer__inner {
@@ -1035,12 +1001,7 @@ h6 {
 
 
 
-/* ==========================================================================
-   Body scroll lock (sheet open)
-   ========================================================================== */
-body.no-scroll {
-  overflow: hidden;
-}
+
 
 /* ==========================================================================
    Responsive — mobile-first breakpoints
@@ -1053,18 +1014,15 @@ body.no-scroll {
   }
 }
 
-/* Desktop navigation and header state - threshold 980px */
-@media (min-width: 981px) {
+/* Desktop header state — 800px and up: nav + time, transparent */
+@media (min-width: 800px) {
   .header {
     border-radius: 0;
     background: transparent;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
+    border-bottom: none;
     padding: var(--pad-header-desktop);
-  }
-
-  .header__burger {
-    display: none;
   }
 
   .nav {
@@ -1075,26 +1033,36 @@ body.no-scroll {
     display: flex;
   }
 
-  /* sheet never used at this width */
-  .sheet-scrim,
-  .sheet {
+  .nav--mobile,
+  .tabbar {
     display: none;
   }
 }
 
-/* Mobile/Tablet state - applies to 980px and below */
-@media (max-width: 980px) {
+/* Tablet header state — 592px to 799px: nav, white bg + bottom border, no meta */
+@media (min-width: 592px) and (max-width: 799px) {
   .header {
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    background-color: var(--color-surface);
+    border-bottom: 1px solid rgba(30, 30, 30, 0.06);
+    border-radius: 0;
     padding: var(--pad-header-mobile);
   }
 
   .nav {
-    display: none;
+    display: flex;
   }
 
-  .header__meta {
+  .header__meta,
+  .nav--mobile,
+  .tabbar {
     display: none;
+  }
+}
+
+/* Mobile header state — 591px and below */
+@media (max-width: 591px) {
+  body.has-tabbar {
+    padding-bottom: 96px; /* room for the fixed tab bar */
   }
 }
 
@@ -1105,8 +1073,8 @@ body.no-scroll {
     padding: var(--pad-hero-inner-desktop);
   }
 
-  .featured {
-    padding: 0 16px var(--space-2xl);
+    .featured {
+    padding: 0 20px var(--space-2xl);
   }
 }
 
@@ -1134,6 +1102,10 @@ body.no-scroll {
 }
 
 .case-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   padding-top: 40px;
   margin-bottom: 48px;
 }
@@ -1141,9 +1113,10 @@ body.no-scroll {
 .case-hero__title {
   display: flex;
   /* Per Figma "Project Header Container": row that wraps — on narrow
-     screens "(Selected cases 2026)" flows to its own line.
+     screens "(Selected 2026)" flows to its own line.
      Row gap = 4px + 8px extra when wrapped, per request. */
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 12px 8px;
   margin-bottom: 16px;
@@ -1166,12 +1139,26 @@ body.no-scroll {
   font-size: var(--text-body1-size);
   color: var(--color-text-secondary);
   max-width: 600px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cases-list {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
+}
+
+@media (min-width: 800px) {
+  .main {
+    max-width: 1240px;
+  }
+  .cases-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 
 .case-card {
@@ -1803,7 +1790,15 @@ body.no-scroll {
 .visuals {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
+}
+
+@media (min-width: 800px) {
+  .visuals {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 
 .visual-card {
@@ -2303,7 +2298,7 @@ body.is-locked .main {
 }
 
 .nav__link.active,
-.sheet__link.active {
+.tabbar__link.active {
   view-transition-name: nav-active;
 }
 
