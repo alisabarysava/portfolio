@@ -122,8 +122,8 @@
   --pad-main: 40px 16px;        /* main container padding     */
   --pad-section-hero: 40px 0;   /* hero section padding (all) */
     --pad-hero-inner-desktop: 40px 20px; /* (desktop) */
-  --pad-hero-inner-tablet: 24px 20px;  /* (tablet) */
-  --pad-hero-inner-mobile: 8px 20px;   /* (mobile) */
+  --pad-hero-inner-tablet: 40px 20px;  /* (tablet) */
+  --pad-hero-inner-mobile: 40px 20px;   /* (mobile) */
   --pad-header-desktop: 16px 20px;
   --pad-header-mobile: 16px 20px;
   --pad-nav-pill: 8px;
