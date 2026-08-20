@@ -283,7 +283,7 @@
          unlocking. To restore the previous timing (modal stays dismissed
          until the next reload / next day after unlocking), set
          ACCESS_MODAL_TEST_MODE to false — nothing else needs to change. */
-      var ACCESS_MODAL_TEST_MODE = false;
+      var ACCESS_MODAL_TEST_MODE = true;
       var ACCESS_MODAL_RELOCK_MS = 2 * 60 * 1000; // 2 minutes
 
       var ACCESS_UNLOCK_KEY = 'cases_unlocked_date';
@@ -334,15 +334,12 @@
           d.disabled = false;
           d.value = '';
         });
-        accessCode.classList.remove('is-success');
-        accessCheck.hidden = true;
-        accessActions.classList.remove('is-done');
         accessModal.classList.remove('is-success');
-        accessTitle.textContent = 'Private cases';
-        if (accessText) accessText.classList.remove('is-done');
+        var accessSuccess = document.getElementById('accessSuccess');
+        if (accessSuccess) accessSuccess.setAttribute('hidden', '');
         accessClearErrors();
-        accessPrimary.textContent = 'Unlock page';
-        accessSecondary.textContent = 'Publish visuals';
+        accessPrimary.textContent = 'Unlock cases';
+        accessSecondary.textContent = 'View concepts';
         accessSecondary.removeAttribute('data-cancel-mode');
         accessState = 'locked';
       }
@@ -382,8 +379,8 @@
           return;
         }
         var code = accessGetCode();
-        if (code === '') {
-          accessShowError('Code is required for unlocking');
+        if (code.length < 4) {
+          accessShowError('Please enter a code to unlock.');
           return;
         }
         if (code !== ACCESS_PASSWORD) {
@@ -391,24 +388,17 @@
           return;
         }
 
-        /* Success — inputs slide out to the left, green check badge slides
-           in from the right to the center. */
+        /* Success — form slides down, success block slides in from top, modal contracts. */
         accessState = 'unlocked';
         accessDigits.forEach(function (d) {
           d.blur();
           d.setAttribute('disabled', '');
         });
-        accessCode.classList.add('is-success');
-        accessCheck.hidden = false;
-        accessActions.classList.add('is-done');
+        var accessSuccess = document.getElementById('accessSuccess');
+        if (accessSuccess) accessSuccess.removeAttribute('hidden');
         accessModal.classList.add('is-success');
-        accessTitle.textContent = 'Successfully';
-        if (accessText) accessText.classList.add('is-done');
-        accessPrimary.textContent = 'Continue';
-        accessSecondary.textContent = 'Cancel';
-        accessSecondary.setAttribute('data-cancel-mode', '');
 
-        /* One confetti burst from the center once the badge has settled. */
+        /* Confetti after animation completion (~1200ms). */
         if (typeof window.confetti === 'function') {
           window.setTimeout(function () {
             window.confetti({
@@ -422,9 +412,13 @@
           }, 1200);
         }
 
-        /* The modal disappears by itself 5s after a successful unlock
-           (confetti has already finished by then). */
-        window.setTimeout(accessContinue, 5000);
+        /* Auto-close after 4 seconds. */
+        window.setTimeout(function () {
+          try {
+            localStorage.setItem(ACCESS_UNLOCK_KEY, accessToday());
+          } catch (e) { /* storage unavailable — ignore */ }
+          accessClose();
+        }, 4000);
       }
 
       function accessContinue() {

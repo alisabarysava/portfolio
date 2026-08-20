@@ -157,63 +157,69 @@
   <div class="modal-overlay" id="accessModal" role="dialog" aria-modal="true"
        aria-labelledby="accessModalTitle" aria-hidden="true">
     <div class="modal">
-      <div class="modal__inner">
-        <h2 class="modal__title" id="accessModalTitle">Private cases</h2>
+      <div class="modal__form" id="accessForm">
+        <div class="modal__inner">
+          <h2 class="modal__title" id="accessModalTitle">Private cases</h2>
 
-        <p class="modal__text">
-          Enter the access code to view cases.
-          If you don&rsquo;t have a code or it&rsquo;s out of date, please write to me
-          in
-          <a class="modal__text-link" href="https://t.me/a_brsva"
-             target="_blank" rel="noopener noreferrer">
-            <span>Telegram&nbsp;&#8599;</span>
-          </a>
-          or
-          <a class="modal__text-link" href="mailto:alisabarysava@gmail.com">
-            <span>Email&nbsp;&#8599;</span>
-          </a>.
-        </p>
+          <p class="modal__text">
+            Enter the access code to view cases.
+            If you don&rsquo;t have a code or it&rsquo;s out of date, please write to me
+            in
+            <a class="modal__text-link" href="https://t.me/a_brsva"
+               target="_blank" rel="noopener noreferrer">
+              <span>Telegram&nbsp;&#8599;</span>
+            </a>
+            or
+            <a class="modal__text-link" href="mailto:alisabarysava@gmail.com">
+              <span>Email&nbsp;&#8599;</span>
+            </a>.
+          </p>
 
-        <div class="modal__code" id="accessCode">
-          <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
-                 maxlength="1" placeholder="&ndash;" aria-label="Code digit 1"/>
-          <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
-                 maxlength="1" placeholder="&ndash;" aria-label="Code digit 2"/>
-          <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
-                 maxlength="1" placeholder="&ndash;" aria-label="Code digit 3"/>
-          <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
-                 maxlength="1" placeholder="&ndash;" aria-label="Code digit 4"/>
-          <div class="modal__check" id="accessCheck" role="img" aria-label="Unlocked" hidden>
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11.9996 1C13.3472 1 14.5135 1.7468 15.0816 2.83477C16.2035 2.27638 17.6029 2.33523 18.6936 3.10071C19.7838 3.8659 20.2726 5.13232 20.0701 6.33509C21.3175 6.52037 22.4137 7.3622 22.8303 8.60071C23.2468 9.83904 22.871 11.141 21.9749 11.9991C22.8716 12.8572 23.247 14.1606 22.8303 15.3993C22.4137 16.6377 21.3174 17.4787 20.0701 17.6641C20.2729 18.867 19.7841 20.134 18.6936 20.8993C17.6027 21.6649 16.2036 21.7223 15.0816 21.1635C14.5137 22.2522 13.3477 23 11.9996 23C10.6514 22.9999 9.48445 22.2524 8.91674 21.1635C7.79498 21.7216 6.39701 21.6646 5.3065 20.8993C4.21578 20.1338 3.72596 18.8664 3.92909 17.6632C2.68218 17.4776 1.58634 16.6374 1.16979 15.3993C0.75318 14.1607 1.12784 12.8572 2.02431 11.9991C1.12843 11.141 0.753306 9.83889 1.16979 8.60071C1.58631 7.36249 2.68209 6.52146 3.92909 6.33595C3.72626 5.13291 4.21598 3.86605 5.3065 3.10071C6.39681 2.33553 7.79507 2.27703 8.91674 2.83477C9.48469 1.74656 10.6519 1.00012 11.9996 1Z" fill="#5FCF65"/>
-              <path d="M18.0301 8.79563C18.4827 9.22281 18.4827 9.9427 18.0301 10.3699L11.1059 16.9061L6.96959 13.0015C6.51705 12.5743 6.51705 11.8545 6.96959 11.4273C7.3867 11.0335 8.03853 11.0335 8.45564 11.4273L11.1059 13.9291L16.5441 8.79563C16.9612 8.40189 17.613 8.40189 18.0301 8.79563Z" fill="white"/>
+          <div class="modal__code" id="accessCode">
+            <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
+                   maxlength="1" placeholder="&ndash;" aria-label="Code digit 1"/>
+            <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
+                   maxlength="1" placeholder="&ndash;" aria-label="Code digit 2"/>
+            <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
+                   maxlength="1" placeholder="&ndash;" aria-label="Code digit 3"/>
+            <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
+                   maxlength="1" placeholder="&ndash;" aria-label="Code digit 4"/>
+          </div>
+
+          <div class="modal__banner" id="accessBanner" role="status" hidden>
+            <svg class="modal__banner-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#accessWarningClip)">
+                <path d="M11.9996 0C13.4697 0 14.742 0.814687 15.3617 2.00157C16.5856 1.39241 18.1123 1.45662 19.3021 2.29168C20.4914 3.12644 21.0247 4.50799 20.8038 5.82009C22.1645 6.02222 23.3604 6.94059 23.8149 8.29168C24.2693 9.64259 23.8593 11.0629 22.8817 11.9991C23.8599 12.9352 24.2694 14.357 23.8149 15.7083C23.3604 17.0593 22.1644 17.9768 20.8038 18.179C21.025 19.4913 20.4917 20.8734 19.3021 21.7083C18.112 22.5435 16.5857 22.6061 15.3617 21.9965C14.7422 23.1842 13.4702 24 11.9996 24C10.5288 23.9999 9.25576 23.1844 8.63644 21.9965C7.41271 22.6054 5.88765 22.5432 4.698 21.7083C3.50812 20.8732 2.97377 19.4906 3.19537 18.178C1.83511 17.9756 0.639638 17.059 0.185228 15.7083C-0.269258 14.3572 0.139465 12.9352 1.11743 11.9991C0.140104 11.0629 -0.269121 9.64243 0.185228 8.29168C0.639612 6.94089 1.83501 6.02341 3.19537 5.82104C2.9741 4.50863 3.50834 3.1266 4.698 2.29168C5.88742 1.45694 7.4128 1.39312 8.63644 2.00157C9.25602 0.814427 10.5293 0.000131479 11.9996 0Z" fill="#CE1720"/>
+                <path d="M11 12V8C11 7.44772 11.4477 7 12 7C12.5523 7 13 7.44772 13 8V12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z" fill="white"/>
+                <path d="M12.0073 15.4414C12.8317 15.4414 13.5 16.113 13.5 16.9414C13.5 17.7698 12.8317 18.4414 12.0073 18.4414H11.9927C11.1683 18.4414 10.5 17.7698 10.5 16.9414C10.5 16.113 11.1683 15.4414 11.9927 15.4414H12.0073Z" fill="white"/>
+              </g>
+              <defs>
+                <clipPath id="accessWarningClip"><rect width="24" height="24" fill="white"/></clipPath>
+              </defs>
             </svg>
+            <span class="modal__banner-text" id="accessBannerText">Please enter a code to unlock.</span>
+          </div>
+
+          <div class="modal__actions">
+            <button type="button" class="btn btn--primary modal__action" id="accessPrimary">
+              Unlock cases
+            </button>
+            <a href="concepts.html" class="btn btn--secondary modal__action" id="accessSecondary">
+              View concepts
+            </a>
           </div>
         </div>
+      </div>
 
-        <div class="modal__banner" id="accessBanner" role="status" hidden>
-          <svg class="modal__banner-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-               xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <g clip-path="url(#accessWarningClip)">
-              <path d="M11.9996 0C13.4697 0 14.742 0.814687 15.3617 2.00157C16.5856 1.39241 18.1123 1.45662 19.3021 2.29168C20.4914 3.12644 21.0247 4.50799 20.8038 5.82009C22.1645 6.02222 23.3604 6.94059 23.8149 8.29168C24.2693 9.64259 23.8593 11.0629 22.8817 11.9991C23.8599 12.9352 24.2694 14.357 23.8149 15.7083C23.3604 17.0593 22.1644 17.9768 20.8038 18.179C21.025 19.4913 20.4917 20.8734 19.3021 21.7083C18.112 22.5435 16.5857 22.6061 15.3617 21.9965C14.7422 23.1842 13.4702 24 11.9996 24C10.5288 23.9999 9.25576 23.1844 8.63644 21.9965C7.41271 22.6054 5.88765 22.5432 4.698 21.7083C3.50812 20.8732 2.97377 19.4906 3.19537 18.178C1.83511 17.9756 0.639638 17.059 0.185228 15.7083C-0.269258 14.3572 0.139465 12.9352 1.11743 11.9991C0.140104 11.0629 -0.269121 9.64243 0.185228 8.29168C0.639612 6.94089 1.83501 6.02341 3.19537 5.82104C2.9741 4.50863 3.50834 3.1266 4.698 2.29168C5.88742 1.45694 7.4128 1.39312 8.63644 2.00157C9.25602 0.814427 10.5293 0.000131479 11.9996 0Z" fill="#CE1720"/>
-              <path d="M11 12V8C11 7.44772 11.4477 7 12 7C12.5523 7 13 7.44772 13 8V12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z" fill="white"/>
-              <path d="M12.0073 15.4414C12.8317 15.4414 13.5 16.113 13.5 16.9414C13.5 17.7698 12.8317 18.4414 12.0073 18.4414H11.9927C11.1683 18.4414 10.5 17.7698 10.5 16.9414C10.5 16.113 11.1683 15.4414 11.9927 15.4414H12.0073Z" fill="white"/>
-            </g>
-            <defs>
-              <clipPath id="accessWarningClip"><rect width="24" height="24" fill="white"/></clipPath>
-            </defs>
+      <div class="modal__success" id="accessSuccess" hidden>
+        <div class="modal__success-icon" role="img" aria-label="Successfully unlocked">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.9996 1C13.3472 1 14.5135 1.7468 15.0816 2.83477C16.2035 2.27638 17.6029 2.33523 18.6936 3.10071C19.7838 3.8659 20.2726 5.13232 20.0701 6.33509C21.3175 6.52037 22.4137 7.3622 22.8303 8.60071C23.2468 9.83904 22.871 11.141 21.9749 11.9991C22.8716 12.8572 23.247 14.1606 22.8303 15.3993C22.4137 16.6377 21.3174 17.4787 20.0701 17.6641C20.2729 18.867 19.7841 20.134 18.6936 20.8993C17.6027 21.6649 16.2036 21.7223 15.0816 21.1635C14.5137 22.2522 13.3477 23 11.9996 23C10.6514 22.9999 9.48445 22.2524 8.91674 21.1635C7.79498 21.7216 6.39701 21.6646 5.3065 20.8993C4.21578 20.1338 3.72596 18.8664 3.92909 17.6632C2.68218 17.776 1.58634 16.6374 1.16979 15.3993C0.75318 14.1607 1.12784 12.8572 2.02431 11.9991C1.12843 11.141 0.753306 9.83889 1.16979 8.60071C1.58631 7.36249 2.68209 6.52146 3.92909 6.33595C3.72626 5.13291 4.21598 3.86605 5.3065 3.10071C6.39681 2.33553 7.79507 2.27703 8.91674 2.83477C9.48469 1.74656 10.6519 1.00012 11.9996 1Z" fill="#5FCF65"/>
+            <path d="M18.0301 8.79563C18.4827 9.22281 18.4827 9.9427 18.0301 10.3699L11.1059 16.9061L6.96959 13.0015C6.51705 12.5743 6.51705 11.8545 6.96959 11.4273C7.3867 11.0335 8.03853 11.0335 8.45564 11.4273L11.1059 13.9291L16.5441 8.79563C16.9612 8.40189 17.613 8.40189 18.0301 8.79563Z" fill="white"/>
           </svg>
-          <span class="modal__banner-text" id="accessBannerText">Code is required for unlocking</span>
         </div>
-
-        <div class="modal__actions">
-          <button type="button" class="btn btn--primary modal__action" id="accessPrimary">
-            Unlock page
-          </button>
-          <a href="concepts.html" class="btn btn--secondary modal__action" id="accessSecondary">
-            Publish visuals
-          </a>
-        </div>
+        <h2 class="modal__success-title">Successfully</h2>
       </div>
     </div>
   </div>

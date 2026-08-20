@@ -2610,3 +2610,114 @@ body.is-locked .main {
   color: var(--color-text-secondary);
 }
 
+/* ==========================================================================
+   Password Modal Overlay Visual Update
+   ========================================================================== */
+.modal-overlay {
+  background: rgba(30, 30, 30, 0.06);
+}
+
+/* ==========================================================================
+   Password Modal Smooth Animations (Refined Timings & Easing)
+   ========================================================================== */
+.modal-overlay {
+  transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal-overlay.is-open {
+  transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal-overlay:not(.is-open) {
+  transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1), visibility 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal {
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    min-height 400ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.modal-overlay.is-open .modal {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    min-height 400ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.modal.is-success {
+  min-height: 0;
+  transition: min-height 400ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.modal__form {
+  width: 100%;
+  transition: transform 200ms ease-in, opacity 200ms ease-in;
+}
+
+.modal.is-success .modal__form {
+  transform: translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+}
+
+.modal__success {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 32px;
+  transform: translateY(-16px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1) 120ms, opacity 300ms cubic-bezier(0.22, 1, 0.36, 1) 120ms;
+}
+
+.modal.is-success .modal__success {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+.modal__success-icon {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__success-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.4em;
+  font-weight: 500;
+  letter-spacing: -0.0208em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay,
+  .modal-overlay.is-open,
+  .modal,
+  .modal-overlay.is-open .modal,
+  .modal.is-success,
+  .modal__form,
+  .modal.is-success .modal__form,
+  .modal__success,
+  .modal.is-success .modal__success {
+    transition: opacity 150ms ease !important;
+    transform: none !important;
+  }
+}
+
