@@ -283,7 +283,7 @@
          unlocking. To restore the previous timing (modal stays dismissed
          until the next reload / next day after unlocking), set
          ACCESS_MODAL_TEST_MODE to false — nothing else needs to change. */
-      var ACCESS_MODAL_TEST_MODE = true;
+      var ACCESS_MODAL_TEST_MODE = false;
       var ACCESS_MODAL_RELOCK_MS = 2 * 60 * 1000; // 2 minutes
 
       var ACCESS_UNLOCK_KEY = 'cases_unlocked_date';
@@ -409,7 +409,7 @@
               origin: { x: 0.5, y: 0.5 },
               zIndex: 200
             });
-          }, 1200);
+          }, 1000);
         }
 
         /* Auto-close after 4 seconds. */
