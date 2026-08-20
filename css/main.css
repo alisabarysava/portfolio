@@ -2531,4 +2531,46 @@ body.is-locked .main {
   }
 }
 
+/* ==========================================================================
+   Concepts Page Redesign (2026)
+   ========================================================================== */
+.visuals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 799px) {
+  .visuals {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 599px) {
+  .visuals {
+    grid-template-columns: 1fr;
+  }
+}
+
+.visual-card {
+  display: block;
+  background: #FAFAFA;
+  border: 1px solid rgba(30, 30, 30, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  cursor: default;
+}
+
+.visual-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.visual-card {
+  border: none;
+}
+
 
