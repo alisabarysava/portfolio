@@ -283,7 +283,7 @@
          unlocking. To restore the previous timing (modal stays dismissed
          until the next reload / next day after unlocking), set
          ACCESS_MODAL_TEST_MODE to false — nothing else needs to change. */
-      var ACCESS_MODAL_TEST_MODE = false;
+      var ACCESS_MODAL_TEST_MODE = true;
       var ACCESS_MODAL_RELOCK_MS = 2 * 60 * 1000; // 2 minutes
 
       var ACCESS_UNLOCK_KEY = 'cases_unlocked_date';
@@ -398,27 +398,25 @@
         if (accessSuccess) accessSuccess.removeAttribute('hidden');
         accessModal.classList.add('is-success');
 
-        /* Confetti after animation completion (~1200ms). */
+        /* Confetti in sync with the block swap to success. */
         if (typeof window.confetti === 'function') {
-          window.setTimeout(function () {
-            window.confetti({
-              particleCount: 140,
-              spread: 80,
-              startVelocity: 45,
-              scalar: 0.9,
-              origin: { x: 0.5, y: 0.5 },
-              zIndex: 200
-            });
-          }, 1000);
+          window.confetti({
+            particleCount: 140,
+            spread: 80,
+            startVelocity: 45,
+            scalar: 0.9,
+            origin: { x: 0.5, y: 0.5 },
+            zIndex: 200
+          });
         }
 
-        /* Auto-close after 4 seconds. */
+        /* Auto-close after 2500 ms. */
         window.setTimeout(function () {
           try {
             localStorage.setItem(ACCESS_UNLOCK_KEY, accessToday());
           } catch (e) { /* storage unavailable — ignore */ }
           accessClose();
-        }, 4000);
+        }, 2500);
       }
 
       function accessContinue() {
