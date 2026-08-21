@@ -128,7 +128,7 @@
   --pad-header-mobile: 16px 20px;
   --pad-nav-pill: 8px;
   --pad-nav-item: 12px;
-  --pad-button: 16px 24px;
+  --pad-button: 16px 20px;
   --pad-helper: 24px;
   --pad-footer: 40px 0;
   --pad-bottom-sheet: 0 8px 16px;
@@ -713,7 +713,7 @@ h6 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 16px 24px;
+  padding: 16px 20px;
   border: none;
   border-radius: 12px;
   font-family: var(--font-family-base);
@@ -1335,7 +1335,7 @@ h6 {
   .case-sidebar__back {
     background: #F5F5F5;
     color: #242424;
-    padding: 16px 24px;
+    padding: 16px 20px;
     border-radius: 12px;
   }
   
@@ -2132,7 +2132,7 @@ body.is-locked .main {
   justify-content: center;
   width: 100%;
   min-height: 56px;
-  padding: 16px 24px;
+  padding: 16px 20px;
   border: none;
   border-radius: var(--radius-sm);
   font-family: inherit;
@@ -2396,11 +2396,11 @@ body.is-locked .main {
 }
 
 .notfound__subtitle {
-  font-size: var(--text-sub1-size);
+  font-size: 16px;
   line-height: var(--text-sub1-line-height);
-  font-weight: var(--text-sub1-weight);
+  font-weight: 400;
   letter-spacing: var(--text-sub1-letter-spacing);
-  color: var(--color-text-muted);
+  color: #7A7A7A;
   margin: 0;
   max-width: 52ch;
 }
@@ -2415,7 +2415,6 @@ body.is-locked .main {
 }
 
 .notfound__actions .btn {
-  width: 143px;
   box-sizing: border-box;
 }
 
