@@ -527,76 +527,42 @@ h6 {
 
 .hero__asset {
   flex-shrink: 0;
-  width: 58.79px;
-  height: 58.79px;
-  margin-left: -14px;
-  
-  /* Styling for sticker containers */
+  width: 48px; height: 48px;
+  margin-left: -8px;
   background-color: #F5F5F5;
   border: 4px solid #FFFFFF;
   border-radius: 16px;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.12);
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: transform 0.2s var(--ease-out);
-  position: relative;
+  box-shadow: 0 0 2px rgba(0,0,0,0.06), 0 4px 4px rgba(0,0,0,0.12);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; position: relative; cursor: default; z-index: 1;
+  transform: rotate(var(--tilt, 0deg));
+  animation: float var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
+}
+.hero__assets > *:first-child { margin-left: 0; }
+.hero__asset img { width: 100%; height: 100%; object-fit: cover; }
+
+@keyframes float {
+  0%, 100% { transform: rotate(var(--tilt, 0deg)) translate(0, 0); }
+  50% { transform: rotate(var(--tilt, 0deg)) translate(0, var(--dy, -5px)); }
 }
 
-.hero__asset img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.tag-ai       { --tilt: -10deg; margin-top: 24px; --dy: -5px; --dur: 3.6s; --delay: 0.2s; }
+.tag-asterisk { --tilt: 8deg;  margin-top: -6px; margin-left: -14px; width: 48px; height: 48px;
+                --dy: -6px; --dur: 4.2s; --delay: 0.7s; }
+.tag-figma    { --tilt: -6deg; margin-top: 24px; margin-left: -18px; --dy: -4px; --dur: 3.8s; --delay: 0s; }
+.tag-vs       { --tilt: 6deg;  margin-top: 24px; margin-left: -12px; --dy: -5px; --dur: 3.5s; --delay: 1.4s; }
+.tag-jttr     { --tilt: -8deg; margin-top: -6px; margin-left: -10px; --dy: -4px; --dur: 4s;   --delay: 0.3s; }
 
-/* Sticker-specific overrides */
-.hero__asset {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  margin-left: -14px;
-  
-  /* Styling for sticker containers */
-  background-color: #F5F5F5;
-  border: 4px solid #FFFFFF;
-  border-radius: 16px;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.12);
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: transform 0.2s var(--ease-out);
-  position: relative;
-}
-
-.hero__asset img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero__asset:hover {
-  z-index: 10;
-  transform: translateY(-4px) !important;
-  transition: transform 0.3s ease-out !important;
-}
-
-.hero__assets > *:first-child {
-  margin-left: 0;
-}
-
-/* Photo sticker — pill shape matching .eyes dimensions & tilt */
 .hero__asset--photo {
-  width: 64px;
-  height: 42px;
-  border-radius: 48px;
-  background-color: #242424;
-  background-clip: padding-box;
-  margin-left: -12px;
+  width: 76px; height: 76px; margin-top: 0; margin-left: -10px;
+  border: none; box-shadow: none;
+  border-radius: 999px; z-index: 0;
+  animation: none; --tilt: 0deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__asset { animation: none; }
+  .hero__assets .eyes { animation: none; }
 }
 
 .eyes {
@@ -612,7 +578,7 @@ h6 {
   background-clip: padding-box;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.12);
   flex-shrink: 0;
-  margin-left: -12px;
+  margin-left: -16px;
   transition: transform 0.2s var(--ease-out);
   position: relative;
   overflow: hidden;
@@ -620,9 +586,10 @@ h6 {
   box-sizing: border-box;
 }
 
-.eyes:hover {
-  z-index: 10;
-  transform: translateY(-4px) !important;
+/* Hero sticker row: eyes float like the tags */
+.hero__assets .eyes {
+  margin-top: 24px;
+  animation: float var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
 }
 
 .eyes__icon {
