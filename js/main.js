@@ -15,13 +15,34 @@
 
   ready(function () {
     /* ------------------------------------------------------------------
-       Nav — hide on scroll down, reappear on scroll up.
-       Header (avatar + meta) stays pinned and always visible.
+       Chrome hide on scroll down, reappear on scroll up:
+       - Desktop (>=800px): primary nav slides up inside the pinned header.
+       - Tablet (592–799px): the whole header slides up.
+       - Mobile (<=591px): header slides up and the bottom tab bar slides
+         down at the same time.
        ------------------------------------------------------------------ */
     var header = document.getElementById('header');
     var nav = document.querySelector('.nav');
+    var tabbar = document.querySelector('.tabbar');
     var lastY = window.pageYOffset || 0;
     var ticking = false;
+    var chromeHidden = false;
+    var desktopNavMQ = window.matchMedia('(min-width: 800px)');
+
+    function updateChrome() {
+      if (desktopNavMQ.matches) {
+        /* Desktop: nav hides, header (avatar + meta) stays pinned */
+        if (nav) nav.classList.toggle('is-hidden', chromeHidden);
+        if (header) header.classList.remove('is-hidden');
+        if (tabbar) tabbar.classList.remove('is-hidden');
+      } else {
+        /* Tablet/mobile: nav stays inside the header, the chrome itself
+           hides — header up (+ tab bar down on mobile) */
+        if (nav) nav.classList.remove('is-hidden');
+        if (header) header.classList.toggle('is-hidden', chromeHidden);
+        if (tabbar) tabbar.classList.toggle('is-hidden', chromeHidden);
+      }
+    }
 
     function onScroll() {
       var y = window.pageYOffset || 0;
@@ -29,12 +50,25 @@
       var atTop = y <= 0;
 
       if (!atTop && delta > 2) {
-        if (nav) nav.classList.add('is-hidden');
+        chromeHidden = true;
       } else if (atTop || delta < -2) {
-        if (nav) nav.classList.remove('is-hidden');
+        chromeHidden = false;
       }
+
+      updateChrome();
       lastY = y;
       ticking = false;
+    }
+
+    /* Crossing the breakpoint while scrolled down — reveal immediately */
+    function onNavMQChange() {
+      chromeHidden = false;
+      updateChrome();
+    }
+    if (desktopNavMQ.addEventListener) {
+      desktopNavMQ.addEventListener('change', onNavMQChange);
+    } else if (desktopNavMQ.addListener) {
+      desktopNavMQ.addListener(onNavMQChange); /* older Safari */
     }
 
     window.addEventListener('scroll', function () {
@@ -279,13 +313,6 @@
        ------------------------------------------------------------------ */
     var accessOverlay = document.getElementById('accessModal');
     if (accessOverlay) {
-      /* TEMPORARY (testing): re-show the modal every 2 minutes after
-         unlocking. To restore the previous timing (modal stays dismissed
-         until the next reload / next day after unlocking), set
-         ACCESS_MODAL_TEST_MODE to false — nothing else needs to change. */
-      var ACCESS_MODAL_TEST_MODE = false;
-      var ACCESS_MODAL_RELOCK_MS = 2 * 60 * 1000; // 2 minutes
-
       var ACCESS_UNLOCK_KEY = 'cases_unlocked_date';
       var ACCESS_PASSWORD = (typeof window.PORTFOLIO_PASSWORD === 'string' && window.PORTFOLIO_PASSWORD)
         ? window.PORTFOLIO_PASSWORD
@@ -297,13 +324,10 @@
       var accessBanner = document.getElementById('accessBanner');
       var accessBannerText = document.getElementById('accessBannerText');
       var accessCode = document.getElementById('accessCode');
-      var accessCheck = document.getElementById('accessCheck');
-      var accessActions = accessOverlay.querySelector('.modal__actions');
-      var accessModal = accessOverlay.querySelector('.modal');
-      var accessTitle = document.getElementById('accessModalTitle');
-      var accessText = accessOverlay.querySelector('.modal__text');
-      var accessState = 'locked'; // 'locked' | 'unlocked'
-      var accessRelockTimer = null;
+
+      /* URL of the case the user clicked — navigation happens only after
+         the correct password is entered. */
+      var pendingCaseUrl = null;
 
       function accessToday() {
         var d = new Date();
@@ -334,14 +358,7 @@
           d.disabled = false;
           d.value = '';
         });
-        accessModal.classList.remove('is-success');
-        var accessSuccess = document.getElementById('accessSuccess');
-        if (accessSuccess) accessSuccess.setAttribute('hidden', '');
         accessClearErrors();
-        accessPrimary.textContent = 'Unlock cases';
-        accessSecondary.textContent = 'View concepts';
-        accessSecondary.removeAttribute('data-cancel-mode');
-        accessState = 'locked';
       }
 
       function accessShowError(text) {
@@ -354,7 +371,14 @@
         accessResetState();
         accessOverlay.classList.add('is-open');
         accessOverlay.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('is-locked');
+        /* Scroll lock lives on the root element: html { overflow-x: clip }
+           prevents body { overflow } from reaching the viewport, and locking
+           body would turn it into a scroll container and un-stick the
+           sticky header. */
+        document.documentElement.classList.add('is-locked');
+        /* The header must stay pinned above the modal — reveal it if the
+           scroll-down chrome hiding had tucked it away (tablet/mobile). */
+        if (header) header.classList.remove('is-hidden');
         window.setTimeout(function () {
           if (accessDigits[0]) accessDigits[0].focus();
         }, 60);
@@ -363,21 +387,14 @@
       function accessClose() {
         accessOverlay.classList.remove('is-open');
         accessOverlay.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('is-locked');
+        document.documentElement.classList.remove('is-locked');
+        pendingCaseUrl = null;
       }
 
-      /* Original timing: show the modal only when the cases have not been
-         unlocked today yet. TEMPORARY (testing): force it open on every
-         load so the every-2-minutes re-appearance can be verified. */
-      if (ACCESS_MODAL_TEST_MODE || !accessUnlockedToday()) {
-        accessOpen();
-      }
+      /* The modal is not shown on page load. It opens only when a case card
+         is clicked (see the click interception below). */
 
-      function accessSubmit() {
-        if (accessState === 'unlocked') {
-          accessContinue();
-          return;
-        }
+      function accessUnlock() {
         var code = accessGetCode();
         if (code.length < 4) {
           accessShowError('Please enter a code to unlock.');
@@ -388,50 +405,14 @@
           return;
         }
 
-        /* Success — form slides down, success block slides in from top, modal contracts. */
-        accessState = 'unlocked';
-        accessDigits.forEach(function (d) {
-          d.blur();
-          d.setAttribute('disabled', '');
-        });
-        var accessSuccess = document.getElementById('accessSuccess');
-        if (accessSuccess) accessSuccess.removeAttribute('hidden');
-        accessModal.classList.add('is-success');
-
-        /* Confetti in sync with the block swap to success. */
-        if (typeof window.confetti === 'function') {
-          window.confetti({
-            particleCount: 140,
-            spread: 80,
-            startVelocity: 45,
-            scalar: 0.9,
-            origin: { x: 0.5, y: 0.5 },
-            zIndex: 200
-          });
-        }
-
-        /* Auto-close after 2500 ms. */
-        window.setTimeout(function () {
-          try {
-            localStorage.setItem(ACCESS_UNLOCK_KEY, accessToday());
-          } catch (e) { /* storage unavailable — ignore */ }
-          accessClose();
-        }, 2500);
-      }
-
-      function accessContinue() {
-        /* Original behavior: remember today's unlock, hide modal + blur. */
+        /* Correct password — remember today's unlock, close the modal and
+           only now navigate to the case detail page. */
         try {
           localStorage.setItem(ACCESS_UNLOCK_KEY, accessToday());
         } catch (e) { /* storage unavailable — ignore */ }
+        var url = pendingCaseUrl;
         accessClose();
-
-        /* TEMPORARY (testing): re-show the modal every 2 minutes after
-           unlocking. Remove this block (and the two flags above) to go
-           back to the original timing. */
-        if (ACCESS_MODAL_TEST_MODE && !accessRelockTimer) {
-          accessRelockTimer = window.setInterval(accessOpen, ACCESS_MODAL_RELOCK_MS);
-        }
+        if (url) window.location.href = url;
       }
 
       /* Digit inputs — numeric only, auto-advance to next, backspace on an
@@ -461,7 +442,7 @@
             if (index < accessDigits.length - 1) accessDigits[index + 1].focus();
           } else if (e.key === 'Enter') {
             e.preventDefault();
-            accessSubmit();
+            accessUnlock();
           }
         });
 
@@ -480,14 +461,35 @@
         });
       });
 
-      accessPrimary.addEventListener('click', accessSubmit);
+      accessPrimary.addEventListener('click', accessUnlock);
 
-      /* "Publish visuals" (normal state) / "Cancel" (after unlock). */
+      /* Cancel — just close the modal and stay on the page. */
       accessSecondary.addEventListener('click', function (e) {
-        if (accessSecondary.hasAttribute('data-cancel-mode')) {
-          e.preventDefault();
-          window.location.href = 'index.html';
-        }
+        e.preventDefault();
+        accessClose();
+      });
+
+      /* Click on the empty overlay area around the card closes the modal.
+         Clicks inside the card land on descendants, so only an exact hit
+         on the overlay itself (the dimmed backdrop) dismisses it. */
+      accessOverlay.addEventListener('click', function (e) {
+        if (e.target === accessOverlay) accessClose();
+      });
+
+      /* Clicking a case card opens the modal instead of navigating right
+         away; the transition to the case page happens only after the
+         correct password is entered. When the cases were already unlocked
+         today, the card navigates straight to the detail page. */
+      Array.prototype.forEach.call(document.querySelectorAll('a.case'), function (link) {
+        var href = link.getAttribute('href');
+        if (!href || href.indexOf('cases/') === -1) return;
+        link.addEventListener('click', function (e) {
+          if (!accessUnlockedToday()) {
+            e.preventDefault();
+            pendingCaseUrl = href;
+            accessOpen();
+          }
+        });
       });
     }
 
@@ -524,6 +526,7 @@
       var currentIndex = 0;
       var interval;
       var isPaused = false;
+      var featuredLabel = document.querySelector('.featured__label');
 
       function nextSlide() {
         if (isPaused || document.hidden) return;
@@ -541,7 +544,19 @@
         // Removed the setTimeout that cleared the 'out' class
         // to keep the sequence clean and immediate
         currentSlide.classList.remove('out');
+
+        updateLabel();
       }
+
+      /* Label (next to the "concepts" link) follows the visible slide:
+         the text comes from data-label on the image, i.e. the same
+         captions that sit under these images on the concepts page. */
+      function updateLabel() {
+        if (!featuredLabel) return;
+        var label = slides[currentIndex].getAttribute('data-label');
+        if (label) featuredLabel.textContent = label;
+      }
+      updateLabel();
 
       interval = setInterval(nextSlide, 5000); // Changed from 3000ms to 5000ms
 
@@ -579,13 +594,240 @@
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const placeholder = document.getElementById('footer-placeholder');
-  if (placeholder) {
-    fetch('components/footer.html')
-      .then(response => response.text())
-      .then(data => {
-        placeholder.outerHTML = data;
-      });
+document.addEventListener('DOMContentLoaded', function () {
+  /* Back to top — smooth scroll, instant when reduced motion is preferred. */
+  var fwReduceMotion = !!(window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var backToTop = document.querySelector('[data-back-to-top]');
+  if (backToTop) {
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: fwReduceMotion ? 'auto' : 'smooth' });
+    });
   }
 });
+
+
+/* ==========================================================================
+   Reveal on scroll ([data-reveal])
+   Blocks marked with data-reveal fade and slide up once as they enter the
+   viewport. Header and footer stay untouched (no data-reveal there).
+   Initial hidden state lives in main.css scoped to html.js, so every page
+   stays fully visible without JavaScript and under reduced motion.
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Reduced motion or missing IntersectionObserver support: skip everything.
+     Without the html.js class the hidden styles in CSS never apply,
+     so all blocks are visible immediately */
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+  document.documentElement.classList.add('js');
+
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  if (els.length === 0) return;
+
+  var initialBatchDone = false;
+
+  function reveal(el, delayMs) {
+    /* One-shot: stop watching once the block has been revealed */
+    observer.unobserve(el);
+
+    /* Drop the stagger delay after the entrance finishes so any future
+       transitions on the element run without it */
+    el.addEventListener('transitionend', function handler(e) {
+      if (e.target !== el || e.propertyName !== 'opacity') return;
+      el.style.transitionDelay = '';
+      el.removeEventListener('transitionend', handler);
+    });
+
+    if (delayMs > 0) {
+      el.style.transitionDelay = delayMs + 'ms';
+    }
+
+    el.classList.add('is-revealed');
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    if (!initialBatchDone) {
+      initialBatchDone = true;
+
+      /* Blocks already in the viewport on load: reveal them right away
+         with a light 100ms stagger between adjacent ones (top to bottom) */
+      entries.filter(function (entry) {
+        return entry.isIntersecting;
+      }).sort(function (a, b) {
+        return a.target.getBoundingClientRect().top -
+               b.target.getBoundingClientRect().top;
+      }).forEach(function (entry, i) {
+        reveal(entry.target, i * 100);
+      });
+      return;
+    }
+
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        reveal(entry.target, 0);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  els.forEach(function (el) {
+    observer.observe(el);
+  });
+})();
+
+/* ==========================================================================
+   Case Detail — розовые плашки-подсветки
+   Фразы в .case-hl подсвечиваются при попадании в вьюпорт: плашка
+   «выезжает» слева (см. .case-hl в main.css). Блок отключается сам,
+   если на странице нет .case-hl.
+   ========================================================================== */
+(function () {
+  var highlights = document.querySelectorAll('.case-hl');
+  if (!highlights.length) return;
+
+  function reveal(hl, delay) {
+    hl.style.transitionDelay = delay + 'ms';
+    hl.classList.add('is-in');
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    highlights.forEach(function (hl, i) { reveal(hl, i * 120); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var container = entry.target.closest('.case-detail__section') ||
+                      entry.target.parentElement;
+      if (container.dataset.hlDone) {
+        observer.unobserve(entry.target);
+        return;
+      }
+      container.dataset.hlDone = 'true';
+      var nodes = container.querySelectorAll('.case-hl');
+      var delay = 0;
+      nodes.forEach(function (hl) {
+        reveal(hl, delay);
+        delay += 220;
+      });
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+  highlights.forEach(function (hl) { observer.observe(hl); });
+})();
+
+/* ==========================================================================
+   Case Detail — автозапуск видео в панелях
+   muted+playsinline уже в атрибутах; Safari (включая iOS) может не стартовать
+   autoplay сам — особенно у видео ниже первого экрана. Страховка в три слоя:
+   1) после загрузки ставим muted свойством и явно зовём play();
+   2) повторяем попытку на canplay (когда данные видео доехали);
+   3) повторяем при попадании видео во вьюпорт (IntersectionObserver).
+   При prefers-reduced-motion: reduce autoplay убираем — preload="metadata"
+   оставляет первый кадр как постер.
+   ========================================================================== */
+(function () {
+  var videos = document.querySelectorAll('.case-detail__panel video');
+  if (!videos.length) return;
+
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function tryPlay(video) {
+    if (video.paused) {
+      video.muted = true;
+      video.play().catch(function () {});
+    }
+  }
+
+  videos.forEach(function (video) {
+    if (reducedMotion.matches) {
+      /* Анимацию не запускаем: первый кадр уже показан через preload="metadata" */
+      video.removeAttribute('autoplay');
+      video.pause();
+      return;
+    }
+
+    tryPlay(video);
+    video.addEventListener('canplay', function () {
+      tryPlay(video);
+    });
+  });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) tryPlay(entry.target);
+      });
+    }, { threshold: 0.25 });
+    videos.forEach(function (video) { io.observe(video); });
+  }
+})();
+/* ==========================================================================
+   Featured works card click — clicking the preview frame navigates to the
+   same case page as the [case ↗] brack-link. Scoped to the frame only:
+   clicks on the card header or the subtitle text do nothing (hover is
+   scoped the same way in CSS). Clicks on the brack-link itself (or any
+   other <a>) and modifier-clicks keep the native browser behaviour.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var cards = document.querySelectorAll('.featured-works__card');
+  if (!cards.length) return;
+
+  Array.prototype.forEach.call(cards, function (card) {
+    var link = card.querySelector('.brack-link');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    if (!href) return;
+    var frame = card.querySelector('.featured-works__frame');
+    if (!frame) return;
+
+    frame.addEventListener('click', function (e) {
+      if (e.defaultPrevented ||
+          e.button !== 0 ||
+          e.metaKey || e.ctrlKey || e.shiftKey || e.altKey ||
+          e.target.closest('a')) {
+        return;
+      }
+      window.location.href = href;
+    });
+  });
+})();
+
+/* ==========================================================================
+   Featured preview click (home) — clicking the preview card navigates to
+   the concepts page (same as the [concepts ↗] brack-link).
+   The handler is scoped to the card (.featured__frame) only, so clicks on
+   the label row or on the space around the card do nothing. Modifier-clicks
+   keep the native browser behaviour.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var featuredCard = document.querySelector('.featured__frame');
+  if (!featuredCard) return;
+
+  var link = document.querySelector('.featured .brack-link');
+  if (!link) return;
+  var href = link.getAttribute('href');
+  if (!href) return;
+
+  featuredCard.addEventListener('click', function (e) {
+    if (e.defaultPrevented ||
+        e.button !== 0 ||
+        e.metaKey || e.ctrlKey || e.shiftKey || e.altKey ||
+        e.target.closest('a')) {
+      return;
+    }
+    window.location.href = href;
+  });
+})();

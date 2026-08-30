@@ -12,7 +12,7 @@ from html.parser import HTMLParser
 
 ROOT = "/Users/alisabarysava/Documents/portfolio"
 CASES = ["ai-autofill-forms.html", "document-preview-redesign.html",
-         "feedback-form.html", "trip-request-redesign.html"]
+         "feedback-form.html"]
 
 
 class Node:

@@ -21,9 +21,9 @@
   <header class="header" id="header">
     <div class="header__inner">
       <div class="header__left">
+        <img class="header__logo" src="assets/img/navigation_icons/logo.svg" width="33" height="20" alt="">
         <div class="header__identity">
           <p class="header__name">Alisa Barysava</p>
-          <p class="header__role">Product &amp; ux/ui designer</p>
         </div>
       </div>
 
@@ -46,8 +46,7 @@
       </nav>
 
       <div class="header__meta">
-        <p class="header__time" data-time>--:-- AM</p>
-        <p class="header__tz">(UTC+3)</p>
+        <p class="header__clock">Belarus, (<span data-time>--:-- AM</span>)</p>
       </div>
 
       <!-- Mobile: CV action stays in the top header row -->
@@ -79,42 +78,123 @@
   <main class="main">
 
     <section class="case-hero" aria-labelledby="concepts-title">
-      <h1 class="case-hero__title" id="concepts-title">
-        <span class="font-accent">Concepts</span>
-        <span class="case-hero__subtitle-gray">(selected 2026)</span>
-      </h1>
-      <p class="case-hero__desc">
+      <h1 class="concepts-title" id="concepts-title" data-reveal>Concepts</h1>
+      <p class="concepts-subtitle" data-reveal>
         Self-initiated concept work — small products imagined from scratch to explore new domains, patterns and visual languages.
       </p>
     </section>
 
-    <div class="visuals">
+    <div class="concepts-grid">
       <!-- 1 -->
-      <article class="visual-card">
-        <div class="skel">
-          <img src="assets/img/featured-preview.png/Preview-1.png" alt="VPN App Concept preview" loading="lazy" decoding="async">
+      <figure class="concept" data-reveal>
+        <div class="concept__frame">
+          <div class="concept__preview">
+            <div class="skel">
+              <img src="assets/img/featured-preview.png/Preview-1.png" alt="Mobile VPN app — Regions page" loading="lazy" decoding="async" width="3200" height="2400">
+            </div>
+          </div>
         </div>
-      </article>
+        <figcaption class="concept__caption">Mobile VPN app, Regions page</figcaption>
+      </figure>
 
       <!-- 2 -->
-      <article class="visual-card">
-        <div class="skel">
-          <img src="assets/img/featured-preview.png/Preview-2.png" alt="Exchange Rate App Concept preview" loading="lazy" decoding="async">
+      <figure class="concept" data-reveal>
+        <div class="concept__frame">
+          <div class="concept__preview">
+            <div class="skel">
+              <img src="assets/img/featured-preview.png/Preview-2.png" alt="Mobile VPN app — Connection screen" loading="lazy" decoding="async" width="3200" height="2400">
+            </div>
+          </div>
         </div>
-      </article>
+        <figcaption class="concept__caption">Mobile VPN app, Connection</figcaption>
+      </figure>
 
       <!-- 3 -->
-      <article class="visual-card">
-        <div class="skel">
-          <img src="assets/img/featured-preview.png/Preview-3.png" alt="Sales App Concept preview" loading="lazy" decoding="async">
+      <figure class="concept" data-reveal>
+        <div class="concept__frame">
+          <div class="concept__preview">
+            <div class="skel">
+              <img src="assets/img/featured-preview.png/Preview-3.png" alt="Mobile VPN app — primary screens" loading="lazy" decoding="async" width="3200" height="2400">
+            </div>
+          </div>
         </div>
-      </article>
+        <figcaption class="concept__caption">Mobile VPN app, Primary screens</figcaption>
+      </figure>
+
+      <!-- 4 -->
+      <figure class="concept" data-reveal>
+        <div class="concept__frame">
+          <div class="concept__preview">
+            <div class="skel">
+              <img src="assets/img/featured-preview.png/Preview-4.jpg" alt="Game Launcher Concept preview — downloads screen with icon-only sidebar" loading="lazy" decoding="async" width="3200" height="2400">
+            </div>
+          </div>
+        </div>
+        <figcaption class="concept__caption">Game Launcher, Medium size</figcaption>
+      </figure>
+
+      <!-- 5 -->
+      <figure class="concept" data-reveal>
+        <div class="concept__frame">
+          <div class="concept__preview">
+            <div class="skel">
+              <img src="assets/img/featured-preview.png/Preview-5.jpg" alt="Game Launcher Concept preview — downloads screen with expanded navigation sidebar" loading="lazy" decoding="async" width="3200" height="2400">
+            </div>
+          </div>
+        </div>
+        <figcaption class="concept__caption">Game Launcher, Full screen</figcaption>
+      </figure>
+
+      <!-- 6 -->
+      <figure class="concept" data-reveal>
+        <div class="concept__frame">
+          <div class="concept__preview">
+            <div class="skel">
+              <img src="assets/img/featured-preview.png/Preview-6.jpg" alt="Game Launcher Concept preview — compact downloads screen with icon-only sidebar" loading="lazy" decoding="async" width="3200" height="2400">
+            </div>
+          </div>
+        </div>
+        <figcaption class="concept__caption">Game Launcher, Small size</figcaption>
+      </figure>
     </div>
 
   </main>
 
-  <!-- ============================== FOOTER ============================== -->
-  <div id="footer-placeholder"></div>
+    <!-- ============================== FOOTER ============================== -->
+  <footer class="footer footer--home">
+    <div class="container container--wide footer__inner footer__inner--home">
+      <div class="footer__grid">
+        <div class="footer__copyright">
+          <div class="footer__brand">
+            <img class="footer__logo" src="assets/img/navigation_icons/logo.svg" alt="" width="33" height="20" loading="lazy" decoding="async">
+            <span class="footer__name">Alisa Barysava</span>
+          </div>
+          <div class="footer__meta">
+            <p class="footer__sub">(designed &amp; coded by me)</p>
+            <p class="footer__sub">&copy;alisa-barysava-2026</p>
+          </div>
+        </div>
+        <div class="footer__cols">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Contacts</h4>
+            <ul class="footer__links">
+              <li><a class="footer__link" href="mailto:alisabarysava@gmail.com"><span class="brack-link__o">[</span><span class="brack-link__t">Mail&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="https://www.linkedin.com/in/barysavaalisa/" target="_blank" rel="noopener noreferrer"><span class="brack-link__o">[</span><span class="brack-link__t">LinkedIn&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="https://t.me/a_brsva" target="_blank" rel="noopener noreferrer"><span class="brack-link__o">[</span><span class="brack-link__t">Telegram&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Sections</h4>
+            <ul class="footer__links">
+              <li><a class="footer__link" href="index.html"><span class="brack-link__o">[</span><span class="brack-link__t">Home&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="work-cases.html"><span class="brack-link__o">[</span><span class="brack-link__t">Work cases&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="concepts.html"><span class="brack-link__o">[</span><span class="brack-link__t">Concepts&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+            </ul>
+          </div>
+        </div>
+        </div>
+    </div>
+  </footer>
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>

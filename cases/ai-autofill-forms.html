@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="view-transition" content="same-origin">
   <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin>
-  <title>AI Autofill Forms Feature — Alisa Barysava</title>
-  <meta name="description" content="AI-powered form autofill from receipts for expense reimbursement and corporate card reporting.">
+  <title>Design AI Autofill Feature — Alisa Barysava</title>
+  <meta name="description" content="Кейс: проектирование ИИ-автозаполнения форм из чеков — от исследования OCR до запуска.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,145 +15,227 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32.png">
   <link rel="apple-touch-icon" href="../assets/favicons/apple-touch-icon.png">
 </head>
-<body class="case-page">
-  <!-- Sidebar -->
-  <aside class="case-sidebar">
-    <a href="../work-cases.html" class="case-sidebar__back btn btn--text">
-      <svg class="case-sidebar__back-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M11.293 4.29289C11.6835 3.90237 12.3165 3.90237 12.707 4.29289C13.0975 4.68342 13.0975 5.31645 12.707 5.70695L7.41406 10.9999H19C19.5523 10.9999 20 11.4476 20 11.9999C19.9999 12.5522 19.5522 12.9999 19 12.9999H7.41406L12.707 18.2929C13.0975 18.6834 13.0975 19.3165 12.707 19.707C12.3165 20.0975 11.6835 20.0974 11.293 19.707L4.29297 12.707C4.26184 12.6758 4.23417 12.6423 4.20801 12.6083C4.19423 12.5904 4.18053 12.5725 4.16797 12.5536C4.14006 12.5118 4.11566 12.4684 4.09473 12.4237C4.07465 12.381 4.0569 12.3368 4.04297 12.2909C4.0379 12.2742 4.03445 12.2571 4.03027 12.2402C4.01124 12.1631 4.00001 12.0828 4 11.9999C4 11.9203 4.00974 11.8428 4.02734 11.7685C4.03221 11.7479 4.03678 11.7272 4.04297 11.707C4.05787 11.6582 4.07777 11.6116 4.09961 11.5663C4.11878 11.5265 4.14029 11.4876 4.16504 11.4501C4.20242 11.3935 4.24516 11.3407 4.29297 11.2929L11.293 4.29289Z" fill="currentColor"/>
-      </svg>
-      <span>Back</span>
-    </a>
-    <nav class="case-sidebar__nav" aria-label="Case navigation">
-      <a href="#intro" class="case-sidebar__nav-item case-sidebar__nav-item--active">
-        <span class="case-sidebar__nav-marker"></span>
-        <span>Intro</span>
-      </a>
-      <a href="#approach" class="case-sidebar__nav-item">
-        <span class="case-sidebar__nav-marker"></span>
-        <span>Approach</span>
-      </a>
-      <a href="#key-decisions" class="case-sidebar__nav-item">
-        <span class="case-sidebar__nav-marker"></span>
-        <span>Key Decisions</span>
-      </a>
-      <a href="#result" class="case-sidebar__nav-item">
-        <span class="case-sidebar__nav-marker"></span>
-        <span>Result</span>
-      </a>
-    </nav>
-  </aside>
+<body>
 
-  <!-- Main Content -->
-  <main class="case-content">
-    <div class="case-container">
-      <h1 class="case-title">AI Autofill Forms Feature</h1>
-      
-      <!-- Meta Grid -->
-      <div class="case-meta-grid">
-        <div class="case-meta-item">
-          <span class="case-meta-label">Company</span>
-          <span class="case-meta-value">iTechArt</span>
-        </div>
-        <div class="case-meta-item">
-          <span class="case-meta-label">Year</span>
-          <span class="case-meta-value">2026</span>
-        </div>
-        <div class="case-meta-item">
-          <span class="case-meta-label">Domain</span>
-          <span class="case-meta-value">Fintech, AI</span>
-        </div>
-        <div class="case-meta-item">
-          <span class="case-meta-label">Role</span>
-          <span class="case-meta-value">Product Designer</span>
+  <!-- ============================ HEADER ============================ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <div class="header__left">
+        <img class="header__logo" src="../assets/img/navigation_icons/logo.svg" width="33" height="20" alt="">
+        <div class="header__identity">
+          <p class="header__name">Alisa Barysava</p>
         </div>
       </div>
 
-      <!-- Intro Section -->
-      <section id="intro" class="case-section">
-        <h2 class="case-section-title">Intro</h2>
-        <p class="case-text">AI-powered form autofill from receipts, built for two modules: expense reimbursement and corporate card reporting. Both processes relied on manual data entry from receipts and slow manual approval — the goal was to speed this up with AI without losing user trust in the result.</p>
-        
-        <div class="case-image-panel">
-          <img src="../assets/img/cases/ai-autofill/img-1.png" alt="Intro screens showing 3 mobile devices" loading="lazy">
-        </div>
-        
-        <div class="case-image-panel">
-          <img src="../assets/img/cases/ai-autofill/img-2.png" alt="Intro desktop interface" loading="lazy">
-        </div>
-      </section>
+      <!-- Desktop / tablet navigation -->
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__link" href="../index.html">
+          <span>Home</span>
+        </a>
+        <a class="nav__link" href="../work-cases.html">
+          <span>Work cases</span>
+        </a>
+        <a class="nav__link" href="../concepts.html">
+          <span>Concepts</span>
+        </a>
+        <span class="nav__divider" aria-hidden="true"></span>
+        <a class="nav__link nav__link--cv" href="../assets/cv/Alisa-Barysava-CV.pdf" download>
+          <span>CV</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 20C19.5523 20 20 20.4477 20 21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21C4 20.4477 4.44772 20 5 20H19ZM12 2C12.5523 2 13 2.44772 13 3V14.5859L17.293 10.293C17.6835 9.90244 18.3165 9.90244 18.707 10.293C19.0975 10.6835 19.0975 11.3165 18.707 11.707L12.707 17.707C12.6592 17.7548 12.6065 17.7976 12.5498 17.835C12.5121 17.8599 12.4727 17.8811 12.4326 17.9004C12.3862 17.9227 12.3381 17.942 12.2881 17.957C12.2752 17.9609 12.262 17.9635 12.249 17.9668C12.2306 17.9715 12.2122 17.9768 12.1934 17.9805C12.1863 17.9819 12.179 17.9822 12.1719 17.9834C12.1159 17.9931 12.0587 18 12 18C11.9433 18 11.8881 17.9934 11.834 17.9844C11.8236 17.9826 11.8131 17.9816 11.8027 17.9795C11.7912 17.9772 11.7799 17.9744 11.7686 17.9717C11.748 17.9668 11.7273 17.9623 11.707 17.9561C11.6584 17.9412 11.6116 17.9222 11.5664 17.9004C11.5266 17.8812 11.4877 17.8597 11.4502 17.835C11.3935 17.7976 11.3408 17.7548 11.293 17.707L5.29297 11.707C4.90244 11.3165 4.90244 10.6835 5.29297 10.293C5.68349 9.90244 6.31651 9.90244 6.70703 10.293L11 14.5859V3C11 2.44772 11.4477 2 12 2Z" fill="currentColor"/></svg>
+        </a>
+      </nav>
 
-      <!-- Approach Section -->
-      <section id="approach" class="case-section">
-        <h2 class="case-section-title">Approach</h2>
-                <p class="case-text" style="margin-bottom: 8px;">I designed AI autofill as an opt-in mode (Beta-AI Flow) embedded in both modules: the user uploads a receipt, AI extracts and fills in the form fields, and each field gets a confidence status — auto-filled, needs review, or needs manual input.</p>
-        <p class="case-text">For the mobile version, I separately designed a camera capture mask to improve recognition accuracy. I considered the flow not just for the person submitting the request, but also for the approving side — the manager and accountant, who can see which data was AI-filled and discuss uncertain fields directly in the request's chat.</p>
-        
-        <div class="case-image-panel">
-          <img src="../assets/img/cases/ai-autofill/img-3.png" alt="Approach screens showing 3 mobile devices" loading="lazy">
-        </div>
-        
-        <div class="case-image-panel">
-          <img src="../assets/img/cases/ai-autofill/img-4.png" alt="Approach desktop interface" loading="lazy">
-        </div>
-        
-        <div class="case-image-panel">
-          <img src="../assets/img/cases/ai-autofill/img-5.png" alt="Approach screens showing 3 mobile devices" loading="lazy">
-        </div>
-      </section>
+      <div class="header__meta">
+        <p class="header__clock">Belarus, (<span data-time>--:-- AM</span>)</p>
+      </div>
 
-      <!-- Key Decisions Section -->
-      <section id="key-decisions" class="case-section">
-        <h2 class="case-section-title">Key Decisions</h2>
-        <ol class="case-ordered-list">
-          <li>Two-level AI confidence signal. Beyond per-field status, I added a document-level summary — "5 fields auto-filled, 1 needs review, 1 needs manual input." This lets the user gauge trust in the result at a glance, without checking every field individually.</li>
-          <li>Trust signal extends to the approving side. The approval screen shows a "Filled with AI" badge for accountants/managers — this sets the right level of scrutiny during review, rather than creating the illusion that the data was manually entered and therefore doesn't need re-checking.</li>
-          <li>Opt-in, not forced automation. Beta-AI Flow is a toggle, not a mandatory step. At the beta stage, this reduces risk — users can skip autofill if they don't trust it yet or prefer filling the form manually.</li>
-        </ol>
-        
-        <div class="case-image-panel">
-          <img src="../assets/img/cases/ai-autofill/img-6.png" alt="Key Decisions desktop interface" loading="lazy">
+      <!-- Mobile: CV action stays in the top header row -->
+      <nav class="nav nav--mobile" aria-label="Resume download">
+        <a class="nav__link nav__link--cv" href="../assets/cv/Alisa-Barysava-CV.pdf" download>
+          <span>CV</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 20C19.5523 20 20 20.4477 20 21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21C4 20.4477 4.44772 20 5 20H19ZM12 2C12.5523 2 13 2.44772 13 3V14.5859L17.293 10.293C17.6835 9.90244 18.3165 9.90244 18.707 10.293C19.0975 10.6835 19.0975 11.3165 18.707 11.707L12.707 17.707C12.6592 17.7548 12.6065 17.7976 12.5498 17.835C12.5121 17.8599 12.4727 17.8811 12.4326 17.9004C12.3862 17.9227 12.3381 17.942 12.2881 17.957C12.2752 17.9609 12.262 17.9635 12.249 17.9668C12.2306 17.9715 12.2122 17.9768 12.1934 17.9805C12.1863 17.9819 12.179 17.9822 12.1719 17.9834C12.1159 17.9931 12.0587 18 12 18C11.9433 18 11.8881 17.9934 11.834 17.9844C11.8236 17.9826 11.8131 17.9816 11.8027 17.9795C11.7912 17.9772 11.7799 17.9744 11.7686 17.9717C11.748 17.9668 11.7273 17.9623 11.707 17.9561C11.6584 17.9412 11.6116 17.9222 11.5664 17.9004C11.5266 17.8812 11.4877 17.8597 11.4502 17.835C11.3935 17.7976 11.3408 17.7548 11.293 17.707L5.29297 11.707C4.90244 11.3165 4.90244 10.6835 5.29297 10.293C5.68349 9.90244 6.31651 9.90244 6.70703 10.293L11 14.5859V3C11 2.44772 11.4477 2 12 2Z" fill="currentColor"/></svg>
+        </a>
+      </nav>
         </div>
-      </section>
+  </header>
 
-      <!-- Result Section -->
-      <section id="result" class="case-section">
-        <h2 class="case-section-title">Result</h2>
-        <p class="case-text">The feature recently shipped to production, so there's no quantitative data yet on time saved or recognition accuracy. The expected impact is faster submission and approval, since both the requester and the approver can focus attention on low-confidence fields instead of reviewing the entire form. I plan to revisit this case with metrics once usage data accumulates.</p>
-      </section>
+  <!-- ======================= MOBILE TAB BAR ======================= -->
+  <nav class="tabbar" aria-label="Mobile navigation">
+        <div class="tabbar__pill">
+      <a class="tabbar__link" href="../index.html">
+        <span>Home</span>
+      </a>
+      <a class="tabbar__link" href="../work-cases.html">
+        <span>Work cases</span>
+      </a>
+      <a class="tabbar__link" href="../concepts.html">
+        <span>Concepts</span>
+      </a>
+    </div>
+  </nav>
 
-      <!-- Next Case -->
-                  <div class="case-next">
-        <div class="case-next-divider"></div>
-          <span class="case-next-label">Next case</span>
-          <a href="document-preview-redesign.html" class="case-next-link">
-            <img src="../assets/img/cases/case-document-preview.png" alt="" class="case-next-image" loading="lazy">
-            <div class="case-next-text">
-              <h3 class="case-next-title">Document Preview Redesign ↖</h3>
-              <p class="case-next-description">Replaced modal preview with full-page layout for side-by-side document review.</p>
+  <!-- ============================== MAIN ============================== -->
+  <main>
+    <div class="case-detail__page">
+      <!-- Header: back + title + 01 -->
+      <section class="case-detail__header" data-reveal>
+        <a class="case-detail__back" href="../work-cases.html">
+          <span class="brack-link__o">[</span><span class="case-detail__back-text">&#8598;&nbsp;back</span><span class="brack-link__c">]</span>
+        </a>
+
+        <div class="case-detail__title-wrap">
+          <h1 class="case-detail__title">Design AI Autofill Feature</h1>
+
+          <div class="case-detail__content">
+            <div class="case-detail__section">
+              <p class="case-detail__tag">01. Discover — the pain and the task</p>
+              <p class="case-detail__text">Менеджеры, которые часто совершают траты на нужды компании, за месяц <span class="case-hl">набирают стопку чеков</span>, а потом садятся заполнять заявки на возмещение или отчёты по корпоративной карте. Заполнить одну форму — не проблема, но при 20+ чеках это превращается в <span class="case-hl">часы ручного ввода</span>. Запрос на ускорение процесса вырос в задачу от продакт-оунера: <span class="case-hl">внедрить ИИ в формы — сканировать чеки и автозаполнять поля по фото</span>.</p>
+              <p class="case-detail__text">Формального исследования не было — я начала с самого процесса и технологии: пошла смотреть, как устроен OCR, что он может считать с фото и насколько сложно это внедрить. Для продукта это был критический момент: <span class="case-hl">больших бюджетов нет</span>, решение должно быть дешёвым, простым в поддержке и быстрым в реализации.</p>
             </div>
-          </a>
-        <div class="case-next-divider" style="margin-top: 8px;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Images: pic-1 + pic-2 -->
+      <div class="case-detail__images case-detail__images--duo" data-reveal>
+        <picture class="case-detail__panel">
+          <source media="(min-width: 1024px)" srcset="../assets/img/cases/ai-autofill/case-panel-1.png">
+          <img src="../assets/img/cases/ai-autofill/mobile-panel-1.png" width="980" height="980" alt="Мобильный интерфейс: съёмка чека с подсказкой центрирования" loading="lazy" decoding="async">
+        </picture>
+        <picture class="case-detail__panel">
+          <img class="case-detail__video" src="../assets/img/cases/ai-autofill/shot-2.gif" width="980" height="980" alt="Мобильный интерфейс: ИИ автоматически заполняет форму заявки из чека" loading="lazy" decoding="async">
+        </picture>
+      </div>
+<!-- 02 + 03 -->
+      <div class="case-detail__content" data-reveal>
+        <div class="case-detail__section">
+          <p class="case-detail__tag">02. Define — goal and constraints</p>
+          <p class="case-detail__text"><span class="case-hl">Цель: ускорить подачу и согласование заявок с помощью ИИ — не теряя доверия пользователей</span>.</p>
+          <p class="case-detail__text">Ограничения: нет бюджета на платные OCR-сервисы, <span class="case-hl">нет времени разрабатывать собственные сложные решения</span>, дешёвая поддержка. Исследование технологии показало, что OCR — это больше, чем просто «считать фото»: есть подсказки в реальном времени («слишком темно — точность упадёт»), и есть сканирование живой камерой, а не готовым снимком. Всё это — либо время разработки, либо деньги. Задача оформилась как выбор: какой уровень функциональности мы можем себе позволить?</p>
+        </div>
+
+        <div class="case-detail__section">
+          <p class="case-detail__tag">03. Explore — three options and the price of convenience</p>
+          <p class="case-detail__text">Я сделала 3 скетча с подробными различиями и примерной стоимостью интеграции:<br>
+            – Живые подсказки при съёмке — удобно, но <span class="case-hl">платный сервис или время команды</span>.<br>
+            – Сканирование живой камерой — <span class="case-hl">та же ценовая категория</span>.<br>
+            – <span class="case-hl">Бесплатный минимум</span>: статичные подсказки, мини-онбординг с рекомендациями по освещению и качеству снимка, и помощники камеры — фонарик, подсказка центрирования.</p>
+          <p class="case-detail__text">С этими скетчами я пошла к продакт-оунеру: позволяет ли бюджет более дорогие, но более удобные варианты? Вместе мы пришли к выводу: никаких платных сервисов, никаких собственных сложных решений — <span class="case-hl">идём самым дешёвым путём, но делаем максимально удобно</span>.</p>
+        </div>
+      </div>
+
+      <!-- Images: pic-3 -->
+      <picture class="case-detail__panel" data-reveal>
+        <source media="(min-width: 1024px)" srcset="../assets/img/cases/ai-autofill/case-panel-3.png">
+        <img src="../assets/img/cases/ai-autofill/mobile-panel-3.png" width="1000" height="751" alt="Три варианта подсказок при съёмке: живые подсказки, сканирование камерой, бесплатный минимум" loading="lazy" decoding="async">
+      </picture>
+
+      <!-- 04 -->
+      <div class="case-detail__content" data-reveal>
+        <div class="case-detail__section">
+          <p class="case-detail__tag">04. Design — the solution</p>
+          <p class="case-detail__text"><span class="case-hl">Beta-AI Flow — опциональный режим в обоих модулях</span>. Пользователь фотографирует чек камерой: есть фонарик для плохого освещения, подсказка центрирования «расположите чек по центру», и иконка загрузки из галереи — на случай, если пользователь передумает фотографировать. Перед первым сканированием — мини-онбординг с рекомендациями по освещению и качеству снимка. ИИ извлекает данные и заполняет поля; каждое поле получает статус уверенности — заполнено автоматически, требует проверки или требует ручного ввода — а сводка на уровне документа даёт общую картину одним взглядом. Согласующая сторона — руководитель и бухгалтер — видит, что заполнил ИИ, и <span class="case-hl">обсуждает спорные поля прямо в чате заявки</span>.</p>
+        </div>
+      </div>
+
+      <!-- Images: pic-4 + pic-5, pic-6 -->
+      <div class="case-detail__images case-detail__images--stack" data-reveal>
+        <div class="case-detail__images case-detail__images--duo">
+          <picture class="case-detail__panel">
+            <source media="(min-width: 1024px)" srcset="../assets/img/cases/ai-autofill/case-panel-4.png">
+            <img src="../assets/img/cases/ai-autofill/mobile-panel-4.png" width="980" height="980" alt="Мобильный экран: форма после автозаполнения" loading="lazy" decoding="async">
+          </picture>
+          <picture class="case-detail__panel">
+            <source media="(min-width: 1024px)" srcset="../assets/img/cases/ai-autofill/case-panel-5.png">
+            <img src="../assets/img/cases/ai-autofill/mobile-panel-5.png" width="980" height="980" alt="Мобильный экран: фото чека перед сканированием" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <picture class="case-detail__panel">
+          <source media="(min-width: 1024px)" srcset="../assets/img/cases/ai-autofill/case-panel-6.png">
+          <img src="../assets/img/cases/ai-autofill/mobile-panel-6.png" width="1000" height="750" alt="Десктопный интерфейс заявки с автозаполнением" loading="lazy" decoding="async">
+        </picture>
+      </div>
+<!-- 05 -->
+      <div class="case-detail__content" data-reveal>
+        <div class="case-detail__section">
+          <p class="case-detail__tag">05. Key decisions</p>
+          <ol class="case-detail__list">
+            <li><span class="case-hl">Ограничения как входные данные для дизайна</span>. Уровень UX захвата выбирался не по вкусу, а по трём скетчам с оценкой стоимости — решение принималось совместно с ПO на основе цены и сроков.</li>
+            <li><span class="case-hl">Никакой универсальной рамки</span>. Сначала я планировала внедрить рамку центрирования, но документы разные: счета — А4, чеки — длинные и прямоугольные, причём длина может быть абсолютно разной. Универсальная рамка не помогает в точности сканирования, поэтому камера получила фонарик, подсказку центрирования и загрузку из галереи.</li>
+            <li><span class="case-hl">Двухуровневый сигнал уверенности ИИ</span>. Статусы полей + сводка по документу — доверие оценивается одним взглядом.</li>
+            <li><span class="case-hl">Сигнал доверия на согласующей стороне</span>. Бейдж «Заполнено ИИ» задаёт правильный уровень внимательности вместо иллюзии «введено вручную».</li>
+            <li><span class="case-hl">Опциональность, а не принуждение</span>. На стадии бета автоматизация — выбор пользователя.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Images: pic-7, pic-8 + pic-9 -->
+      <div class="case-detail__images case-detail__images--stack" data-reveal>
+        <picture class="case-detail__panel">
+          <source media="(min-width: 1024px)" srcset="../assets/img/cases/ai-autofill/case-panel-7.png">
+          <img src="../assets/img/cases/ai-autofill/mobile-panel-7.png" width="1000" height="750" alt="Три состояния заполнения: автозаполнено, требует проверки, требует ручного ввода" loading="lazy" decoding="async">
+        </picture>
+        <div class="case-detail__images case-detail__images--duo">
+          <picture class="case-detail__panel">
+            <source media="(min-width: 1024px)" srcset="../assets/img/cases/ai-autofill/case-panel-8.png">
+            <img src="../assets/img/cases/ai-autofill/mobile-panel-8.png" width="980" height="980" alt="Экран проверки полей формы" loading="lazy" decoding="async">
+          </picture>
+          <picture class="case-detail__panel">
+            <source media="(min-width: 1024px)" srcset="../assets/img/cases/ai-autofill/case-panel-9.png">
+            <img src="../assets/img/cases/ai-autofill/mobile-panel-9.png" width="980" height="980" alt="Экран с обсуждением полей в чате заявки" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="case-detail__content" data-reveal>
+        <div class="case-detail__section">
+          <p class="case-detail__tag">06. Deliver &amp; reflect</p>
+          <p class="case-detail__text">Фича ушла в продакшн сразу после моего ухода из компании, поэтому <span class="case-hl">нет количественных данных по экономии времени или точности распознавания</span>. Ожидаемый эффект — ускорение подачи и согласования: обе стороны фокусируются на полях с низкой уверенностью вместо проверки всей формы.</p>
+          <p class="case-detail__text">Что я забираю из этого кейса. ИИ-фичи проектируются не только для того, кто заполняет, но и для того, кто согласовывает — доверие нужно с обеих сторон процесса. Ограничения (бюджет, сроки) — не враг хорошего дизайна, а его входные данные: самый дешёвый путь может быть удобным, если осознанно выбирать, чем жертвовать. А опциональность на стадии бета — это не компромисс, а дизайн-решение, которое позволяет доверию расти постепенно. Если получу доступ к данным использования, <span class="case-hl">вернусь к кейсу: сам тоггл опциональности покажет, как быстро пользователи начинают доверять ИИ</span>.</p>
+        </div>
+      </div>
+<!-- Next case -->
+      <a class="btn btn--primary case-detail__next" href="document-preview-redesign.html" data-reveal><span>Next case&nbsp;&#8599;</span></a>
+
+    </div>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="footer footer--home">
+    <div class="container container--wide footer__inner footer__inner--home">
+      <div class="footer__grid">
+        <div class="footer__copyright">
+          <div class="footer__brand">
+            <img class="footer__logo" src="../assets/img/navigation_icons/logo.svg" alt="" width="33" height="20" loading="lazy" decoding="async">
+            <span class="footer__name">Alisa Barysava</span>
+          </div>
+          <div class="footer__meta">
+            <p class="footer__sub">(designed &amp; coded by me)</p>
+            <p class="footer__sub">&copy;alisa-barysava-2026</p>
+          </div>
+        </div>
+        <div class="footer__cols">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Contacts</h4>
+            <ul class="footer__links">
+              <li><a class="footer__link" href="mailto:alisabarysava@gmail.com"><span class="brack-link__o">[</span><span class="brack-link__t">Mail&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="https://www.linkedin.com/in/barysavaalisa/" target="_blank" rel="noopener noreferrer"><span class="brack-link__o">[</span><span class="brack-link__t">LinkedIn&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="https://t.me/a_brsva" target="_blank" rel="noopener noreferrer"><span class="brack-link__o">[</span><span class="brack-link__t">Telegram&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Sections</h4>
+            <ul class="footer__links">
+              <li><a class="footer__link" href="../index.html"><span class="brack-link__o">[</span><span class="brack-link__t">Home&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="../work-cases.html"><span class="brack-link__o">[</span><span class="brack-link__t">Work cases&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="../concepts.html"><span class="brack-link__o">[</span><span class="brack-link__t">Concepts&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-
-    <footer class="footer case-footer">
-      <div class="container footer__inner">
-        <p class="footer__cta">Have a project in mind?<br>Let's talk.</p>
-        <div class="socials">
-          <a class="social-link" href="https://t.me/a_brsva" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="../assets/img/networks_icons/platform=Telegram.svg" alt="" aria-hidden="true"></a>
-          <a class="social-link" href="https://www.linkedin.com/in/barysavaalisa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="../assets/img/networks_icons/platform=LinkedIn.svg" alt="" aria-hidden="true"></a>
-          <a class="social-link" href="mailto:alisabarysava.com" aria-label="Email"><img src="../assets/img/networks_icons/platform=Email.svg" alt="" aria-hidden="true"></a>
-          <a class="social-link" href="../assets/cv/Alisa-Barysava-CV.pdf" download aria-label="Download CV"><img src="../assets/img/networks_icons/platform=CV.svg" alt="" aria-hidden="true"></a>
-        </div>
-        <div class="footer__meta">
-          <p class="footer__line">version 0.1<br>[designed & coded by me]</p>
-          <p class="footer__line">&#169; alisa barysava 2026</p>
-        </div>
-      </div>
-    </footer>
-  </main>
+  </footer>
 
   <script src="../js/config.js"></script>
   <script src="../js/main.js"></script>

@@ -21,9 +21,9 @@
   <header class="header" id="header">
     <div class="header__inner">
       <div class="header__left">
+        <img class="header__logo" src="assets/img/navigation_icons/logo.svg" width="33" height="20" alt="">
         <div class="header__identity">
           <p class="header__name">Alisa Barysava</p>
-          <p class="header__role">Product &amp; ux/ui designer</p>
         </div>
       </div>
 
@@ -46,8 +46,7 @@
       </nav>
 
       <div class="header__meta">
-        <p class="header__time" data-time>--:-- AM</p>
-        <p class="header__tz">(UTC+3)</p>
+        <p class="header__clock">Belarus, (<span data-time>--:-- AM</span>)</p>
       </div>
 
       <!-- Mobile: CV action stays in the top header row -->
@@ -82,70 +81,270 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero__inner">
 
-        <!-- Row of stickers + interactive eyes at the end -->
-                <div class="hero__assets" aria-hidden="true">
-          <div class="hero__asset tag-ai"><img src="assets/img/home_page_tags/AI.png" alt="AI" fetchpriority="high"></div>
-          <div class="hero__asset tag-asterisk"><img src="assets/img/home_page_tags/Claude.png" alt="Claude" fetchpriority="high"></div>
-          <div class="hero__asset tag-figma"><img src="assets/img/home_page_tags/Figma.png" alt="Figma" fetchpriority="high"></div>
-          <div class="hero__asset hero__asset--photo" style="transform: rotate(0deg);"><img src="assets/img/home_page_tags/photo.png" alt="Alisa" fetchpriority="high"></div>
-          <div class="hero__asset tag-vs"><img src="assets/img/home_page_tags/VSСode.png" alt="VS code" fetchpriority="high"></div>
-          <div class="hero__asset tag-jttr"><img src="assets/img/home_page_tags/Jitter.png" alt="Jitter" fetchpriority="high"></div>
-          
-        <div class="eyes" id="eyes" role="img" aria-label="Interactive face with eyes that follow the cursor">
-          <svg width="48" height="26" viewBox="0 0 48 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="eyes__icon">
-            <defs>
-              <clipPath id="eyesClip">
-                <rect width="48" height="26" rx="13" ry="13"/>
-              </clipPath>
-            </defs>
-            <g clip-path="url(#eyesClip)">
-              <g class="eye">
-                <path d="M47.9737 13C47.9737 20.1797 42.0804 26 34.8106 26C27.5408 26 21.6475 20.1797 21.6475 13C21.6475 5.8203 27.5408 0 34.8106 0C42.0804 0 47.9737 5.8203 47.9737 13Z" fill="white"/>
-                <path d="M45.1502 13C45.1502 7.35615 40.5183 2.78572 34.8106 2.78571C29.1029 2.78571 24.471 7.35615 24.471 13C24.471 18.6439 29.1029 23.2143 34.8106 23.2143V26L34.6406 25.9989C27.4491 25.909 21.6475 20.1236 21.6475 13C21.6475 5.8203 27.5408 0 34.8106 0L34.9806 0.00113351C42.1721 0.0910472 47.9737 5.87636 47.9737 13L47.9726 13.168C47.8815 20.2703 42.0236 26 34.8106 26V23.2143C40.5183 23.2143 45.1502 18.6439 45.1502 13Z" fill="#242424"/>
-                <ellipse class="pupil" cx="34.6941" cy="13" rx="5.24196" ry="5.17699" fill="#242424"/>
-              </g>
-              <g class="eye">
-                <path d="M26.3263 13C26.3263 20.1797 20.4329 26 13.1631 26C5.89334 26 0 20.1797 0 13C0 5.8203 5.89334 0 13.1631 0C20.4329 0 26.3263 5.8203 26.3263 13Z" fill="white"/>
-                <path d="M23.5028 13C23.5028 7.35615 18.8709 2.78572 13.1631 2.78571C7.45543 2.78571 2.82353 7.35615 2.82353 13C2.82353 18.6439 7.45543 23.2143 13.1631 23.2143V26L12.9931 25.9989C5.80167 25.909 0 20.1236 0 13C0 5.8203 5.89334 0 13.1631 0L13.3332 0.00113351C20.5246 0.0910472 26.3263 5.87636 26.3263 13L26.3251 13.168C26.2341 20.2703 20.3762 26 13.1631 26V23.2143C18.8709 23.2143 23.5028 18.6439 23.5028 13Z" fill="#242424"/>
-                <ellipse class="pupil" cx="13.0466" cy="13" rx="5.24196" ry="5.17699" fill="#242424"/>
-              </g>
-            </g>
-          </svg>
-        </div>
-        </div>
-
-
-        <h1 class="hero__title" id="hero-title">
-          <span class="accent">Hello, I&rsquo;m Alisa&nbsp;&mdash;</span>
-          <span class="hero__title-row">product &amp; ux/ui designer</span>
+        <h1 class="hero__title" id="hero-title" data-reveal>
+                    Hello <span class="hero__wave" aria-hidden="true">&#128075;&#127995;</span>, I&rsquo;m
+          <img class="hero__avatar" src="assets/img/home_page_tags/photo.png" alt="Alisa Barysava" width="40" height="40">
+                    Alisa Barysava
+                    &mdash; product &amp; ux/ui designer
+            <div class="eyes" id="eyes" role="img" aria-label="Interactive face with eyes that follow the cursor">
+              <svg width="48" height="26" viewBox="0 0 48 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="eyes__icon">
+                <defs>
+                  <clipPath id="eyesClip">
+                    <rect width="48" height="26" rx="13" ry="13"/>
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#eyesClip)">
+                  <g class="eye">
+                    <path d="M47.9737 13C47.9737 20.1797 42.0804 26 34.8106 26C27.5408 26 21.6475 20.1797 21.6475 13C21.6475 5.8203 27.5408 0 34.8106 0C42.0804 0 47.9737 5.8203 47.9737 13Z" fill="white"/>
+                    <path d="M45.1502 13C45.1502 7.35615 40.5183 2.78572 34.8106 2.78571C29.1029 2.78571 24.471 7.35615 24.471 13C24.471 18.6439 29.1029 23.2143 34.8106 23.2143V26L34.6406 25.9989C27.4491 25.909 21.6475 20.1236 21.6475 13C21.6475 5.8203 27.5408 0 34.8106 0L34.9806 0.00113351C42.1721 0.0910472 47.9737 5.87636 47.9737 13L47.9726 13.168C47.8815 20.2703 42.0236 26 34.8106 26V23.2143C40.5183 23.2143 45.1502 18.6439 45.1502 13Z" fill="#242424"/>
+                    <ellipse class="pupil" cx="34.6941" cy="13" rx="5.24196" ry="5.17699" fill="#242424"/>
+                  </g>
+                  <g class="eye">
+                    <path d="M26.3263 13C26.3263 20.1797 20.4329 26 13.1631 26C5.89334 26 0 20.1797 0 13C0 5.8203 5.89334 0 13.1631 0C20.4329 0 26.3263 5.8203 26.3263 13Z" fill="white"/>
+                    <path d="M23.5028 13C23.5028 7.35615 18.8709 2.78572 13.1631 2.78571C7.45543 2.78571 2.82353 7.35615 2.82353 13C2.82353 18.6439 7.45543 23.2143 13.1631 23.2143V26L12.9931 25.9989C5.80167 25.909 0 20.1236 0 13C0 5.8203 5.89334 0 13.1631 0L13.3332 0.00113351C20.5246 0.0910472 26.3263 5.87636 26.3263 13L26.3251 13.168C26.2341 20.2703 20.3762 26 13.1631 26V23.2143C18.8709 23.2143 23.5028 18.6439 23.5028 13Z" fill="#242424"/>
+                    <ellipse class="pupil" cx="13.0466" cy="13" rx="5.24196" ry="5.17699" fill="#242424"/>
+                  </g>
+                </g>
+                            </svg>
+            </div>
         </h1>
 
-        <p class="hero__subtitle">
+        <p class="hero__subtitle" data-reveal>
           Over the past 2+ years I&rsquo;ve been designing complex B2B interfaces for desktop and mobile in fintech and traveltech &mdash; from AI-powered features to full-page redesigns of legacy workflows
         </p>
 
         <a class="btn btn--primary" href="work-cases.html">
-          <span>Here&rsquo;s what I do</span>
+          <span>Browse cases&nbsp;&#8599;</span>
         </a>
       </div>
     </section>
 
     <!-- ========================= FEATURED CASE ========================== -->
-    <div class="featured">
-        <div class="featured__card">
-          <div class="preview skel">
-            <img src="assets/img/featured-preview.png/Preview-1.png" alt="Featured case preview" class="preview__stack in" loading="lazy" decoding="async">
-            <img src="assets/img/featured-preview.png/Preview-2.png" alt="Featured case preview" class="preview__stack" loading="lazy" decoding="async">
-            <img src="assets/img/featured-preview.png/Preview-3.png" alt="Featured case preview" class="preview__stack" loading="lazy" decoding="async">
+    <section class="featured" aria-label="Featured concept" data-reveal>
+      <div class="featured__inner">
+        <div class="featured__row">
+          <p class="featured__label">Mobile VPN app, Regions page</p>
+          <a class="brack-link" href="concepts.html">
+            <span class="brack-link__o">[</span><span class="brack-link__t">concepts&nbsp;&#8599;</span><span class="brack-link__c">]</span>
+          </a>
+        </div>
+        <div class="featured__frame">
+          <div class="featured__card">
+            <div class="preview skel">
+              <img src="assets/img/featured-preview.png/Preview-1.png" alt="Featured case preview" class="preview__stack in" data-label="Mobile VPN app, Regions page" loading="lazy" decoding="async">
+              <img src="assets/img/featured-preview.png/Preview-2.png" alt="Featured case preview" class="preview__stack" data-label="Mobile VPN app, Connection" loading="lazy" decoding="async">
+              <img src="assets/img/featured-preview.png/Preview-3.png" alt="Featured case preview" class="preview__stack" data-label="Mobile VPN app, Primary screens" loading="lazy" decoding="async">
+              <img src="assets/img/featured-preview.png/Preview-4.jpg" alt="Featured case preview" class="preview__stack" data-label="Game Launcher, Medium size" loading="lazy" decoding="async">
+              <img src="assets/img/featured-preview.png/Preview-5.jpg" alt="Featured case preview" class="preview__stack" data-label="Game Launcher, Full screen" loading="lazy" decoding="async">
+              <img src="assets/img/featured-preview.png/Preview-6.jpg" alt="Featured case preview" class="preview__stack" data-label="Game Launcher, Small size" loading="lazy" decoding="async">
+            </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- =============================== WORK ============================= -->
+    <section class="jobs" aria-labelledby="jobs-title">
+      <div class="jobs__inner">
+        <h2 class="section-title" id="jobs-title" data-reveal>Work</h2>
+
+        <div class="jobs__list">
+          <article class="jobs__item" data-reveal>
+            <div class="jobs__row">
+              <p class="jobs__name">iTechArt</p>
+              <p class="jobs__dates">Oct 2024 &mdash; Aug 2026</p>
+            </div>
+            <p class="jobs__desc">I improved user experiences through various projects, including an AI integration for auto-filling forms that reduced manual data entry. I streamlined the information architecture of an analytics page, enhancing accessibility and speeding up analysis by cutting content length by 20%. I also designed a reporting module for corporate cards, tailored user flows for different roles, and developed mobile versions of our products. My contributions included a global redesign to unify our design system, reducing cognitive load and boosting engagement. I&rsquo;m collaborating on design AI-ready design system for efficient layout implementation.</p>
+          </article>
+
+          <article class="jobs__item" data-reveal>
+            <div class="jobs__row">
+              <p class="jobs__name">Freelance</p>
+              <p class="jobs__dates">Jul 2024 &mdash; Oct 2024</p>
+            </div>
+            <p class="jobs__desc">Creating UI cases for the agency portfolio: Developed visual concepts and UI cases that the agency published on Dribbble and other platforms to showcase expertise to potential clients.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= FEATURED WORKS ========================= -->
+    <section class="featured-works" aria-labelledby="featured-works-title">
+      <div class="featured-works__inner">
+        <h2 class="section-title" id="featured-works-title">Featured works</h2>
+
+        <div class="featured-works__list">
+          <article class="featured-works__card" data-reveal>
+            <div class="featured-works__text">
+              <div class="featured-works__row">
+                <p class="featured-works__name">AI Autofill Forms Feature</p>
+                <a class="brack-link" href="cases/ai-autofill-forms.html">
+                  <span class="brack-link__o">[</span><span class="brack-link__t">case&nbsp;&#8599;</span><span class="brack-link__c">]</span>
+                </a>
+              </div>
+              <p class="featured-works__desc">Designed an OCR &amp; AI autofill flow for two in-app modules: the user photographs a receipt, AI fills the form, and every field gets a confidence status &mdash; auto-filled, needs review, or manual input. Shipped as an opt-in beta with a camera capture mask for better recognition, plus a trust-first approval side where managers see exactly what AI filled.</p>
+            </div>
+            <div class="featured-works__frame">
+              <div class="preview skel">
+                <img src="assets/img/cases/case-ai-autofill.png" alt="AI Autofill Forms Feature preview" width="2400" height="1595" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </article>
+
+          <article class="featured-works__card" data-reveal>
+            <div class="featured-works__text">
+              <div class="featured-works__row">
+                <p class="featured-works__name">Feedback Form</p>
+                <a class="brack-link" href="cases/feedback-form.html">
+                  <span class="brack-link__o">[</span><span class="brack-link__t">case&nbsp;&#8599;</span><span class="brack-link__c">]</span>
+                </a>
+              </div>
+              <p class="featured-works__desc">Designed a step-by-step in-app feedback form for the travel product: one question per screen, a friendly rating scale, optional comments and visible progress indicators. This allows users to share their trip experiences before exiting the app.</p>
+            </div>
+            <div class="featured-works__frame">
+              <div class="preview skel">
+                <img src="assets/img/cases/case-feedback-form.png" alt="Feedback Form preview" width="2400" height="1595" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </article>
+
+          <article class="featured-works__card" data-reveal>
+            <div class="featured-works__text">
+              <div class="featured-works__row">
+                <p class="featured-works__name">Document Preview Redesign</p>
+                <a class="brack-link" href="cases/document-preview-redesign.html">
+                  <span class="brack-link__o">[</span><span class="brack-link__t">case&nbsp;&#8599;</span><span class="brack-link__c">]</span>
+                </a>
+              </div>
+              <p class="featured-works__desc">Reworked document preview from a compact modal into a full-page layout: the document sits on the left with page thumbnails, grouped data on the right, and every preview gets a unique URL. One template now scales from 5-field expense receipts to 20+ field corporate-card documents, synced between desktop and mobile.</p>
+            </div>
+            <div class="featured-works__frame">
+              <div class="preview skel">
+                <img src="assets/img/cases/case-document-preview.png" alt="Document Preview Redesign preview" width="2400" height="1595" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ ALL CASES ============================ -->
+    <div class="all-cases">
+      <a class="btn btn--secondary" href="work-cases.html" data-reveal>
+        <span>All cases&nbsp;&#8599;</span>
+      </a>
     </div>
 
   </main>
 
   <!-- ============================== FOOTER ============================== -->
-  <div id="footer-placeholder"></div>
+  <footer class="footer footer--home">
+    <div class="container container--wide footer__inner footer__inner--home">
+      <div class="footer__grid">
+        <div class="footer__copyright">
+          <div class="footer__brand">
+            <img class="footer__logo" src="assets/img/navigation_icons/logo.svg" alt="" width="33" height="20" loading="lazy" decoding="async">
+            <span class="footer__name">Alisa Barysava</span>
+          </div>
+          <div class="footer__meta">
+            <p class="footer__sub">(designed &amp; coded by me)</p>
+            <p class="footer__sub">&copy;alisa-barysava-2026</p>
+          </div>
+        </div>
+        <div class="footer__cols">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Contacts</h4>
+            <ul class="footer__links">
+              <li><a class="footer__link" href="mailto:alisabarysava@gmail.com"><span class="brack-link__o">[</span><span class="brack-link__t">Mail&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="https://www.linkedin.com/in/barysavaalisa/" target="_blank" rel="noopener noreferrer"><span class="brack-link__o">[</span><span class="brack-link__t">LinkedIn&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="https://t.me/a_brsva" target="_blank" rel="noopener noreferrer"><span class="brack-link__o">[</span><span class="brack-link__t">Telegram&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Sections</h4>
+            <ul class="footer__links">
+              <li><a class="footer__link" href="index.html"><span class="brack-link__o">[</span><span class="brack-link__t">Home&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="work-cases.html"><span class="brack-link__o">[</span><span class="brack-link__t">Work cases&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+              <li><a class="footer__link" href="concepts.html"><span class="brack-link__o">[</span><span class="brack-link__t">Concepts&nbsp;&#8599;</span><span class="brack-link__c">]</span></a></li>
+            </ul>
+          </div>
+        </div>
+        </div>
+    </div>
+  </footer>
 
+  <!-- ========================= ACCESS MODAL ============================= -->
+  <div class="modal-overlay" id="accessModal" role="dialog" aria-modal="true"
+       aria-labelledby="accessModalTitle" aria-hidden="true">
+    <div class="modal">
+      <div class="modal__form" id="accessForm">
+        <div class="modal__inner">
+          <h2 class="modal__title" id="accessModalTitle">Private cases</h2>
+
+          <p class="modal__text">
+            Enter the access code to view cases.<br>
+            If you don&rsquo;t have a code or it&rsquo;s out of date, please write to me
+            in
+            <a class="modal__text-link" href="https://t.me/a_brsva"
+               target="_blank" rel="noopener noreferrer">
+              <span>Telegram&nbsp;&#8599;</span>
+            </a>
+            or
+            <a class="modal__text-link" href="mailto:alisabarysava@gmail.com">
+              <span>Email&nbsp;&#8599;</span>
+            </a>.
+          </p>
+
+          <div class="modal__code" id="accessCode">
+            <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
+                   maxlength="1" placeholder="&ndash;" aria-label="Code digit 1"/>
+            <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
+                   maxlength="1" placeholder="&ndash;" aria-label="Code digit 2"/>
+            <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
+                   maxlength="1" placeholder="&ndash;" aria-label="Code digit 3"/>
+            <input class="modal__digit" type="text" inputmode="numeric" autocomplete="one-time-code"
+                   maxlength="1" placeholder="&ndash;" aria-label="Code digit 4"/>
+          </div>
+
+          <div class="modal__banner" id="accessBanner" role="status" hidden>
+            <svg class="modal__banner-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#accessWarningClip)">
+                <path d="M11.9996 0C13.4697 0 14.742 0.814687 15.3617 2.00157C16.5856 1.39241 18.1123 1.45662 19.3021 2.29168C20.4914 3.12644 21.0247 4.50799 20.8038 5.82009C22.1645 6.02222 23.3604 6.94059 23.8149 8.29168C24.2693 9.64259 23.8593 11.0629 22.8817 11.9991C23.8599 12.9352 24.2694 14.357 23.8149 15.7083C23.3604 17.0593 22.1644 17.9768 20.8038 18.179C21.025 19.4913 20.4917 20.8734 19.3021 21.7083C18.112 22.5435 16.5857 22.6061 15.3617 21.9965C14.7422 23.1842 13.4702 24 11.9996 24C10.5288 23.9999 9.25576 23.1844 8.63644 21.9965C7.41271 22.6054 5.88765 22.5432 4.698 21.7083C3.50812 20.8732 2.97377 19.4906 3.19537 18.178C1.83511 17.9756 0.639638 17.059 0.185228 15.7083C-0.269258 14.3572 0.139465 12.9352 1.11743 11.9991C0.140104 11.0629 -0.269121 9.64243 0.185228 8.29168C0.639612 6.94089 1.83501 6.02341 3.19537 5.82104C2.9741 4.50863 3.50834 3.1266 4.698 2.29168C5.88742 1.45694 7.4128 1.39312 8.63644 2.00157C9.25602 0.814427 10.5293 0.000131479 11.9996 0Z" fill="#CE1720"/>
+                <path d="M11 12V8C11 7.44772 11.4477 7 12 7C12.5523 7 13 7.44772 13 8V12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z" fill="white"/>
+                <path d="M12.0073 15.4414C12.8317 15.4414 13.5 16.113 13.5 16.9414C13.5 17.7698 12.8317 18.4414 12.0073 18.4414H11.9927C11.1683 18.4414 10.5 17.7698 10.5 16.9414C10.5 16.113 11.1683 15.4414 11.9927 15.4414H12.0073Z" fill="white"/>
+              </g>
+              <defs>
+                <clipPath id="accessWarningClip"><rect width="24" height="24" fill="white"/></clipPath>
+              </defs>
+            </svg>
+            <span class="modal__banner-text" id="accessBannerText">Please enter a code to unlock.</span>
+          </div>
+
+          <div class="modal__actions">
+            <button type="button" class="btn btn--primary modal__action" id="accessPrimary">
+              Unlock cases
+            </button>
+            <a href="concepts.html" class="btn btn--secondary modal__action" id="accessSecondary">
+              View concepts
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal__success" id="accessSuccess" hidden>
+        <div class="modal__success-icon" role="img" aria-label="Successfully unlocked">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.9996 1C13.3472 1 14.5135 1.7468 15.0816 2.83477C16.2035 2.27638 17.6029 2.33523 18.6936 3.10071C19.7838 3.8659 20.2726 5.13232 20.0701 6.33509C21.3175 6.52037 22.4137 7.3622 22.8303 8.60071C23.2468 9.83904 22.871 11.141 21.9749 11.9991C22.8716 12.8572 23.247 14.1606 22.8303 15.3993C22.4137 16.6377 21.3174 17.4787 20.0701 17.6641C20.2729 18.867 19.7841 20.134 18.6936 20.8993C17.6027 21.6649 16.2036 21.7223 15.0816 21.1635C14.5137 22.2522 13.3477 23 11.9996 23C10.6514 22.9999 9.48445 22.2524 8.91674 21.1635C7.79498 21.7216 6.39701 21.6646 5.3065 20.8993C4.21578 20.1338 3.72596 18.8664 3.92909 17.6632C2.68218 17.776 1.58634 16.6374 1.16979 15.3993C0.75318 14.1607 1.12784 12.8572 2.02431 11.9991C1.12843 11.141 0.753306 9.83889 1.16979 8.60071C1.58631 7.36249 2.68209 6.52146 3.92909 6.33595C3.72626 5.13291 4.21598 3.86605 5.3065 3.10071C6.39681 2.33553 7.79507 2.27703 8.91674 2.83477C9.48469 1.74656 10.6519 1.00012 11.9996 1Z" fill="#5FCF65"/>
+            <path d="M18.0301 8.79563C18.4827 9.22281 18.4827 9.9427 18.0301 10.3699L11.1059 16.9061L6.96959 13.0015C6.51705 12.5743 6.51705 11.8545 6.96959 11.4273C7.3867 11.0335 8.03853 11.0335 8.45564 11.4273L11.1059 13.9291L16.5441 8.79563C16.9612 8.40189 17.613 8.40189 18.0301 8.79563Z" fill="white"/>
+          </svg>
+        </div>
+        <h2 class="modal__success-title">Successfully</h2>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>

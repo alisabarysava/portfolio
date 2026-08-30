@@ -34,7 +34,7 @@
   --color-accent-purple: #8A38F5;
 
   /* Overlays & states */
-  --color-overlay-light: rgba(30, 30, 30, 0.04);      /* selected nav item (light theme) */
+  --color-overlay-light: rgba(30, 30, 30, 0.06);      /* selected nav item (light theme) */
   --color-overlay-white: rgba(255, 255, 255, 0.12);   /* selected nav item (dark theme)  */
   --color-dark-surface: #242424;                       /* bottom sheet / dark menu        */
 
@@ -124,8 +124,8 @@
     --pad-hero-inner-desktop: 40px 20px; /* (desktop) */
   --pad-hero-inner-tablet: 40px 20px;  /* (tablet) */
   --pad-hero-inner-mobile: 40px 20px;   /* (mobile) */
-  --pad-header-desktop: 16px 20px;
-  --pad-header-mobile: 16px 20px;
+  --pad-header-desktop: 12px 20px;
+  --pad-header-mobile: 12px 20px;
   --pad-nav-pill: 8px;
   --pad-nav-item: 12px;
   --pad-button: 16px 20px;
@@ -332,7 +332,7 @@ h6 {
   align-items: center;
   gap: 4px;
   padding: var(--pad-nav-pill);
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   border: 1px solid rgba(30, 30, 30, 0.06);
   border-radius: var(--radius-md);
   transition: transform 0.3s var(--ease-out);
@@ -420,7 +420,8 @@ h6 {
 /* Mobile — CV action pill in the top header row */
 .nav--mobile {
   display: flex;
-  padding: 4px;
+  padding: 8px;
+  gap: 8px;
 }
 
 .nav__link--cv {
@@ -699,16 +700,14 @@ h6 {
   outline-offset: 2px;
 }
 
-/* Primary */
+/* Primary (deprecated — replaced by updated dark primary below) */
 .btn--primary {
   background: #F67C15;
   color: #FFFFFF;
-  box-shadow: 2px 4px 8px 0px rgba(235, 124, 33, 0.2);
 }
 .btn--primary:hover {
   background: #EE5311;
   color: #FFFFFF;
-  box-shadow: 2px 4px 8px 0px rgba(235, 124, 33, 0.2);
 }
 .btn--primary:disabled,
 .btn--primary.is-disabled {
@@ -840,131 +839,12 @@ h6 {
 
 
 /* ==========================================================================
-   Footer
+   Footer (single implementation, three breakpoints)
+   Legacy CTA/social footer removed 2026-08; active rules live in the
+   Footer (home page only) section and footer responsive sections below.
    ========================================================================== */
-.footer {
-  padding: 40px 20px 80px 20px;
-}
-
-.footer__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  text-align: center;
-}
-
-.footer__cta {
-  font-size: var(--text-body1-size);
-  line-height: var(--text-body1-line-height);
-  font-weight: var(--text-body1-weight);
-  letter-spacing: var(--text-body1-letter-spacing);
-  color: var(--color-text-tertiary);
-  max-width: 34ch;
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-.socials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 40px;
-}
-.social-link {
-  display: flex;
-  width: 44px;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background-color: var(--color-bg);
-  padding: 8px;
-  transition: background-color 0.2s ease;
-}
-
-.social-link img {
-  width: 28px;
-  height: 28px;
-}
-
-/* Telegram */
-.social-link[aria-label="Telegram"]:hover { background-color: #E0F5FF; }
-.social-link[aria-label="Telegram"]:hover img { filter: brightness(0) saturate(100%) invert(56%) sepia(85%) saturate(2256%) hue-rotate(174deg) brightness(95%) contrast(93%); }
-
-/* LinkedIn */
-.social-link[aria-label="LinkedIn"]:hover { background-color: #D9E6FA; }
-.social-link[aria-label="LinkedIn"]:hover img { filter: brightness(0) saturate(100%) invert(35%) sepia(81%) saturate(2680%) hue-rotate(185deg) brightness(93%) contrast(101%); }
-
-/* Dribbble */
-.social-link[aria-label="Dribbble"]:hover { background-color: #FFDBF7; }
-.social-link[aria-label="Dribbble"]:hover img { filter: brightness(0) saturate(100%) invert(43%) sepia(61%) saturate(1478%) hue-rotate(287deg) brightness(92%) contrast(92%); }
-
-/* Email */
-.social-link[aria-label="Email"]:hover { background-color: #FFC798; }
-.social-link[aria-label="Email"]:hover img { filter: brightness(0) saturate(100%) invert(38%) sepia(67%) saturate(951%) hue-rotate(345deg) brightness(93%) contrast(91%); }
-
-/* CV */
-.social-link[aria-label="Download CV"]:hover { background-color: #FFE88C; }
-.social-link[aria-label="Download CV"]:hover img { filter: brightness(0) saturate(100%) invert(53%) sepia(21%) saturate(1445%) hue-rotate(27deg) brightness(92%) contrast(91%); }
 
 
-.social {
-  display: inline-flex;
-  width: 44px;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  color: var(--color-text-secondary);
-  transition: color 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
-}
-
-.social svg {
-  color: currentColor;
-}
-
-.social:hover {
-  color: var(--color-accent);
-  background-color: rgba(246, 124, 21, 0.15);
-  border: none;
-}
-.social:hover svg {
-  color: var(--color-accent);
-}
-
-.footer__meta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  gap: 16px;
-}
-
-.footer__line {
-  font-size: var(--text-body1-size);
-  line-height: var(--text-body1-line-height);
-  font-weight: var(--text-body1-weight);
-  letter-spacing: var(--text-body1-letter-spacing);
-  color: var(--color-text-faint);
-}
-
-.case-footer .container.footer__inner {
-  align-items: flex-start;
-  text-align: left;
-}
-.case-footer .footer__cta {
-  text-align: left;
-}
-.case-footer .socials {
-  justify-content: flex-start;
-}
-.case-footer .footer__meta {
-  align-items: flex-start;
-  text-align: left;
-}
 
 
 
@@ -1029,7 +909,7 @@ h6 {
 /* Mobile header state — 591px and below */
 @media (max-width: 591px) {
   body.has-tabbar {
-    padding-bottom: 96px; /* room for the fixed tab bar */
+    padding-bottom: 76px; /* room for the fixed tab bar */
   }
 }
 
@@ -1062,10 +942,11 @@ h6 {
 /* Case Studies Page */
 .main {
   /* 600px content + 16px padding on each side (paddings sit OUTSIDE
-     the 600px inner container, per design). */
+     the 600px inner container, per design). Bottom padding extended
+     to 120px per Work Cases mockup review. */
   max-width: 632px;
   margin: 0 auto;
-  padding: 40px 16px;
+  padding: 40px 16px 120px;
 }
 
 .case-hero {
@@ -1114,121 +995,18 @@ h6 {
 .cases-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px 20px;
 }
 
 @media (min-width: 800px) {
   .main {
     max-width: 1240px;
   }
-  .cases-list {
+      .cases-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 24px 20px;
   }
-}
-
-.case-card {
-  display: block;
-  background: var(--color-white);
-  border-radius: 20px;
-  text-decoration: none;
-  cursor: pointer;
-  border: 1px solid rgba(30, 30, 30, 0.08);
-  transition: border-color 0.2s ease;
-}
-
-/* Hover state per Figma "case_card / state=hover":
-   only the border darkens (rgba(30,30,30,0.08) -> rgba(30,30,30,0.16)).
-   Preview, content and styles stay unchanged. */
-.case-card:hover {
-  border-color: rgba(30, 30, 30, 0.16);
-}
-
-.case-card__preview {
-  background: #FAFAFA;
-  border-radius: 20px 20px 0 0;
-  overflow: hidden;
-  aspect-ratio: 16 / 10;
-}
-
-.case-card__preview img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Text block only carries the 16px padding / gaps (per Figma) */
-.case-card__content {
-  padding: 16px;
-}
-
-.case-card__title {
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 4px;
-  /* Fixed literal per Figma "Heading/Sub2" (#4A4A4A);
-     the secondary token is now #7A7A7A and would be too light here. */
-  color: #4A4A4A;
-}
-
-.case-card__desc {
-  font-size: 16px;
-  color: var(--color-text-secondary);
-  margin-bottom: 16px;
-}
-
-.case-card__tags {
-  position: relative;
-  display: flex;
-  /* Tags never wrap: they stay in one row and are clipped by
-     overflow:hidden when they don't fit (per Figma). */
-  flex-wrap: nowrap;
-  gap: 8px;
-  overflow: hidden;
-}
-
-/* Right-edge fade-out per Figma: white gradient 80px wide
-   (opaque on the left -> transparent at the right edge).
-   Hidden by default — JS adds .is-overflowing only when a tag is clipped. */
-.case-card__tags::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 80px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.case-card__tags.is-overflowing::after {
-  opacity: 1;
-}
-
-.tag {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: transparent;
-  border: 1px solid #EDEDED;
-  padding: 8px 16px 8px 12px;
-  border-radius: 45px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: -0.0357em;
-  color: var(--color-text-tertiary);
-  /* Keep full width when the row is clipped (no shrinking). */
-  flex-shrink: 0;
-}
-
-.tag-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
 }
 
 /* ==========================================================================
@@ -1749,67 +1527,6 @@ h6 {
 }
 
 /* ==========================================================================
-   Visuals Page
-   Source: Figma "Portfolio 2.0" (Visuals desktop / tablet / mobile)
-   Cards are a stacked (single-column) list; each card is not clickable and
-   has no hover state (per the brief).
-   ========================================================================== */
-.visuals {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-@media (min-width: 800px) {
-  .visuals {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-}
-
-.visual-card {
-  display: block;
-  background: var(--color-white);
-  border: 1px solid rgba(30, 30, 30, 0.08);
-  border-radius: 20px;
-}
-
-/* Light-gray preview panel on top of the card (per visual_card slot). */
-.visual-card__preview {
-  background: #FAFAFA;
-  border-radius: 20px 20px 0 0;
-  overflow: hidden;
-  aspect-ratio: 3 / 2;
-}
-
-.visual-card__preview img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-/* Bottom row — title on the left, year pill on the right (per Figma). */
-.visual-card__content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px;
-}
-
-.visual-card__title {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 28px;
-  letter-spacing: -0.025em;
-  color: #4A4A4A;
-}
-
-
-/* ==========================================================================
    Case Studies — Private Access Modal
    Source: Figma "Portfolio 2.0" (Private cases dialog, 3 breakpoints)
    ========================================================================== */
@@ -1832,9 +1549,15 @@ h6 {
   visibility: visible;
 }
 
-/* Blur + scroll lock while the cases are locked behind the modal. */
-body.is-locked {
-  overflow: hidden;
+/* Scroll lock while the cases are locked behind the modal.
+   Locked on the ROOT element (html), not on body: html already has
+   overflow-x: clip, and per CSS overflow propagation a non-visible
+   overflow on the root stops body overflow from being transferred to
+   the viewport. body { overflow: hidden } therefore never locked the
+   page — and it made body a scroll container, which un-stuck the
+   sticky header while the modal was open. */
+html.is-locked {
+  overflow-y: hidden;
 }
 
 .main {
@@ -2301,7 +2024,7 @@ body.is-locked .main {
   font-family: var(--font-family-base);
   font-size: 64px;
   line-height: 1.2em;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.0078em;
   color: var(--color-text-primary);
   cursor: default;
@@ -2351,22 +2074,13 @@ body.is-locked .main {
   margin: 0;
 }
 
-.notfound__title .accent {
-  font-family: var(--font-family-accent);
-  font-style: normal;
-  font-weight: var(--text-title-accent-weight);
-  font-size: var(--text-title-accent-size);
-  line-height: var(--text-title-accent-line-height);
-  letter-spacing: var(--text-title-accent-letter-spacing);
-  color: var(--color-text-primary);
-}
-
+/* Subtitle — Figma "Body/2": Inter Medium 500, 16px/24px, -0.0313em, #4A4A4A */
 .notfound__subtitle {
   font-size: 16px;
-  line-height: var(--text-sub1-line-height);
-  font-weight: 400;
-  letter-spacing: var(--text-sub1-letter-spacing);
-  color: #7A7A7A;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.0313em;
+  color: #4A4A4A;
   margin: 0;
   max-width: 52ch;
 }
@@ -2466,49 +2180,6 @@ body.is-locked .main {
 }
 
 /* ==========================================================================
-   Concepts Page Redesign (2026)
-   ========================================================================== */
-.visuals {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 799px) {
-  .visuals {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 599px) {
-  .visuals {
-    grid-template-columns: 1fr;
-  }
-}
-
-.visual-card {
-  display: block;
-  background: #FAFAFA;
-  border: 1px solid rgba(30, 30, 30, 0.08);
-  border-radius: 20px;
-  overflow: hidden;
-  cursor: default;
-}
-
-.visual-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.visual-card {
-  border: none;
-}
-
-
-
-
-/* ==========================================================================
    Hero Block Redesign (Task 2004-5963)
    ========================================================================== */
 .hero__assets {
@@ -2537,9 +2208,11 @@ body.is-locked .main {
 }
 
 .hero__subtitle {
-  font-size: 16px;
-  line-height: var(--text-body1-line-height);
-  color: var(--color-text-secondary);
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: var(--text-body2-weight);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: #4A4A4A;
 }
 
 /* ==========================================================================
@@ -2654,3 +2327,1570 @@ body.is-locked .main {
   max-width: 640px;
 }
 
+/* ==========================================================================
+   Home Redesign (Portfolio 2.1) — index.html only
+    Header location line, dark primary button, new hero title, featured
+    preview caption + white frame, About, bracket links,
+    and the new home footer.
+   ========================================================================== */
+
+/* --- Header: third meta line (location) --- */
+.header__meta {
+  height: auto;
+  width: auto;
+  min-width: 0;
+}
+
+/* Clock: time and (UTC+3) on one line, location below as separate line */
+.header__clock {
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: var(--text-body2-weight);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.header__city {
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: var(--text-body2-weight);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+/* --- Primary button is now dark; states from Figma button variants --- */
+.btn--primary {
+  background: #1E1E1E;
+  color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.btn--primary:hover {
+  background: #4A4A4A;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+.btn--primary:disabled,
+.btn--primary.is-disabled {
+  background: #1E1E1E;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+/* --- Hero title (sans, not italic) --- */
+.hero__title {
+  display: block;
+  text-align: center;
+  max-width: 780px;
+}
+
+.hero__title-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-title-simple-size);
+  line-height: 1.2em;
+  font-weight: var(--text-title-simple-weight);
+  letter-spacing: var(--text-title-simple-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+.hero__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* Interactive eyes (restored) sit inline at the end of the second title line.
+   No black pill here — transparent backing, just the eye SVG. */
+.hero__title .eyes {
+  margin-left: -2px;     /* ещё на 2px ближе к тексту перед глазами */
+  width: 48px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  background-clip: padding-box;
+  box-shadow: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.hero__wave {
+  font-family: var(--font-family-base);
+}
+
+/* --- Featured preview caption + white frame --- */
+.featured__inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.featured__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.featured__label {
+  margin: 0;
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: 400;
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-secondary);
+}
+
+.featured__frame {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: var(--radius-lg);
+  padding: 8px;
+}
+
+.featured__frame .featured__card {
+  max-width: none;
+  border-radius: calc(var(--radius-lg) - 8px);
+  overflow: hidden;
+}
+
+/* --- Centered section title --- */
+.section-title {
+  margin: 0 0 28px;
+  font-size: var(--text-h2-size);
+  line-height: var(--text-h2-line-height);
+  font-weight: var(--text-h2-weight);
+  letter-spacing: var(--text-h2-letter-spacing);
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+/* --- About --- */
+.about {
+  padding: 0 20px 72px;
+}
+
+.about__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-left: 0;         /* сброс padding .container */
+  padding-right: 0;        /* боковые отступы даёт секция .about */
+}
+
+.about__text {
+  margin: 0;
+  max-width: 600px;
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: var(--text-body2-weight);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: #4A4A4A;
+  text-align: left;
+}
+
+/* --- Bracket links: hover moves the brackets outward --- */
+.brack-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 200ms ease;
+}
+
+.brack-link__o,
+.brack-link__c {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.brack-link:hover {
+  color: #1E1E1E;
+}
+
+.brack-link:hover .brack-link__o {
+  transform: translateX(-4px);
+}
+
+.brack-link:hover .brack-link__c {
+  transform: translateX(4px);
+}
+
+/* --- Footer (home page only) — aligned to Figma Footer component --- */
+.footer--home {
+  width: 100%;
+  padding: 40px 20px;
+  background: var(--color-white);
+  border-top: 1px solid rgba(30, 30, 30, 0.06);
+}
+
+.footer__inner--home {
+  max-width: none;
+  width: 100%;
+  padding: 0;
+  align-items: stretch;
+  text-align: left;
+}
+
+/* Footer grid — desktop/tablet: email top-left, meta bottom-left, columns right */
+.footer__grid {
+  display: grid;
+  grid-template-areas:
+    "email cols"
+    "meta  cols";
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  row-gap: 32px;
+  column-gap: 20px;
+}
+
+.footer__email {
+  grid-area: email;
+  justify-self: start;
+  align-self: start;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.footer__email:hover {
+  color: var(--color-text-primary);
+}
+
+/* Footer meta — "(designed & coded by me)" + "© alisa barysava 2026" */
+.footer__meta {
+  grid-area: meta;
+  align-self: end;   /* bottom-left cell of the grid */
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* override legacy centered .footer__meta */
+  padding-top: 20px;
+  gap: 4px;
+}
+
+.footer__sub {
+  margin: 0;
+  font-size: var(--text-body1-size);
+  font-weight: var(--text-body1-weight);
+  line-height: var(--text-body1-line-height);
+  letter-spacing: var(--text-body1-letter-spacing);
+  color: var(--color-text-muted);
+}
+
+.footer__cols {
+  grid-area: cols;
+  display: flex;
+  gap: 64px;
+}
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer__col-title {
+  margin: 0;
+  font-size: var(--text-body2-size);
+  font-weight: var(--text-body2-weight);
+  line-height: var(--text-body2-line-height);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+.footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer__link {
+  display: inline-block;
+  font-size: var(--text-body1-size);
+  font-weight: var(--text-body1-weight);
+  line-height: var(--text-body1-line-height);
+  letter-spacing: var(--text-body1-letter-spacing);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.footer__link:hover {
+  color: var(--color-text-primary);
+}
+
+/* --- Reduced motion: no animation on bracket links --- */
+@media (prefers-reduced-motion: reduce) {
+  .brack-link,
+  .brack-link__o,
+  .brack-link__c {
+    transition: none;
+  }
+
+  .brack-link:hover .brack-link__o {
+    transform: none;
+  }
+
+  .brack-link:hover .brack-link__c {
+    transform: none;
+  }
+
+  /* Footer uses the same bracket hover — keep it motionless too */
+  .footer__link:hover .brack-link__o,
+  .footer__link:hover .brack-link__c {
+    transform: none;
+  }
+}
+
+/* --- Mobile --- */
+@media (max-width: 767px) {
+  .hero__avatar {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* --- Hero: top 120, title→subtitle 20, subtitle→button 32 --- */
+.hero {
+  padding: 120px 0 0;
+}
+
+.hero__inner {
+  gap: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.hero__title {
+  margin: 0 auto 20px;   /* title → subtitle */
+}
+
+.hero__subtitle {
+  margin: 0 0 32px;      /* subtitle → button */
+}
+
+/* --- Featured caption: button→"Mobile VPN app" 120; label→card 16 --- */
+.featured {
+  margin-top: 120px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.featured__inner {
+  gap: 16px;             /* label → card */
+}
+
+/* --- About: card→title 120; title→text 20 --- */
+.about {
+  margin-top: 120px;
+  padding: 0 20px 140px;
+}
+
+.about .section-title {
+  margin-bottom: 20px;    /* About → text */
+}
+
+/* Text column stays 600px; .about__inner has no side paddings (set above) */
+
+/* --- Mobile (≈ ×0.6 of desktop) --- */
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 72px;
+  }
+
+  .hero__title {
+    margin: 0 auto 12px;
+  }
+
+  .hero__subtitle {
+    margin: 0 0 20px;
+  }
+
+  .featured {
+    margin-top: 72px;
+  }
+
+  .featured__inner {
+    gap: 10px;
+  }
+
+  .about {
+    margin-top: 72px;
+    padding: 0 20px 72px;
+  }
+
+  .about__inner {
+    max-width: 100%;
+  }
+
+  .about .section-title {
+    margin-bottom: 12px;
+  }
+}
+
+/* ==========================================================================
+   Footer responsive — breakpoint matches header mobile (max-width: 591px):
+   single column, order email → columns → meta (same as DOM source order),
+   Contacts and Sections stacked, gaps 32px / 24px, left-aligned.
+   ========================================================================== */
+
+@media (max-width: 591px) {
+  .footer__grid {
+    grid-template-areas:
+      "email"
+      "cols"
+      "meta";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 32px;
+    column-gap: 0;
+  }
+
+  .footer__cols {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer__meta {
+    padding-top: 0; /* even 32px spacing between blocks on mobile */
+  }
+}
+
+/* ==========================================================================
+   Footer — fixed-width link columns + centered copyright line
+   ========================================================================== */
+
+.footer__col {
+  width: 200px;
+}
+
+/* ==========================================================================
+   Footer links — same bracket-hover as the preview button (.brack-link):
+   on hover the brackets spread outward (-4px / +4px).
+   Span transitions come from the shared .brack-link__o / __c rules.
+   ========================================================================== */
+
+.footer__link {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.footer__link:hover .brack-link__o {
+  transform: translateX(-4px);
+}
+
+/* ==========================================================================
+   Case pages — footer spans the full page width, incl. the sidebar column.
+   На десктопе body.case-page — flex-row [sidebar 220px][main]. Чтобы футер
+   (теперь вне <main>) лёг на всю ширину, включаем перенос строк во flex:
+   sidebar + main занимают первую строку, футер с flex-basis 100% — вторую.
+   Ниже 1024px body не флексится — блочный поток и так даёт полную ширину.
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+  body.case-page {
+    flex-wrap: wrap;
+  }
+
+  body.case-page .case-content {
+    flex: 1 1 calc(100% - 220px);
+  }
+
+  body.case-page > .footer--home {
+    flex: 0 0 100%;
+  }
+}
+
+/* ==========================================================================
+   Adaptive viewport safety
+   Любой элемент шире вьюпорта растягивал document.scrollWidth, и мобильный
+   браузер компенсировал это зумом всей страницы («десктоп в масштабе»).
+   Обрезка горизонтального переполнения — ТОЛЬКО на корне (html): там overflow
+   транслируется на вьюпорт и скролл-контейнер не создаётся, поэтому
+   position: sticky (хедер), fixed (таббар/модалка) и scroll-события работают.
+   ВАЖНО: overflow нельзя вешать на body — при не-visible overflow у html тело
+   само становится скролл-контейнером и sticky перестаёт закрепляться.
+   ========================================================================== */
+
+html {
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  html {
+    overflow-x: hidden; /* fallback: на корне не ломает sticky/fixed */
+  }
+}
+
+/* ==========================================================================
+   Footer — overflow guard for tablet / laptop band (592–1023px)
+   Фиксированные колонки 200px + гэп 64px оставляли колонке email меньше
+   места, чем нужно, и выталкивали страницу за вьюпорт. По макету планшета
+   гэп между группами — 24px; email при нехватке места переносится.
+   ========================================================================== */
+
+@media (min-width: 592px) and (max-width: 1023px) {
+  .footer__cols {
+    gap: 24px;
+  }
+
+  .footer__grid {
+    min-width: 0;
+  }
+
+  .footer__email {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ==========================================================================
+   Footer — tablet version (592–799px)
+   Отдельная адаптация планшетного футера: колонки Contacts и Sections
+   плавно сжимаются на всём диапазоне — от 200px при ширине 799px
+   до 118px при 592px — за счёт чего освобождается место колонке email
+   без переполнения страницы. Ниже 592px начинается мобильная версия
+   (стек email → Contacts → Sections → мета), она не затрагивается.
+   Минимум 118px подобран под самый длинный линк "[Work cases↗]";
+   формула линейно интерполирует ширину между граничными точками.
+   ========================================================================== */
+
+@media (min-width: 592px) and (max-width: 799px) {
+  .footer__col {
+    /* 118px @ 592px → 200px @ 799px */
+    width: min(200px, calc(118px + 0.3961 * (100vw - 592px)));
+  }
+}
+
+/* ==========================================================================
+   Home — "Featured works" and "Work" sections (Figma home layouts)
+   Same rhythm as the featured concept block: 120px top margin (72 on mobile),
+   800px centered column, centered section title, 32px between blocks.
+   ========================================================================== */
+
+.featured-works,
+.jobs {
+  margin-top: 120px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.featured-works__inner,
+.jobs__inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-works__inner {
+  max-width: 800px;
+}
+
+.jobs__inner {
+  max-width: 600px;         /* Work column per layout */
+}
+
+.featured-works .section-title,
+.jobs .section-title {
+  margin-bottom: 20px;      /* title → first block */
+}
+
+.featured-works__list,
+.jobs__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-works__list {
+  gap: 40px;                /* between case cards */
+}
+
+.jobs__list {
+  gap: 32px;                /* between jobs */
+}
+
+/* Block: name row → description → (preview) */
+.featured-works__card,
+.jobs__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.featured-works__row,
+.jobs__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.featured-works__name,
+.jobs__name,
+.jobs__dates {
+  margin: 0;
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: 400;
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-secondary);
+}
+
+.featured-works__desc,
+.jobs__desc {
+  margin: 0;
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: var(--text-body2-weight);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: #4A4A4A;
+}
+
+.featured-works__frame {
+  margin-top: 8px;          /* description → preview = 16px total */
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: var(--radius-lg);   /* 24px, как у featured-карточки */
+  padding: 8px;             /* белая подложка вокруг превью */
+}
+
+.featured-works__frame .preview {
+  border-radius: calc(var(--radius-lg) - 8px);   /* 16px внутри рамки */
+}
+
+/* --- Mobile --- */
+@media (max-width: 767px) {
+  .featured-works,
+  .jobs {
+    margin-top: 72px;
+  }
+
+  .featured-works .section-title,
+  .jobs .section-title {
+    margin-bottom: 20px;
+  }
+}
+
+/* ==========================================================================
+   Featured works — bottom spacing
+   ========================================================================== */
+
+.featured-works {
+  margin-bottom: 120px;     /* секция → футер */
+}
+
+/* ==========================================================================
+   Featured works — text block (row + desc) side padding
+   ========================================================================== */
+
+.featured-works__text {
+  padding: 0 8px;           /* боковые отступы строки и описания */
+}
+
+/* ==========================================================================
+   Featured case — row side padding
+   ========================================================================== */
+
+.featured__row {
+  padding: 0 8px;           /* боковые отступы строки (лейбл + ссылка) */
+}
+
+/* ==========================================================================
+   Featured works — gap: row → description
+   ========================================================================== */
+
+.featured-works__desc {
+  margin-top: 8px;          /* строка → описание */
+}
+
+/* ==========================================================================
+   Work — list side padding
+   ========================================================================== */
+
+.jobs__list {
+  padding: 0 8px;           /* боковые отступы списка мест работы */
+}
+/* ==========================================================================
+   Hide chrome on scroll down — reveal on scroll up (tablet & mobile).
+   Desktop (>=800px) keeps its own behaviour: only the nav hides
+   (see .nav.is-hidden above), the header stays pinned.
+   ========================================================================== */
+
+/* Header slides up out of view — tablet and mobile */
+@media (max-width: 799px) {
+  .header {
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .header.is-hidden {
+    /* Same -100% - 24px offset convention as .nav.is-hidden */
+    transform: translateY(calc(-100% - 24px));
+  }
+}
+
+/* Bottom tab bar slides down — mobile */
+@media (max-width: 591px) {
+  .tabbar {
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .tabbar.is-hidden {
+    /* +24px clears the pill's box-shadow off screen */
+    transform: translateY(calc(100% + 24px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .tabbar {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   FOOTER LINKS — closing bracket shifts on hover
+   Pairs with .footer__link:hover .brack-link__o in the footer section.
+   Same motion as generic .brack-link hover (+4px), disabled under
+   prefers-reduced-motion like all other bracket links.
+   ========================================================================== */
+
+.footer__link:hover .brack-link__c {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__link:hover .brack-link__c {
+    transform: none;
+  }
+}
+/* ==========================================================================
+   Work Cases Page Redesign (2026)
+   Source: Figma "Portfolio 2.1", node 4002:11162
+   ========================================================================== */
+
+/* Page header — Title simple (Inter Medium 500, 32px), centered, no accent font */
+.wc-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 40px;
+  margin-bottom: 48px;
+}
+
+.wc-hero__title {
+  margin: 0;
+  font-size: var(--text-title-simple-size);
+  line-height: var(--text-title-simple-line-height);
+  font-weight: var(--text-title-simple-weight);
+  letter-spacing: var(--text-title-simple-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+/* Subtitle — Body/2 (Inter Medium 500, 16/24) */
+.wc-hero__subtitle {
+  margin: 16px 0 0;
+  max-width: 600px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.0313em;
+  color: #4A4A4A;
+}
+
+/* Case cards */
+.case {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Card frame — white plate wrapped around the preview, same look as the
+   cards on the home page (featured works): outer border, 8px padding,
+   24px radius on the frame and 16px inside. */
+.case__frame {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  transition: box-shadow 0.25s var(--ease-out);
+}
+
+/* Hover — per Figma "Portfolio 2.1", case_card state=hover */
+.case:hover .case__frame {
+  box-shadow: 2px 4px 12px 0 rgba(36, 36, 36, 0.12);
+}
+
+/* Preview hugs the image size so the skeleton never peeks out
+   from behind the image. */
+.case__preview {
+  width: fit-content;
+  max-width: 100%;
+  background: #F5F5F5;
+  border-radius: calc(var(--radius-lg) - 8px);
+  overflow: hidden;
+}
+
+/* Images are never cropped — contained inside the preview frame */
+.case__preview img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+}
+
+/* Skeleton interplay: base .skel is #EAEAEA and .skel.is-loaded resets the
+   background to transparent — keep the Figma #F5F5F5 fill in both states */
+.case__preview.skel,
+.case__preview.skel.is-loaded {
+  background-color: #F5F5F5;
+}
+
+/* Case title — Body/2 (Inter Medium 500, 16/24, #242424).
+   On hover (per Figma case_card state=hover): underline + "↗" arrow. */
+.case h3 {
+  margin: 16px 0 0;
+  padding: 0 8px;
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: var(--text-body2-weight);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+.case h3::after {
+  content: '\2197';
+  display: none;
+}
+
+.case:hover h3 {
+  text-decoration: underline;
+}
+
+.case:hover h3::after {
+  /* inline-block keeps the h3 underline from propagating onto the arrow */
+  display: inline-block;
+  margin-left: 4px;
+  text-decoration: none;
+}
+
+.case__meta {
+  margin: 4px 0 0;
+  padding: 0 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: -0.0313em;
+  color: #8A8A8A;
+}
+
+/* Meta dots — separators between the tags, 6x6, #D9D9D9
+   (per Figma case_card). 8px side margins replicate the Figma row gap. */
+.case__meta-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 8px;
+  vertical-align: middle;
+  border-radius: var(--radius-full);
+  background-color: #D9D9D9;
+}
+
+/* ==========================================================================
+   Featured works — preview first, text below the image
+   ========================================================================== */
+
+.featured-works__frame {
+  margin-top: 0;            /* рамка — первый элемент карточки */
+  margin-bottom: 8px;       /* превью → название = 16px с учётом gap 8px карточки */
+}
+
+/* ==========================================================================
+   Reveal-on-scroll ([data-reveal])
+   Blocks fade up and slide into place once as they enter the viewport
+   (JS adds .is-revealed one-shot). Initial hidden state lives ONLY under
+   html.js — pages stay fully visible without JavaScript. With reduced
+   motion everything is visible immediately, no animation.
+   ========================================================================== */
+
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+html.js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Keep the shared link colour transition alive on revealed case cards */
+html.js a.case[data-reveal].is-revealed {
+  transition: color 0.2s var(--ease-out),
+              opacity 0.6s ease-out,
+              transform 0.6s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Concepts Page — new design (Figma Portfolio 2.1, node 4311-10048)
+   Two-column grid, framed previews, left-aligned captions.
+   ========================================================================== */
+
+/* --- Title — Title simple (Inter Medium 500, 32px), centered --- */
+.concepts-title {
+  margin: 0;
+  font-size: var(--text-title-simple-size);
+  line-height: var(--text-title-simple-line-height);
+  font-weight: var(--text-title-simple-weight);
+  letter-spacing: var(--text-title-simple-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+/* --- Subtitle — Body/2 (Inter Medium 500, 16/24) --- */
+.concepts-subtitle {
+  margin: 16px 0 0;
+  max-width: 600px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.0313em;
+  color: #4A4A4A;
+}
+
+/* --- Grid: 2 columns / 1 on mobile (<768px) --- */
+.concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 20px;
+}
+
+/* --- Card: white 8px plate around the preview (case_card component,
+       same as work-cases cards; no hover, no meta on concepts) --- */
+.concept__frame {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: var(--radius-lg);
+  padding: 8px;
+}
+
+/* --- Preview — fixed 4:3 panel per Figma (445.5px at 594px width);
+       artwork fills the panel, never cropped --- */
+.concept__preview {
+  display: flex;
+  aspect-ratio: 4 / 3;
+  background: #F5F5F5;
+  border-radius: calc(var(--radius-lg) - 8px);
+  overflow: hidden;
+}
+
+.concept__preview .skel,
+.concept__preview .skel.is-loaded {
+  width: 100%;
+  height: 100%;
+  background-color: #F5F5F5;
+}
+
+.concept__preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* --- Caption under the preview — 16px gap, 8px side inset (case_card) --- */
+.concept__caption {
+  margin: 16px 0 0;
+  padding: 0 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.0313em;
+  color: #1E1E1E;
+}
+
+/* --- Mobile --- */
+@media (max-width: 767px) {
+  .concepts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Header: identity logo (Portfolio 2.1) — added on all pages
+   ========================================================================== */
+.header__logo {
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Header layout: equal 146px side blocks keep the nav pill centered
+   ========================================================================== */
+.header__left,
+.header__meta {
+  width: 146px;
+  flex-shrink: 0;
+}
+/* ==========================================================================
+   Footer — приведён в соответствие макету Figma «Footer»
+   (Portfolio 2.1, node 4002-10554):
+   • слева колонка «Copyright Info» — логотип + имя (сверху) и мета (снизу);
+   • крупная email-ссылка из футера убрана (в макете её нет);
+   • копирайт написан как в макете — ©alisa-barysava-2026;
+   • гэп между Contacts и Sections — 20px (desktop/tablet) и 32px (mobile);
+   • mobile — порядок как в макете: логотип+имя → Contacts → Sections → мета.
+   Правила добавлены в конец файла и переопределяют прежние описания футера.
+   ========================================================================== */
+
+.footer__grid {
+  grid-template-areas:
+    "copyright cols";
+  grid-template-rows: auto;
+}
+
+.footer__copyright {
+  grid-area: copyright;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* лого+имя сверху, мета снизу */
+  align-items: stretch;
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__logo {
+  flex-shrink: 0;
+}
+
+.footer__name {
+  font-size: var(--text-body2-size);
+  font-weight: var(--text-body2-weight);
+  line-height: var(--text-body2-line-height);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+.footer__cols {
+  grid-area: cols;
+  gap: 20px; /* в макете гэп между Contacts и Sections — 20px (было 64px) */
+}
+
+.footer__meta {
+  padding-top: 0;          /* в колонке copyright отступ делает flex, не padding */
+  align-self: auto;        /* растягиваемся по ширине колонки, как в макете */
+}
+
+/* Планшет (592–1023px): гэп 20px вместо промежуточных 24px */
+@media (min-width: 592px) and (max-width: 1023px) {
+  .footer__cols {
+    gap: 20px;
+  }
+}
+
+/* Mobile — порядок блоков как в макете:
+   логотип+имя → Contacts → Sections → мета, гэпы 32px */
+@media (max-width: 591px) {
+  .footer__grid {
+    grid-template-areas:
+      "brand"
+      "cols"
+      "meta";
+    grid-template-rows: auto auto auto;
+  }
+
+  .footer__copyright {
+    display: contents;
+  }
+
+  .footer__brand {
+    grid-area: brand;
+  }
+
+  .footer__meta {
+    grid-area: meta;
+  }
+
+  .footer__cols {
+    gap: 32px;
+  }
+}
+
+/* ==========================================================================
+   Password Modal — Figma alignment (Portfolio 2.1)
+   --------------------------------------------------------------------------
+   The private-access modal now gates navigation to case detail pages
+   (it opens when a case is clicked, and only a correct password navigates).
+   Styling changes vs. the previous design, all matching Figma:
+   - Overlay is #1E1E1E at 16% opacity per Figma; later overridden to 28%
+     per request. The page behind it is NOT blurred.
+   - Modal card is a centered 32px-padded card with 20px radius (desktop
+     and mobile alike — mobile is no longer a full-screen sheet).
+   - Modal buttons: primary "Unlock" is dark #242424 with the orange shadow;
+     secondary "Cancel" is #F5F5F5 (unchanged secondary).
+   These rules are appended so the base modal rules stay untouched.
+   ========================================================================== */
+.modal-overlay {
+  background: rgba(30, 30, 30, 0.28); /* #1E1E1E @ 28% */
+}
+
+/* No blur behind the modal (removes the old full-page blur). */
+body.is-locked .main {
+  filter: none;
+}
+
+/* Modal card — match Figma "password_modal" (radius 20, padding 32). */
+.modal {
+  border-radius: 20px;
+  padding: 32px;
+}
+
+/* Modal digits — letter-spacing per Figma "headings/numbers". */
+.modal__digit {
+  letter-spacing: -0.0156em;
+}
+
+/* Modal buttons — "Unlock" is dark #242424. */
+.modal__actions .btn--primary {
+  background: #242424;
+  color: #FFFFFF;
+}
+.modal__actions .btn--primary:hover,
+.modal__actions .btn--primary:focus-visible {
+  background: #4A4A4A;
+  color: #FFFFFF;
+}
+
+/* Mobile (<= 767px): the modal is a centered card like on desktop
+   (no longer a full-screen sheet). */
+@media (max-width: 767px) {
+  .modal-overlay {
+    padding: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal {
+    /* Undo the full-screen mobile positioning from the base rules. */
+    position: static;
+    inset: auto;
+    z-index: auto;
+    width: 100%;
+    max-width: 448px;
+    border-radius: 20px;
+    box-shadow: none;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal__inner {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+}
+
+/* ==========================================================================
+   Featured works — gap between text and preview card (was 8px)
+   Overrides the shared .featured-works__card / .jobs__item gap from 8px
+   to 20px. .jobs stays at 8px.
+   ========================================================================== */
+.featured-works__card {
+  gap: 20px;
+}
+/* ==========================================================================
+   Case Detail — redesigned case page (AI Autofill Forms Feature)
+   Source: Figma "Portfolio 2.1" (AI Autofill Forms Feature / Full page)
+   Breakpoints: desktop 1280 / tablet 744 / mobile 375
+   NOTE: новый CSS дописан в конец; существующие правила не менялись.
+   ========================================================================== */
+
+.case-detail__page {
+  width: 100%;
+  /* 1032px = 1000px контентной колонки + 32px горизонтальных паддингов
+     (border-box), чтобы изображения ложились ровно в 1000px как в макете. */
+  max-width: 1032px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+
+/* Текстовая колонка — 800px (в макете контент уже, изображения шире). */
+.case-detail__header,
+.case-detail__content {
+  width: 100%;
+  max-width: 800px;
+}
+
+.case-detail__header {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.case-detail__title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.case-detail__back {
+  display: inline-flex;
+  align-items: baseline;
+  width: fit-content;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.case-detail__back:hover {
+  color: var(--color-text-primary);
+}
+
+/* Скобки back «разъезжаются» при наведении — как в .brack-link футера. */
+.case-detail__back:hover .brack-link__o {
+  transform: translateX(-4px);
+}
+
+.case-detail__back:hover .brack-link__c {
+  transform: translateX(4px);
+}
+
+.case-detail__title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.4em;
+  letter-spacing: -0.0208em;
+  color: var(--color-text-primary);
+}
+
+.case-detail__section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+/* Второй блок секции (02 и 03 в одном контейнере) — gap 40px по макету. */
+.case-detail__content .case-detail__section + .case-detail__section {
+  margin-top: 40px;
+}
+
+.case-detail__tag {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  color: var(--color-text-muted);
+}
+
+.case-detail__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  color: #4A4A4A;
+}
+
+.case-detail__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: case-detail;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.case-detail__list li {
+  position: relative;
+  padding-left: 28px;
+  counter-increment: case-detail;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.0313em;
+  color: #4A4A4A;
+}
+
+.case-detail__list li::before {
+  content: counter(case-detail) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #4A4A4A;
+}
+
+/* Изображения. Панели макета — уже собранные картинки (градиент + мокап);
+   габариты совпадают с пропорциями макета, поэтому достаточно width:100%. */
+.case-detail__images {
+  width: 100%;
+}
+
+.case-detail__images--duo {
+  display: flex;
+  gap: 20px;
+}
+
+.case-detail__images--duo .case-detail__panel {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.case-detail__images--stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.case-detail__panel {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.case-detail__panel img,
+.case-detail__panel video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Видео/GIF в панелях: фрейм всегда квадратный 1:1 (на десктопе пара даёт ровно
+   490×490 — ширина панели в дуэте), сам ролик масштабируется по cover. */
+.case-detail__panel .case-detail__video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #F5F5F5;
+}
+
+/* Кнопка «Next case» — наследует .btn .btn--primary, как кнопка Browse cases */
+.case-detail__next {
+  gap: 8px;
+}
+
+.case-detail__back,
+.case-detail__next {
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.case-detail__next:hover {
+  background: #4A4A4A;
+}
+
+/* Розовая плашка-подсветка: «выезжает» слева при появлении в вьюпорте.
+   Плашка рисуется прямо на inline-элементе (background), поэтому при
+   переносе строки на мобилке она корректно покрывает каждую строку фразы,
+   а не только первый фрагмент. Класс .is-in добавляется из js/main.js. */
+.case-hl {
+  background-image: linear-gradient(#FFDBF7, #FFDBF7);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100% 100%;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background-size 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: background-size;
+}
+
+/* С JS плашка стартует с нулевой ширины и «выезжает» слева. */
+html.js .case-hl {
+  background-size: 0% 100%;
+}
+
+html.js .case-hl.is-in {
+  background-size: 100% 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-hl,
+  html.js .case-hl {
+    background-size: 100% 100%;
+    transition: none;
+  }
+
+  /* Скобки back не разъезжаются при reduced-motion. */
+  .case-detail__back:hover .brack-link__o,
+  .case-detail__back:hover .brack-link__c {
+    transform: none;
+  }
+}
+
+/* Tablet (744–1023): как десктоп, но панели и отступы по планшетному макету. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .case-detail__page {
+    padding: 40px 20px 80px;
+  }
+}
+
+/* Mobile (до 767): одна колонка, gap 40px, панели-дуо складываются в столбик. */
+@media (max-width: 767px) {
+  .case-detail__page {
+    padding: 40px 20px 80px;
+    gap: 40px;
+  }
+
+  .case-detail__images--duo {
+    flex-direction: column;
+  }
+
+  .case-detail__images--duo .case-detail__panel {
+    flex: 1 1 auto;
+  }
+}
+
+/* ==========================================================================
+   All Cases Button — Home page (after Featured Works, before Footer)
+   Source: Figma "Portfolio 2.1" — Home full page, node 2004-5963
+   Button instance 4358:17422 (type=secondary, state=default).
+   Existing .btn + .btn--secondary already match the Figma spec exactly:
+   fill #F5F5F5, radius 12px, padding 16px 20px, gap 8px,
+   text "All cases ↗" at Body/3 (Inter Semi Bold 600 / 16px / #242424).
+   ========================================================================== */
+
+/* Featured Works previously used margin-bottom for the gap to the footer.
+   The "All cases" button now occupies that slot — move the footer gap onto
+   the button wrapper. */
+.featured-works {
+  margin-bottom: 0;
+}
+
+.all-cases {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 20px;
+  margin-top: 80px;     /* карточка → кнопка = 80px */
+  margin-bottom: 80px;  /* кнопка → футер = 80px */
+}
+/* ==========================================================================
+   Featured works — hover shadow + link hover state, work-cases style
+   Source: Figma "Portfolio 2.1", case_card state=hover.
+   The hover/click zone is the preview frame (.featured-works__frame) only:
+   the card header (name) and the subtitle text stay non-interactive.
+   Hovering the [case ↗] anchor also lights the frame, and hovering the
+   frame puts the anchor into its hover state (like the featured preview).
+   ========================================================================== */
+
+.featured-works__frame {
+  cursor: pointer;
+  transition: box-shadow 0.25s var(--ease-out);
+}
+
+/* Hover on the preview frame — or on the [case ↗] anchor — lights the frame */
+.featured-works__frame:hover,
+.featured-works__card:has(.brack-link:hover) .featured-works__frame {
+  box-shadow: 2px 4px 12px 0 rgba(36, 36, 36, 0.12);
+}
+
+/* The [case ↗] anchor enters its hover state while the preview is hovered */
+.featured-works__card:has(.featured-works__frame:hover) .brack-link {
+  color: #1E1E1E;
+}
+
+.featured-works__card:has(.featured-works__frame:hover) .brack-link__o {
+  transform: translateX(-4px);
+}
+
+.featured-works__card:has(.featured-works__frame:hover) .brack-link__c {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Featured preview (home) — hover shadow + clickable, work-cases style
+   Source: Figma "Portfolio 2.1", case_card state=hover.
+   The hover zone and the click handler are scoped to the preview card
+   (.featured__frame) only — the label row and the space around the card
+   stay non-interactive.
+   ========================================================================== */
+
+.featured__frame {
+  cursor: pointer;
+  transition: box-shadow 0.25s var(--ease-out);
+}
+
+/* The card inside the frame set cursor: default in the old featured
+   section — keep the pointer over the preview itself. */
+.featured__card {
+  cursor: pointer;
+}
+
+.featured__frame:hover {
+  box-shadow: 2px 4px 12px 0 rgba(36, 36, 36, 0.12);
+}
+
+/* The [concepts ↗] anchor enters its hover state while the preview is hovered */
+.featured:has(.featured__frame:hover) .brack-link {
+  color: #1E1E1E;
+}
+
+.featured:has(.featured__frame:hover) .brack-link__o {
+  transform: translateX(-4px);
+}
+
+.featured:has(.featured__frame:hover) .brack-link__c {
+  transform: translateX(4px);
+}
+
+/* Reduced motion: bracket links triggered by a card hover don't spread */
+@media (prefers-reduced-motion: reduce) {
+  .featured:has(.featured__frame:hover) .brack-link__o,
+  .featured:has(.featured__frame:hover) .brack-link__c,
+  .featured-works__card:has(.featured-works__frame:hover) .brack-link__o,
+  .featured-works__card:has(.featured-works__frame:hover) .brack-link__c {
+    transform: none;
+  }
+}
