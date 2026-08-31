@@ -391,6 +391,18 @@
         pendingCaseUrl = null;
       }
 
+      /* Hook for the home-page featured-works preview frame click handler
+         (defined later in this file): the same password gate applies when a
+         case preview is clicked on the home page. Returns true when the
+         navigation may proceed (cases already unlocked today), false when
+         the password modal was opened instead. */
+      window.accessGate = function (href) {
+        if (accessUnlockedToday()) return true;
+        pendingCaseUrl = href;
+        accessOpen();
+        return false;
+      };
+
       /* The modal is not shown on page load. It opens only when a case card
          is clicked (see the click interception below). */
 
@@ -479,8 +491,10 @@
       /* Clicking a case card opens the modal instead of navigating right
          away; the transition to the case page happens only after the
          correct password is entered. When the cases were already unlocked
-         today, the card navigates straight to the detail page. */
-      Array.prototype.forEach.call(document.querySelectorAll('a.case'), function (link) {
+         today, the card navigates straight to the detail page.
+         a.case — work-cases page; a.brack-link — home featured-works
+         [case ↗] anchors pointing at cases/ pages. */
+      Array.prototype.forEach.call(document.querySelectorAll('a.case, a.brack-link'), function (link) {
         var href = link.getAttribute('href');
         if (!href || href.indexOf('cases/') === -1) return;
         link.addEventListener('click', function (e) {
@@ -798,6 +812,10 @@ document.addEventListener('DOMContentLoaded', function () {
           e.target.closest('a')) {
         return;
       }
+      /* Password gate — same modal as on the work-cases page. Navigation
+         happens only after the correct password is entered (or immediately
+         when the cases were already unlocked today). */
+      if (window.accessGate && !window.accessGate(href)) return;
       window.location.href = href;
     });
   });

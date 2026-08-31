@@ -3894,3 +3894,14 @@ html.js .case-hl.is-in {
     transform: none;
   }
 }
+/* ==========================================================================
+   CV button — mobile padding
+   Task: in the mobile version only, the CV button gets 4px padding on all
+   sides instead of the 8px (8px 8px 8px 12px) used in the desktop nav pill.
+   Scope: .nav--mobile (shown at ≤591px), so desktop/tablet stays unchanged.
+   ========================================================================== */
+@media (max-width: 591px) {
+  .nav--mobile .nav__link--cv {
+    padding: 4px 4px 4px 8px;
+  }
+}
