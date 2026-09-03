@@ -645,11 +645,24 @@ document.addEventListener('DOMContentLoaded', function () {
   var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
   if (els.length === 0) return;
 
+  /* Home: the first case of the Featured works section appears together
+     with the section heading — as soon as the heading is revealed, the
+     first case follows it (same 100ms stagger as the initial batch).
+     The remaining cards keep their own scroll reveal. */
+  var featuredHead = document.querySelector('.featured-works .section-head');
+  var featuredFirstCard = document.querySelector('.featured-works__card[data-reveal]');
+
   var initialBatchDone = false;
 
   function reveal(el, delayMs) {
     /* One-shot: stop watching once the block has been revealed */
+    if (el.classList.contains('is-revealed')) return;
     observer.unobserve(el);
+
+    /* The first case is bound to its section heading appearance */
+    if (el === featuredHead && featuredFirstCard) {
+      reveal(featuredFirstCard, 100);
+    }
 
     /* Drop the stagger delay after the entrance finishes so any future
        transitions on the element run without it */

@@ -46,53 +46,54 @@
   /* ------------------------------------------------------------------
      Typography
      ------------------------------------------------------------------ */
-  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-                      Roboto, sans-serif;
-  --font-family-accent: 'SignPainter', 'SignPainter HouseScript', cursive;
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+                      'SF Pro Display', 'Inter', 'Segoe UI', Roboto,
+                      'Helvetica Neue', Arial, sans-serif;
+  --font-family-accent: var(--font-family-base);
 
-  /* Heading / Title simple — Inter Medium 500, 32px */
+  /* Heading / Title simple — SF Pro Medium 500, 32px */
   --text-title-simple-size: 32px;
   --text-title-simple-line-height: 1.2em;
   --text-title-simple-weight: 500;
   --text-title-simple-letter-spacing: -0.0156em;
 
-  /* Heading / Title accent — SignPainter 400, 48px */
+  /* Heading / Title accent — SF Pro 400, 48px (legacy; unused in 2.1) */
   --text-title-accent-size: 48px;
   --text-title-accent-line-height: 38px;
   --text-title-accent-weight: 400;
   --text-title-accent-letter-spacing: -0.0104em;
 
-  /* Heading / H2 — Inter Medium 500, 24px */
+  /* Heading / H2 — SF Pro Medium 500, 24px */
   --text-h2-size: 24px;
   --text-h2-line-height: 1.4em;
   --text-h2-weight: 500;
   --text-h2-letter-spacing: -0.0208em;
 
-  /* Heading / Sub1 — Inter Regular 400, 20px */
+  /* Heading / Sub1 — SF Pro Regular 400, 20px */
   --text-sub1-size: 20px;
   --text-sub1-line-height: 28px;
   --text-sub1-weight: 400;
   --text-sub1-letter-spacing: -0.025em;
 
-  /* Body / 1 — Inter Regular 400, 16px */
+  /* Body / 1 — SF Pro Text Regular 400, 16px */
   --text-body1-size: 16px;
   --text-body1-line-height: 24px;
   --text-body1-weight: 400;
   --text-body1-letter-spacing: -0.0313em;
 
-  /* Body / 2 — Inter Medium 500, 16px */
+  /* Body / 2 — SF Pro Text Medium 500, 16px */
   --text-body2-size: 16px;
   --text-body2-line-height: 24px;
   --text-body2-weight: 500;
   --text-body2-letter-spacing: -0.0313em;
 
-  /* Body / 3 — Inter Semi Bold 600, 16px (buttons) */
+  /* Body / 3 — SF Pro Text Semibold 600, 16px (buttons) */
   --text-body3-size: 16px;
   --text-body3-line-height: 24px;
   --text-body3-weight: 600;
   --text-body3-letter-spacing: -0.0313em;
 
-  /* Body / Caption — Inter Medium 500, 14px */
+  /* Body / Caption — SF Pro Text Medium 500, 14px */
   --text-caption-size: 14px;
   --text-caption-line-height: 20px;
   --text-caption-weight: 500;
@@ -2074,7 +2075,7 @@ body.is-locked .main {
   margin: 0;
 }
 
-/* Subtitle — Figma "Body/2": Inter Medium 500, 16px/24px, -0.0313em, #4A4A4A */
+/* Subtitle — Figma "Body/2": SF Pro Text Medium 500, 16px/24px, -0.0313em, #4A4A4A */
 .notfound__subtitle {
   font-size: 16px;
   line-height: 24px;
@@ -2455,7 +2456,6 @@ body.is-locked .main {
 
 .featured__frame {
   background: #FFFFFF;
-  border: 1px solid #E5E5E5;
   border-radius: var(--radius-lg);
   padding: 8px;
 }
@@ -3093,7 +3093,7 @@ html {
    Source: Figma "Portfolio 2.1", node 4002:11162
    ========================================================================== */
 
-/* Page header — Title simple (Inter Medium 500, 32px), centered, no accent font */
+/* Page header — Title simple (SF Pro Medium 500, 32px), centered, no accent font */
 .wc-hero {
   display: flex;
   flex-direction: column;
@@ -3112,7 +3112,7 @@ html {
   color: var(--color-text-primary);
 }
 
-/* Subtitle — Body/2 (Inter Medium 500, 16/24) */
+/* Subtitle — Body/2 (SF Pro Text Medium 500, 16/24) */
 .wc-hero__subtitle {
   margin: 16px 0 0;
   max-width: 600px;
@@ -3120,7 +3120,7 @@ html {
   line-height: 24px;
   font-weight: 500;
   letter-spacing: -0.0313em;
-  color: #4A4A4A;
+  color: var(--color-text-secondary); /* #7A7A7A — same secondary text as the home hero subtitle */
 }
 
 /* Case cards */
@@ -3174,7 +3174,7 @@ html {
   background-color: #F5F5F5;
 }
 
-/* Case title — Body/2 (Inter Medium 500, 16/24, #242424).
+/* Case title — Body/2 (SF Pro Text Medium 500, 16/24, #242424).
    On hover (per Figma case_card state=hover): underline + "↗" arrow. */
 .case h3 {
   margin: 16px 0 0;
@@ -3272,7 +3272,7 @@ html.js a.case[data-reveal].is-revealed {
    Two-column grid, framed previews, left-aligned captions.
    ========================================================================== */
 
-/* --- Title — Title simple (Inter Medium 500, 32px), centered --- */
+/* --- Title — Title simple (SF Pro Medium 500, 32px), centered --- */
 .concepts-title {
   margin: 0;
   font-size: var(--text-title-simple-size);
@@ -3282,7 +3282,7 @@ html.js a.case[data-reveal].is-revealed {
   color: var(--color-text-primary);
 }
 
-/* --- Subtitle — Body/2 (Inter Medium 500, 16/24) --- */
+/* --- Subtitle — Body/2 (SF Pro Text Medium 500, 16/24) --- */
 .concepts-subtitle {
   margin: 16px 0 0;
   max-width: 600px;
@@ -3290,7 +3290,7 @@ html.js a.case[data-reveal].is-revealed {
   line-height: 24px;
   font-weight: 500;
   letter-spacing: -0.0313em;
-  color: #4A4A4A;
+  color: var(--color-text-secondary);
 }
 
 /* --- Grid: 2 columns / 1 on mobile (<768px) --- */
@@ -3300,13 +3300,12 @@ html.js a.case[data-reveal].is-revealed {
   gap: 24px 20px;
 }
 
-/* --- Card: white 8px plate around the preview (case_card component,
-       same as work-cases cards; no hover, no meta on concepts) --- */
+/* --- Card: frame around the preview (no plate padding, 20px radius);
+       borderless per request; no hover, no meta on concepts --- */
 .concept__frame {
   background: #FFFFFF;
-  border: 1px solid #E5E5E5;
-  border-radius: var(--radius-lg);
-  padding: 8px;
+  border-radius: 20px;
+  padding: 0;
 }
 
 /* --- Preview — fixed 4:3 panel per Figma (445.5px at 594px width);
@@ -3315,7 +3314,7 @@ html.js a.case[data-reveal].is-revealed {
   display: flex;
   aspect-ratio: 4 / 3;
   background: #F5F5F5;
-  border-radius: calc(var(--radius-lg) - 8px);
+  border-radius: 20px;
   overflow: hidden;
 }
 
@@ -3333,15 +3332,14 @@ html.js a.case[data-reveal].is-revealed {
   object-fit: contain;
 }
 
-/* --- Caption under the preview — 16px gap, 8px side inset (case_card) --- */
+/* --- Caption under the preview — 12px gap, body2, secondary color --- */
 .concept__caption {
-  margin: 16px 0 0;
-  padding: 0 8px;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 500;
-  letter-spacing: -0.0313em;
-  color: #1E1E1E;
+  margin: 12px 0 0;
+  font-size: var(--text-body2-size);
+  line-height: var(--text-body2-line-height);
+  font-weight: var(--text-body2-weight);
+  letter-spacing: var(--text-body2-letter-spacing);
+  color: var(--color-text-secondary);
 }
 
 /* --- Mobile --- */
@@ -3798,7 +3796,7 @@ html.js .case-hl.is-in {
    Button instance 4358:17422 (type=secondary, state=default).
    Existing .btn + .btn--secondary already match the Figma spec exactly:
    fill #F5F5F5, radius 12px, padding 16px 20px, gap 8px,
-   text "All cases ↗" at Body/3 (Inter Semi Bold 600 / 16px / #242424).
+   text "All cases ↗" at Body/3 (SF Pro Text Semibold 600 / 16px / #242424).
    ========================================================================== */
 
 /* Featured Works previously used margin-bottom for the gap to the footer.
@@ -3919,4 +3917,682 @@ html.js .case-hl.is-in {
     rgba(255, 255, 255, 0.6) 50%,
     rgba(255, 255, 255, 0) 100%
   );
+}
+/* ==========================================================================
+   Skeleton fill — unified across pages
+   Task: the case-detail panels (.case-detail__panel.skel) and the home
+   previews (.preview.skel) kept the base skeleton color #EAEAEA, while
+   work-cases (.case__preview.skel) and concepts (.concept__preview .skel)
+   use the Figma preview fill #F5F5F5. Unify every .skel (home featured,
+   work-cases, concepts, case detail pages) to the same #F5F5F5 in both
+   the loading and is-loaded states.
+   ========================================================================== */
+.skel,
+.skel.is-loaded {
+  background-color: #F5F5F5;
+}
+/* ==========================================================================
+   Home 2.1 — Redesign (Figma "Portfolio 2.1", Home/ Full page)
+   Новые секции главной страницы: hero, Featured works (01),
+   Experience & Approach (02), Experience (03), Concepts (04).
+   Правила дописаны в конец файла и переопределяют прежние описания.
+   ========================================================================== */
+
+/* --- Заголовок секции: текст + номер + разделитель --- */
+.section-head {
+  display: flex;
+  align-items: flex-start;  /* номер секции — по верху, линия — по низу */
+  gap: 4px;
+  margin: 0;              /* отступ 32px до контента даёт gap контейнера */
+}
+
+.section-head__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.4em;
+  font-weight: 500;
+  letter-spacing: -0.0208em;
+  color: #242424;
+}
+
+.section-head__num {
+  flex-shrink: 0;
+  align-self: flex-start;   /* выравнивание по верху заголовка */
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.0357em;
+  color: #242424;
+}
+
+.section-head__line {
+  flex: 1;
+  align-self: flex-end;
+  margin-bottom: 10px;
+  border-top: 1px solid rgba(30, 30, 30, 0.06);
+}
+
+/* --- Hero: 40px сверху (как в макете), нижние 40px перенесены на контейнер --- */
+.hero {
+  padding: 40px 0 0;
+}
+
+/* Колонка контента главной — не шире 800px (Figma 2.1, Main Container) */
+.hero__inner {
+  max-width: 800px;
+  gap: 0;                 /* отступы между элементами задаём явно (ниже) */
+  padding: 40px 20px 40px; /* верх 40px + низ 40px (Figma) */
+}
+
+/* --- Hero: контактные ссылки над заголовком --- */
+.hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 24px;       /* ссылки → заголовок: 24px (Figma) */
+  padding: 0;
+}
+
+.hero__link {
+  color: #9F9F9F;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 200ms ease;
+}
+
+.hero__link:hover {
+  color: #242424;
+}
+
+/* --- Hero: заголовок в две строки, аватар инлайн в тексте --- */
+.hero__title {
+  margin: 0 auto 16px;    /* заголовок → подзаголовок: 16px (Figma) */
+}
+
+.hero__title-line {
+  display: block;
+  text-align: center;
+  font-size: 32px;
+  line-height: 38px;      /* высота строки тайтла — 38px (Figma) */
+  font-weight: 500;
+  letter-spacing: -0.0156em;
+  color: #242424;
+}
+
+/* Первая строка тайтла с фото — текст и фото выровнены по низу */
+.hero__title .hero__title-line:first-child {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hero__title .hero__avatar {
+  width: 31px;
+  height: 40px;
+  border-radius: 1000px;
+  border: none;           /* без обводки у фото в тайтле */
+  object-fit: cover;
+  flex-shrink: 0;         /* фото не сжимается в flex-строке */
+  margin: 0 4px;
+}
+
+.hero__subtitle {
+  margin: 0 0 32px;      /* подзаголовок → кнопка: 32px (Figma) */
+  color: #7A7A7A;
+}
+
+/* Базовое правило `.hero__subtitle + .btn { margin-top: 16px }` больше не
+   нужно — зазор задан margin-bottom подзаголовка (32px). */
+.hero__subtitle + .btn,
+.hero__subtitle + .button {
+  margin-top: 0;
+}
+
+/* --- Featured works (01): превью сверху, текст снизу --- */
+.featured-works {
+  margin: 40px 0 0;       /* gap 40px контейнера: hero → featured (Figma) */
+  padding: 0 20px 40px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.featured-works__inner {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.featured-works__list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 40px;              /* между карточками и кнопкой (Figma) */
+}
+
+.featured-works__card {
+  gap: 12px;
+}
+
+.featured-works__frame {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.featured-works__frame img {
+  display: block;
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: inherit;  /* рамка следует скруглению фрейма — не срезается на углах */
+}
+
+.featured-works__text {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.featured-works__meta {
+  display: flex;
+  align-items: center;      /* теги слева, кнопка справа, зазор авто */
+  gap: 8px;
+}
+
+.featured-works__tags {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: -0.0313em;
+  color: #9F9F9F;
+}
+
+.featured-works__dot {
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #D9D9D9;
+}
+
+/* Кнопка [case ↗] — справа на другом конце строки меты */
+.featured-works__case-link {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: #9F9F9F;
+}
+
+.featured-works__case-link:hover {
+  color: #242424;
+}
+
+.featured-works__name {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: #242424;
+}
+
+.featured-works__desc {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.0313em;
+  color: #7A7A7A;
+}
+
+.featured-works__all {
+  align-self: flex-start;   /* кнопка All cases — по левой стороне (Figma) */
+}
+/* --- Experience & Approach (02) --- */
+.approach {
+  margin: 40px 0 0;       /* gap 40px между секциями (Figma) */
+  padding: 52px 20px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.approach__inner {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;              /* заголовок → текст (Figma) */
+}
+
+.approach__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.approach__body p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.0313em;
+  color: #7A7A7A;
+}
+
+/* --- Experience (03): таймлайн + блоки работы (800px) --- */
+.career {
+  width: 800px;
+  max-width: 100%;
+  margin: 40px auto 0;    /* gap 40px между секциями (Figma) */
+  padding: 52px 20px;
+  box-sizing: border-box;
+}
+
+.career__inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;              /* заголовок → таймлайн (Figma) */
+}
+
+.career__layout {
+  display: block;
+}
+
+/* Таймлайн: точки привязаны к центрам лого-блоков (24px), линия идёт от
+   точки до точки. Пунктир 8/4 (strokeDashes=8,4 в Figma), зазор 4px между
+   точкой и линией (gap 4 колонки таймлайна в макете). */
+.career__dot {
+  position: absolute;
+  left: 0;
+  top: 9.5px;              /* центр блока с лого (24px) */
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #D9D9D9;
+  z-index: 1;
+}
+
+.career__dot--active {
+  background: #EE5311;
+}
+
+/* Линия: от низа точки текущего блока (зазор 4px) до 4px над точкой
+   следующего блока (32px gap списка + 9.5px до центра лого). */
+.career__item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 2px;               /* центр колонки точек (5px) */
+  top: 18.5px;             /* низ точки (9.5+5) + зазор 4px */
+  bottom: -37.5px;         /* 4px до точки следующего блока */
+  width: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #D9D9D9 0 8px,
+    transparent 8px 12px
+  );
+}
+
+.career__list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.career__item {
+  position: relative;      /* якорь для точек и линии таймлайна */
+  display: flex;
+  gap: 32px;
+  padding-left: 21px;      /* колонка линии (5px) + зазор 16px до контента */
+}
+
+.career__meta {
+  flex-shrink: 0;
+  width: 164px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.career__place {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.career__logo {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.career__logo--placeholder {
+  display: block;
+  background: rgba(30, 30, 30, 0.08);
+}
+
+.career__company {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.0313em;
+  color: #4A4A4A;
+}
+
+.career__dates {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: -0.0313em;
+  color: #9F9F9F;
+}
+
+.career__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.career__role {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.0313em;
+  color: #4A4A4A;
+}
+
+.career__desc {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.0313em;
+  color: #7A7A7A;
+}
+
+/* --- Concepts (04): анимированный стек превью (сохранён) --- */
+.concepts {
+  margin: 40px 0 0;       /* gap 40px между секциями (Figma) */
+  padding: 40px 20px 80px; /* 80px внизу — отступ контейнера до футера */
+  display: block;
+  box-sizing: border-box;
+}
+
+.concepts__inner {
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Лейбл → превью в Concepts: gap 12px (как в Figma) */
+.concepts .featured__inner {
+  gap: 12px;
+}
+
+/* Лейбл-строка — без боковых отступов, вровень с превью (Figma) */
+.concepts .featured__row {
+  padding: 0;
+}
+
+/* Превью концептов — без рамки и паддингов: изображение впритык (Figma) */
+.concepts .featured__frame {
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 20px;
+}
+
+.concepts .featured__frame .featured__card {
+  border-radius: 20px;
+}
+
+.concepts .featured__frame .preview {
+  border-radius: 20px;
+  height: 600px;             /* Figma: Project Image 800×600, cover */
+}
+
+.concepts .featured__frame .preview__stack {
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;  /* рамка следует скруглению .preview — не срезается на углах */
+}
+
+/* Мобайл: превью концептов сохраняет пропорции по ширине контейнера */
+@media (max-width: 767px) {
+  .concepts .featured__frame .preview {
+    height: auto;
+    aspect-ratio: 800 / 600;
+  }
+
+  .concepts .featured__frame .preview__stack {
+    height: auto;          /* высота от пропорции, а не 100% контейнера */
+    aspect-ratio: 800 / 600;
+    object-fit: cover;
+  }
+}
+
+/* --- Мобильные правки новых секций --- */
+@media (max-width: 767px) {
+  /* Размер шрифта тайтла hero на мобильном — не меняем (32px, как на десктопе).
+     Обычный инлайн-поток (не flex): слова переносятся естественно,
+     фото — по низу строки через vertical-align. */
+  .hero__title-line,
+  .hero__title .hero__title-line:first-child {
+    display: block;
+    text-align: center;
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .hero__title .hero__avatar {
+    width: 24px;
+    height: 31px;
+    margin: 0 3px;
+    vertical-align: bottom; /* фото прижато к низу строки */
+  }
+
+  .featured-works__frame img {
+    height: auto;
+    aspect-ratio: 800 / 600;  /* та же пропорция карточки, что на десктопе (4:3) */
+  }
+
+  .featured-works__tags {
+    gap: 6px;
+  }
+
+  .career__item {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .career__meta {
+    width: auto;
+  }
+
+  .career__dot,
+  .career__item::before {
+    display: none;           /* мобайл: таймлайн скрыт */
+  }
+
+  .career__item {
+    padding-left: 0;         /* без колонки таймлайна на мобайле */
+  }
+}
+/* Все изображения контента на главной — рамка 1px, #1E1E1E, прозрачность 8%
+   (аватар hero, превью кейсов, стек концептов; лого Experience — исключены ниже). */
+body.home main img {
+  border: 1px solid rgba(30, 30, 30, 0.08);
+  box-sizing: border-box;
+}
+
+/* Логотипы в Experience — без рамки (обводка только у контентных превью) */
+body.home main .career__logo {
+  border: none;
+}
+
+/* ==========================================================================
+   Work cases — home case cards reused in the page grid
+   The .featured-works__card markup from the home page is reused inside
+   .cases-list (one column, two columns from 800px). The only difference
+   on this page: the description (.featured-works__desc) is hidden.
+   ========================================================================== */
+
+.cases-list .featured-works__desc {
+  display: none;
+}
+
+/* The fixed 600px preview height is a home-layout value. Inside the
+   narrower page-grid columns it crops the previews — on this page the
+   images keep their native proportions instead (width: 100%, height: auto). */
+.cases-list .featured-works__frame img {
+  height: auto;
+}
+
+/* ==========================================================================
+   Work Cases Page — alignment to Figma node 4002-11162 (Portfolio 2.1)
+   Values are re-declared here instead of editing the "Work Cases Page
+   Redesign (2026)" section above (per project workflow: existing rules
+   are not modified in place).
+   ========================================================================== */
+
+/* Page container — Figma "Main Container": padding 40px 20px 80px */
+.main--work-cases {
+  padding: 40px 20px 80px;
+}
+
+/* Hero — 40px gap to the cards grid (was 48), 12px title → subtitle */
+.wc-hero {
+  margin-bottom: 40px;
+}
+
+.wc-hero__subtitle {
+  margin-top: 12px;
+}
+
+/* Card frame — radius 20, border rgba(30,30,30,0.08), no inner padding
+   (per request: image is flush with the frame border) */
+.case__frame {
+  border-color: rgba(30, 30, 30, 0.08);
+  border-radius: 20px;
+  padding: 0;
+}
+
+/* Preview — full-width image, no crop (4:3 assets land at ~446px height
+   in a ~594px column, matching the Figma preview ~441–456px), #FAFAFA
+   backing per Figma case_card. Radius matches the frame (padding is 0) */
+.case__preview,
+.case__preview.skel,
+.case__preview.skel.is-loaded {
+  width: 100%;
+  background-color: #FAFAFA;
+  border-radius: 20px;
+}
+
+.case__preview img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+
+/* Text block — meta row first, then the title (Figma order): 12px / 8px */
+.case__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  color: var(--color-text-muted); /* #9F9F9F per Figma */
+}
+
+.case__meta-dot {
+  width: 4px;
+  height: 4px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* The year stretches so "[case↗]" sits on the right edge (per Figma) */
+.case__meta-year {
+  flex: 1;
+}
+
+.case__meta-link {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: #9F9F9F; /* same base as .featured-works__case-link on the home page */
+}
+
+/* [case ↗] — same look and motion as the home [case ↗] button
+   (.brack-link.featured-works__case-link): on hover it turns black
+   (#242424) and the brackets spread outward (-4px / +4px). The whole
+   card is one link, so hovering the label itself is included. Span
+   transitions come from the shared .brack-link__o / __c rules. */
+.case:hover .case__meta-link {
+  color: #242424;
+}
+
+.case:hover .case__meta-link .brack-link__o {
+  transform: translateX(-4px);
+}
+
+.case:hover .case__meta-link .brack-link__c {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case:hover .case__meta-link .brack-link__o,
+  .case:hover .case__meta-link .brack-link__c {
+    transform: none;
+  }
+}
+
+/* Case title — Heading/H2: SF Pro Medium, 20/28, -0.025em */
+.case h3 {
+  margin: 8px 0 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+/* Hover — shadow only per case_card state=hover; no underline, no arrow */
+.case h3::after {
+  content: none;
+}
+
+.case:hover h3 {
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Home — Experience: Freelance logo background (#EDEDED)
+   The freelance logo PNG is transparent (unlike the iTechArt one, which
+   has its own baked-in background), so it needs an explicit fill.
+   ========================================================================== */
+.career__logo--freelance {
+  background-color: #EDEDED;
 }
